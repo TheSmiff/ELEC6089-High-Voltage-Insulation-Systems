@@ -1,0 +1,396 @@
+<html>
+<head>
+<meta http-equiv='content-type' content='text/html; charset=utf8'>
+<style>
+<!--
+body {width:auto;padding:5;margin:5;}
+.error {font-weight:bold;color:#f00;font-style:italic;}
+.word1,.word2,.word3 {color: #009; border-left: 1px solid #CDF; border-bottom: 1px solid #CDF;}
+.word2 {font-weight: 700;}
+.word3 {font-style: italic;}
+.command {color: #c00;}
+.exclcommand {color: #f99;}
+.option {color: #cc0;}
+.grouping, .document {color: #900; font-weight:bold;}
+.mathgroup {color: #090;}
+.exclmath {color: #6c6;}
+.ignore {color: #999;}
+.exclgroup {color:#c66;}
+.tc {color: #999; font-weight:bold;}
+.comment {color: #999; font-style: italic;}
+.state {color: #990; font-size: 70%;}
+.cumsum {color: #999; font-size: 80%;}
+.fileinclude {color: #696; font-weight:bold;}
+.warning {color: #c00; font-weight: 700;}
+
+div.filegroup, div.parse, div.stylehelp, div.count, div.sumcount, div.error {
+   border: solid 1px #999; margin: 4pt 0pt; padding: 4pt;
+}
+div.stylehelp {font-size: 80%; background: #fffff0; margin-bottom: 16pt;}
+div.filegroup {background: #dfd; margin-bottom: 16pt;}
+div.count {background: #ffe;}
+div.sumcount {background: #cec;}
+div.error {background: #fcc;}
+.parse {font-size: 80%; background: #f8fff8; border-bottom:none;}
+
+ul.count {list-style-type: none; margin: 4pt 0pt; padding: 0pt;}
+.count li.header {font-weight: bold; font-style: italic;}
+.subcount li.header {font-weight: normal; font-style: italic;}
+.subcount li {margin-left: 16pt; font-size: 80%;}
+.fielddesc {font-style: italic;}
+.nb {color: #900;}
+
+table.stat {border:2px solid #339; background:#666; border-collapse:collapse;}
+table.stat tr {border:1px solid #CCC;}
+table.stat th, table.stat td {padding:1pt 4pt;}
+table.stat col {padding:4pt;}
+table.stat thead {background: #CCF;}
+table.stat tbody {border:1px solid #333;}
+table.stat tbody.sumstat {background:#FFC;}
+table.stat tbody.langstat {background:#FEE;}
+table.stat tbody.wordstat {background:#EEF;}
+table.stat .sum {font-weight:bold; font-style:italic;}
+-->
+</style>
+</head>
+
+<body>
+
+<h1>LaTeX word count</h1>
+<div class='stylehelp'><p><h2>Format/colour codes of verbose output:</h2>
+
+<span class='word1'>Text which is counted</span>&nbsp;&nbsp;....&nbsp;&nbsp;counted as text words<br>
+<span class='word2'>Header and title text</span>&nbsp;&nbsp;....&nbsp;&nbsp;counted as header words<br>
+<span class='word3'>Caption text and footnotes</span>&nbsp;&nbsp;....&nbsp;&nbsp;counted as caption words<br>
+<span class='ignore'>Ignored text or code</span>&nbsp;&nbsp;....&nbsp;&nbsp;excluded or ignored<br>
+<span class='document'>\documentclass</span>&nbsp;&nbsp;....&nbsp;&nbsp;document start, beginning of preamble<br>
+<span class='command'>\macro</span>&nbsp;&nbsp;....&nbsp;&nbsp;macro not counted, but parameters may be<br>
+<span class='exclcommand'>\macro</span>&nbsp;&nbsp;....&nbsp;&nbsp;macro in excluded region<br>
+<span class='option'>[Macro options]</span>&nbsp;&nbsp;....&nbsp;&nbsp;not counted<br>
+<span class='grouping'>\begin{group}&nbsp; \end{group}</span>&nbsp;&nbsp;....&nbsp;&nbsp;begin/end group<br>
+<span class='exclgroup'>\begin{group}&nbsp; \end{group}</span>&nbsp;&nbsp;....&nbsp;&nbsp;begin/end group in excluded region<br>
+<span class='mathgroup'>$&nbsp; $</span>&nbsp;&nbsp;....&nbsp;&nbsp;counted as one equation<br>
+<span class='exclmath'>$&nbsp; $</span>&nbsp;&nbsp;....&nbsp;&nbsp;equation in excluded region<br>
+<span class='comment'>% Comments</span>&nbsp;&nbsp;....&nbsp;&nbsp;not counted<br>
+<span class='tc'>%TC:TeXcount instructions</span>&nbsp;&nbsp;....&nbsp;&nbsp;not counted<br>
+<span class='fileinclude'>File to include</span>&nbsp;&nbsp;....&nbsp;&nbsp;not counted but file may be counted later<br>
+<span class='error'>ERROR</span>&nbsp;&nbsp;....&nbsp;&nbsp;TeXcount error message<br>
+</p></div>
+
+
+<div class='filegroup'>
+<h2>File: ReportMain.tex</h2>
+<div class='parse'><p>
+<span class='comment'>%% ----------------------------------------------------------------</span><br>
+<span class='comment'>%% Article.tex</span><br>
+<span class='comment'>%% ---------------------------------------------------------------- </span><br>
+<br>
+<span class='comment'>%% You mostly won't have to worry about this file</span><br>
+<br>
+<span class='document'>\documentclass</span><span class='ignore'>{ecsarticle}</span>     <span class='comment'>% Use the Article Style</span><br>
+<span class='comment'>%\documentclass{IEEEtran}</span><br>
+<span class='exclcommand'>\graphicspath</span><span class='ignore'>{</span><span class='ignore'>{</span><span class='ignore'>.</span><span class='ignore'>.</span><span class='ignore'>/</span><span class='ignore'>Figures</span><span class='ignore'>/</span><span class='ignore'>}</span><span class='ignore'>}</span>&nbsp;  <span class='comment'>% Location of your graphics files</span><br>
+<span class='document'>\usepackage</span><span class='document'>{natbib}</span>            <span class='comment'>% Use Natbib style for the refs.</span><br>
+<span class='document'>\usepackage</span><span class='document'>{lipsum}</span><br>
+<span class='exclcommand'>\removecolourlinks</span>    <span class='comment'>% Uncomment this command to remove colour from any links</span><br>
+<span class='comment'>%\input{Definitions}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; % Include your abbreviations</span><br>
+<span class='comment'>%% ----------------------------------------------------------------</span><br>
+<br>
+<br>
+<span class='grouping'>\begin</span><span class='grouping'>{document}</span><br>
+<span class='command'>\frontmatter</span><br>
+<span class='command'>\title</span>      <span class='ignore'>{</span><span class='word2'>ELEC6089</span> <span class='word2'>High</span> <span class='word2'>Voltage</span> <span class='word2'>Insulation</span> <span class='word2'>Systems</span> <span class='word2'>Assignment</span> <span class='word2'>1</span><span class='ignore'>}</span><br>
+<span class='command'>\authors</span>    <span class='ignore'>{</span><span class='command'>\texorpdfstring</span><span class='ignore'>{</span><span class='command'>\href</span><span class='ignore'>{</span><span class='word1'>mailto</span><span class='ignore'>:</span><span class='word1'>tjs1g10</span><span class='ignore'>@</span><span class='word1'>ecs.soton.ac.uk</span><span class='ignore'>}</span><span class='ignore'>{</span><span class='word1'>Thomas</span> <span class='word1'>J</span><span class='ignore'>.</span> <span class='word1'>Smith</span><span class='ignore'>}</span><span class='ignore'>}</span><span class='ignore'>{</span><span class='word1'>Thomas</span> <span class='word1'>J</span><span class='ignore'>.</span> <span class='word1'>Smith</span><span class='ignore'>}</span><span class='ignore'>,</span> <br>
+<span class='command'>\texorpdfstring</span><span class='ignore'>{</span><span class='command'>\href</span><span class='ignore'>{</span><span class='word1'>mailto</span><span class='ignore'>:</span><span class='word1'>dm4g10</span><span class='ignore'>@</span><span class='word1'>ecs.soton.ac.uk</span><span class='ignore'>}</span><span class='ignore'>{</span><span class='word1'>David</span> <span class='word1'>Mahmoodi</span><span class='ignore'>}</span><span class='ignore'>}</span><span class='ignore'>{</span><span class='word1'>David</span> <span class='word1'>Mahmoodi</span><span class='ignore'>}</span><span class='ignore'>,</span><br>
+<span class='command'>\texorpdfstring</span><span class='ignore'>{</span><span class='command'>\href</span><span class='ignore'>{</span><span class='word1'>mailto</span><span class='ignore'>:</span><span class='word1'>bh8g10</span><span class='ignore'>@</span><span class='word1'>ecs.soton.ac.uk</span><span class='ignore'>}</span><span class='ignore'>{</span><span class='word1'>Brendan</span> <span class='word1'>Hickman</span><span class='ignore'>}</span><span class='ignore'>}</span><span class='ignore'>{</span><span class='word1'>Brendan</span> <span class='word1'>Hickman</span><span class='ignore'>}</span><span class='ignore'>,</span> <br>
+<span class='command'>\texorpdfstring</span><span class='ignore'>{</span><span class='command'>\href</span><span class='ignore'>{</span><span class='word1'>mailto</span><span class='ignore'>:</span><span class='word1'>pplf1g10</span><span class='ignore'>@</span><span class='word1'>ecs.soton.ac.uk</span><span class='ignore'>}</span><span class='ignore'>{</span><span class='word1'>Patrick</span> <span class='word1'>P</span><span class='ignore'>.</span> <span class='word1'>L</span><span class='ignore'>.</span> <span class='word1'>Fong</span><span class='ignore'>}</span><span class='ignore'>}</span><span class='ignore'>{</span><span class='word1'>Patrick</span> <span class='word1'>P</span><span class='ignore'>.</span> <span class='word1'>L</span><span class='ignore'>.</span> <span class='word1'>Fong</span><span class='ignore'>}</span><span class='ignore'>}</span><br>
+<span class='comment'>%\department&nbsp; {Electronics and Computer Science}</span><br>
+<span class='command'>\group</span>       <span class='ignore'>{</span><span class='word1'>HV</span> <span class='word1'>AC</span> <span class='word1'>275kV</span> <span class='word1'>Bushing</span> <span class='word1'>Design</span><span class='ignore'>}</span><br>
+<span class='comment'>%\addresses&nbsp; {\groupname\\\deptname\\\univname}</span><br>
+<span class='command'>\addresses</span>  <span class='ignore'>{</span><span class='command'>\univname</span><span class='ignore'>}</span><br>
+<span class='command'>\date</span>       <span class='ignore'>{</span><span class='command'>\today</span><span class='ignore'>}</span><br>
+<span class='command'>\subject</span>    <span class='ignore'>{</span><span class='ignore'>}</span><br>
+<span class='command'>\keywords</span>   <span class='ignore'>{</span><span class='ignore'>}</span><br>
+<span class='command'>\maketitle</span><br>
+<span class='grouping'>\begin</span><span class='grouping'>{abstract}</span><br>
+<span class='command'>\input</span><span class='fileinclude'>{abstract}</span><br>
+<span class='grouping'>\end</span><span class='grouping'>{abstract}</span><br>
+<span class='comment'>%\tableofcontents</span><br>
+<span class='comment'>%\listoffigures</span><br>
+<span class='comment'>%\listoftables</span><br>
+<br>
+<span class='comment'>%% -----------------------</span><br>
+<span class='comment'>%% lstpatch.sty</span><br>
+<span class='comment'>%% -----------------------</span><br>
+<span class='comment'>%% lstpatch cannot be distributed with these files. I believe it is only needed if the</span><br>
+<span class='comment'>%% \lstlistoflistings is used. So this has been turned off by default. Re-add if required:</span><br>
+<span class='comment'>%% \usepackage{lstpatch}</span><br>
+<span class='comment'>%% \lstlistoflistings</span><br>
+<span class='comment'>%% You will need to download lstpatch, possibly from:</span><br>
+<span class='comment'>%% http://web.mit.edu/texsrc/source/latex/listings/lstpatch.sty</span><br>
+<span class='comment'>%% -----------------------</span><br>
+<br>
+<br>
+<br>
+<span class='comment'>%\listofsymbols{ll}{$w$ &amp; The weight vector}</span><br>
+<span class='command'>\mainmatter</span><br>
+<span class='command'>\input</span><span class='fileinclude'>{Introduction}</span><br>
+<span class='command'>\input</span><span class='fileinclude'>{ACDC_Grading}</span><br>
+<span class='command'>\input</span><span class='fileinclude'>{Capacitive_Grading}</span><br>
+<span class='command'>\input</span><span class='fileinclude'>{Bushing_Design}</span><br>
+<span class='command'>\input</span><span class='fileinclude'>{Field_Modelling}</span><br>
+<span class='command'>\input</span><span class='fileinclude'>{Discussion_Conclusions}</span><br>
+<span class='comment'>%% ----------------------------------------------------------------</span><br>
+<span class='comment'>%You probably found all the files from \cite{Gunn:2001:pdflatex}.</span><br>
+<span class='comment'>%\tref{Table:tabex} illustrates the results of my work~\citep{Gunn:2011:updated2}.</span><br>
+<span class='comment'>%\begin{table}[!htb]</span><br>
+<span class='comment'>%&nbsp; \centering</span><br>
+<span class='comment'>%&nbsp; \begin{tabular}{cc}</span><br>
+<span class='comment'>%&nbsp; \toprule</span><br>
+<span class='comment'>%&nbsp; \textbf{Training Error} &amp; \textbf{Testing Error}\\</span><br>
+<span class='comment'>%&nbsp; \midrule</span><br>
+<span class='comment'>%&nbsp; 0 &amp; $\infty$\\</span><br>
+<span class='comment'>%&nbsp; \bottomrule</span><br>
+<span class='comment'>%&nbsp; \end{tabular}</span><br>
+<span class='comment'>%&nbsp; \caption{The Results}</span><br>
+<span class='comment'>%&nbsp; \label{Table:tabex}</span><br>
+<span class='comment'>%\end{table}</span><br>
+<span class='comment'>%</span><br>
+<span class='comment'>%\fref{Figure:figex} shows why this is the case.</span><br>
+<span class='comment'>%\begin{figure}[!htb]</span><br>
+<span class='comment'>%&nbsp; \centering</span><br>
+<span class='comment'>%&nbsp; \includegraphics[width=8cm]{figure}</span><br>
+<span class='comment'>%&nbsp; \caption{A colourful picture.}</span><br>
+<span class='comment'>%&nbsp; \label{Figure:figex}</span><br>
+<span class='comment'>%\end{figure}</span><br>
+<span class='comment'>%</span><br>
+<span class='comment'>%This page shows you a subfigure example in \fref{Figure:figsubex}.</span><br>
+<span class='comment'>%\begin{figure}[!htb]</span><br>
+<span class='comment'>%&nbsp; \centering</span><br>
+<span class='comment'>%&nbsp; \subfigure[The left caption]{</span><br>
+<span class='comment'>%&nbsp; &nbsp; \includegraphics[width=4.2cm]{figure}</span><br>
+<span class='comment'>%&nbsp; &nbsp; \label{Figure:figsubex:left}</span><br>
+<span class='comment'>%&nbsp; }</span><br>
+<span class='comment'>%&nbsp; \subfigure[The right caption]{</span><br>
+<span class='comment'>%&nbsp; &nbsp; \includegraphics[width=4.2cm]{figure}</span><br>
+<span class='comment'>%&nbsp; &nbsp; \label{Figure:figsubex:right}</span><br>
+<span class='comment'>%&nbsp; }</span><br>
+<span class='comment'>%&nbsp; \caption{A doubly colourful picture.}</span><br>
+<span class='comment'>%&nbsp; \label{Figure:figsubex}</span><br>
+<span class='comment'>%\end{figure}</span><br>
+<span class='comment'>%</span><br>
+<br>
+<span class='command'>\backmatter</span><br>
+<span class='command'>\bibliographystyle</span><span class='ignore'>{unsrt}</span><br>
+<span class='command'>\bibliography</span><span class='ignore'>{ECS}</span><br>
+<span class='command'>\appendix</span><br>
+<span class='comment'>%\include{appendix_stuff}</span><br>
+<span class='grouping'>\end</span><span class='grouping'>{document}</span><br>
+<span class='comment'>%% ----------------------------------------------------------------</span><br>
+</p></div>
+<div class='count'>
+<ul class='count'>
+<li class='header'>File: ReportMain.tex</li>
+<li>Encoding: ascii</li>
+<li>Words in text: 39</li>
+<li>Words in headers: 7</li>
+<li>Words in float captions: 0</li>
+<li>Number of headers: 1</li>
+<li>Number of floats: 0</li>
+<li>Number of math inlines: 0</li>
+<li>Number of math displayed: 0</li>
+</ul>
+</div>
+<h2>File: abstract.tex</h2>
+<div class='parse'><p>
+<span class='word1'>This</span> <span class='word1'>is</span> <span class='word1'>the</span> <span class='word1'>abstract</span><span class='command'>\dots</span></p></div>
+<div class='count'>
+<ul class='count'>
+<li class='header'>Included file: abstract.tex</li>
+<li>Encoding: ascii</li>
+<li>Words in text: 4</li>
+<li>Words in headers: 0</li>
+<li>Words in float captions: 0</li>
+<li>Number of headers: 0</li>
+<li>Number of floats: 0</li>
+<li>Number of math inlines: 0</li>
+<li>Number of math displayed: 0</li>
+</ul>
+</div>
+<h2>File: Introduction.tex</h2>
+<div class='parse'><p>
+<span class='command'>\section</span><span class='word2'>{Introduction}</span><br>
+<span class='word1'>A</span> <span class='word1'>brief</span> <span class='word1'>review</span> <span class='word1'>on</span> <span class='word1'>field</span> <span class='word1'>design</span> <span class='word1'>in</span> <span class='word1'>HV</span> <span class='word1'>equipment</span><span class='ignore'>.</span> <span class='word1'>This</span> <span class='word1'>is</span> <span class='word1'>a</span> <span class='word1'>sample</span> <span class='word1'>citation</span> <span class='command'>\cite</span><span class='ignore'>{kuffel2000high}</span><span class='ignore'>.</span><br>
+<br>
+<span class='word1'>Example</span> <span class='word1'>of</span><span class='ignore'>~</span><span class='command'>\eref</span><span class='ignore'>{</span><span class='word1'>eq</span><span class='ignore'>:</span><span class='word1'>equation1</span><span class='ignore'>}</span><span class='ignore'>.</span><br>
+<span class='grouping'>\begin</span><span class='grouping'>{equation}</span><br>
+<span class='ignore'>y</span> <span class='ignore'>=</span> <span class='ignore'>ax</span><span class='ignore'>^</span><span class='ignore'>2</span> <span class='ignore'>+</span> <span class='ignore'>bx</span> <span class='ignore'>+</span> <span class='ignore'>c</span><br>
+<span class='exclcommand'>\label</span><span class='ignore'>{</span><span class='ignore'>eq</span><span class='ignore'>:</span><span class='ignore'>equation1</span><span class='ignore'>}</span><br>
+<span class='grouping'>\end</span><span class='grouping'>{equation}</span><br>
+<br>
+<br>
+<span class='command'>\tref</span><span class='ignore'>{</span><span class='word1'>Table</span><span class='ignore'>:</span><span class='word1'>tabex</span><span class='ignore'>}</span> <span class='word1'>illustrates</span> <span class='word1'>a</span> <span class='word1'>table</span><span class='ignore'>.</span><br>
+<span class='grouping'>\begin</span><span class='grouping'>{table}</span><span class='ignore'>[</span><span class='ignore'>!</span><span class='ignore'>htb</span><span class='ignore'>]</span><br>
+&nbsp; <span class='exclcommand'>\centering</span><br>
+<span class='command'>\caption</span><span class='ignore'>{</span><span class='word3'>The</span> <span class='word3'>Results</span><span class='ignore'>}</span><br>
+&nbsp;<span class='exclgroup'>\begin</span><span class='exclgroup'>{tabular}</span><span class='ignore'>{cc}</span><br>
+&nbsp;<span class='exclcommand'>\toprule</span><br>
+&nbsp;<span class='exclcommand'>\textbf</span><span class='ignore'>{</span><span class='ignore'>Training</span> <span class='ignore'>Error</span><span class='ignore'>}</span> <span class='ignore'>&amp;</span> <span class='exclcommand'>\textbf</span><span class='ignore'>{</span><span class='ignore'>Testing</span> <span class='ignore'>Error</span><span class='ignore'>}</span><span class='exclcommand'>\\</span><br>
+&nbsp;<span class='exclcommand'>\midrule</span><br>
+&nbsp;<span class='ignore'>0</span> <span class='ignore'>&amp;</span> <span class='exclmath'>$</span><span class='exclcommand'>\infty</span><span class='exclmath'>$</span><span class='exclcommand'>\\</span><br>
+&nbsp;<span class='exclcommand'>\bottomrule</span><br>
+&nbsp;<span class='exclgroup'>\end</span><span class='exclgroup'>{tabular}</span><br>
+&nbsp; <span class='exclcommand'>\label</span><span class='ignore'>{</span><span class='ignore'>Table</span><span class='ignore'>:</span><span class='ignore'>tabex</span><span class='ignore'>}</span><br>
+<span class='grouping'>\end</span><span class='grouping'>{table}</span><br>
+<br>
+<span class='command'>\lipsum</span></p></div>
+<div class='count'>
+<ul class='count'>
+<li class='header'>Included file: Introduction.tex</li>
+<li>Encoding: ascii</li>
+<li>Words in text: 23</li>
+<li>Words in headers: 1</li>
+<li>Words in float captions: 2</li>
+<li>Number of headers: 1</li>
+<li>Number of floats: 1</li>
+<li>Number of math inlines: 0</li>
+<li>Number of math displayed: 1</li>
+</ul>
+</div>
+<h2>File: ACDC_Grading.tex</h2>
+<div class='parse'><p>
+<span class='command'>\section</span><span class='ignore'>{</span><span class='word2'>Overview</span> <span class='word2'>of</span> <span class='word2'>Grading</span> <span class='word2'>Methods</span><span class='ignore'>}</span><br>
+<span class='word1'>Grading</span> <span class='word1'>methods</span> <span class='word1'>for</span> <span class='word1'>dc</span> <span class='word1'>and</span> <span class='word1'>ac</span> <span class='word1'>applications</span><span class='ignore'>.</span><br>
+<br>
+<span class='command'>\lipsum</span></p></div>
+<div class='count'>
+<ul class='count'>
+<li class='header'>Included file: ACDC_Grading.tex</li>
+<li>Encoding: ascii</li>
+<li>Words in text: 7</li>
+<li>Words in headers: 4</li>
+<li>Words in float captions: 0</li>
+<li>Number of headers: 1</li>
+<li>Number of floats: 0</li>
+<li>Number of math inlines: 0</li>
+<li>Number of math displayed: 0</li>
+</ul>
+</div>
+<h2>File: Capacitive_Grading.tex</h2>
+<div class='parse'><p>
+<span class='command'>\section</span><span class='ignore'>{</span><span class='word2'>Capacitive</span> <span class='word2'>Grading</span> <span class='word2'>Techniques</span><span class='ignore'>}</span><br>
+<span class='word1'>HV</span> <span class='word1'>bushing</span> <span class='word1'>and</span> <span class='word1'>two</span> <span class='word1'>capacitive</span> <span class='word1'>grading</span> <span class='word1'>methods</span><span class='ignore'>.</span><br>
+<br>
+<span class='command'>\lipsum</span></p></div>
+<div class='count'>
+<ul class='count'>
+<li class='header'>Included file: Capacitive_Grading.tex</li>
+<li>Encoding: ascii</li>
+<li>Words in text: 7</li>
+<li>Words in headers: 3</li>
+<li>Words in float captions: 0</li>
+<li>Number of headers: 1</li>
+<li>Number of floats: 0</li>
+<li>Number of math inlines: 0</li>
+<li>Number of math displayed: 0</li>
+</ul>
+</div>
+<h2>File: Bushing_Design.tex</h2>
+<div class='parse'><p>
+<span class='command'>\section</span><span class='ignore'>{</span><span class='word2'>Design</span> <span class='word2'>Details</span><span class='ignore'>}</span><br>
+<span class='word1'>Actual</span> <span class='word1'>design</span> <span class='word1'>details</span> <span class='word1'>for</span> <span class='word1'>275kV</span> <span class='word1'>AC</span> <span class='word1'>bushing</span><span class='ignore'>.</span><br>
+<br>
+<span class='command'>\lipsum</span></p></div>
+<div class='count'>
+<ul class='count'>
+<li class='header'>Included file: Bushing_Design.tex</li>
+<li>Encoding: ascii</li>
+<li>Words in text: 7</li>
+<li>Words in headers: 2</li>
+<li>Words in float captions: 0</li>
+<li>Number of headers: 1</li>
+<li>Number of floats: 0</li>
+<li>Number of math inlines: 0</li>
+<li>Number of math displayed: 0</li>
+</ul>
+</div>
+<h2>File: Field_Modelling.tex</h2>
+<div class='parse'><p>
+<span class='command'>\section</span><span class='ignore'>{</span><span class='word2'>Modelling</span> <span class='word2'>Results</span><span class='ignore'>}</span><br>
+<span class='word1'>Electric</span> <span class='word1'>field</span> <span class='word1'>modelling</span><span class='ignore'>.</span><br>
+<br>
+<span class='command'>\lipsum</span></p></div>
+<div class='count'>
+<ul class='count'>
+<li class='header'>Included file: Field_Modelling.tex</li>
+<li>Encoding: ascii</li>
+<li>Words in text: 3</li>
+<li>Words in headers: 2</li>
+<li>Words in float captions: 0</li>
+<li>Number of headers: 1</li>
+<li>Number of floats: 0</li>
+<li>Number of math inlines: 0</li>
+<li>Number of math displayed: 0</li>
+</ul>
+</div>
+<h2>File: Discussion_Conclusions.tex</h2>
+<div class='parse'><p>
+<span class='command'>\section</span><span class='ignore'>{</span><span class='word2'>Discussion</span> <span class='word2'>of</span> <span class='word2'>Results</span><span class='ignore'>}</span><br>
+<span class='word1'>Comparison</span> <span class='word1'>and</span> <span class='word1'>discussion</span> <span class='ignore'>(</span><span class='word1'>Suggestions</span> <span class='word1'>on</span> <span class='word1'>improvement</span><span class='ignore'>)</span><span class='ignore'>.</span><br>
+<br>
+<span class='command'>\lipsum</span><br>
+<br>
+<span class='command'>\section</span><span class='word2'>{Conclusions}</span><br>
+<span class='word1'>Conclusions</span><span class='ignore'>.</span><br>
+<br>
+<span class='command'>\lipsum</span></p></div>
+<div class='count'>
+<ul class='count'>
+<li class='header'>Included file: Discussion_Conclusions.tex</li>
+<li>Encoding: ascii</li>
+<li>Words in text: 7</li>
+<li>Words in headers: 4</li>
+<li>Words in float captions: 0</li>
+<li>Number of headers: 2</li>
+<li>Number of floats: 0</li>
+<li>Number of math inlines: 0</li>
+<li>Number of math displayed: 0</li>
+<li>Subcounts:</li>
+<span class='subcount'>
+<li class='fielddesc'>&nbsp; text+headers+captions (#headers/#floats/#inlines/#displayed)</li>
+  <li>6+3+0 (1/0/0/0) Section: Discussion of Results</li>
+  <li>1+1+0 (1/0/0/0) Section: Conclusions</li>
+</span>
+</ul>
+</div>
+<h2>Sum of files: ReportMain.tex</h2>
+<div class='sumcount'>
+<ul class='count'>
+<li class='header'>File(s) total: ReportMain.tex</li>
+<li>Words in text: 97</li>
+<li>Words in headers: 23</li>
+<li>Words in float captions: 2</li>
+<li>Number of headers: 8</li>
+<li>Number of floats: 1</li>
+<li>Number of math inlines: 0</li>
+<li>Number of math displayed: 1</li>
+<li>Files: 8</li>
+<li>Subcounts:</li>
+<span class='subcount'>
+<li class='fielddesc'>&nbsp; text+headers+captions (#headers/#floats/#inlines/#displayed)</li>
+  <li>39+7+0 (1/0/0/0) File: ReportMain.tex</li>
+  <li>4+0+0 (0/0/0/0) Included file: abstract.tex</li>
+  <li>23+1+2 (1/1/0/1) Included file: Introduction.tex</li>
+  <li>7+4+0 (1/0/0/0) Included file: ACDC_Grading.tex</li>
+  <li>7+3+0 (1/0/0/0) Included file: Capacitive_Grading.tex</li>
+  <li>7+2+0 (1/0/0/0) Included file: Bushing_Design.tex</li>
+  <li>3+2+0 (1/0/0/0) Included file: Field_Modelling.tex</li>
+  <li>7+4+0 (2/0/0/0) Included file: Discussion_Conclusions.tex</li>
+</span>
+</ul>
+</div>
+</div>
+
+</body>
+
+</html>

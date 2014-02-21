@@ -53,7 +53,7 @@
 \interfootnotelinepenalty=9999    % Almost never break footnotes.
 \usepackage{fancyhdr}
 \lhead[\rm\thepage]{\fancyplain{}{\sl{\rightmark}}}
-\rhead{}
+\rhead{\thepage}
 \chead{}\lfoot{}\rfoot{}\cfoot{}
 \pagestyle{fancy}
 \renewcommand{\sectionmark}[1]{\btypeout{\thesection\space #1}}
@@ -138,7 +138,7 @@
 \authors     {}
 \university  {University of Southampton}
 \department  {Electronics and Computer Science}
-\group       {Electronic and Software Systems}
+\group       {HV AC 275kV Bushing Design}
 \faculty     {Faculty of Physical and Applied Sciences}
 \addresses   {}
 \subject     {}
@@ -250,7 +250,7 @@
     \vskip 2em
     \begin{center}
       \let \footnote \thanks
-      {\LARGE \@title \par}
+      {\LARGE \@title \\ \groupname \par}
       \vskip 1.5em
       {\large \lineskip .5em
         \begin{tabular}[t]{c} \authornames \end{tabular}
