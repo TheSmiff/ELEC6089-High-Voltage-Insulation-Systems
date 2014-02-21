@@ -1,0 +1,22 @@
+########################## LaTex ignores ############################
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.synctex.gz
+*.acn
+*.acr
+*.alg
+*.bbl
+*.blg
+*.glo
+*.glsdefs
+*.ist
+*.lof
+*.lot
+
+
+#temp visio files
+*.~vsd 
