@@ -7,7 +7,7 @@
 \textbf{Purpose} & ELEC6089 Bushing Design Kick Off Meeting \\ \hline
 \textbf{Date and Time} & Thursday 20th February 13:30 \\ \hline
 \textbf{Venue} & GDP Lab Zepler Building, Highfield Campus \\ \hline
-\textbf{Participants} & TS (Thomas Smith), DA (David Mahmoodi), BH (Brendan Hickman), PF (Patrick Fong)\\ \hline
+\textbf{Participants} & TS (Thomas Smith), DM (David Mahmoodi), BH (Brendan Hickman), PF (Patrick Fong)\\ \hline
 \textbf{Apologies} &None \\ \hline
 \multirow{4}{*}{\textbf{Agenda}} & Review what we understand of the project so far. \\
  & Understand the tasks required. \\ 
@@ -41,18 +41,18 @@ A1.0	&	Research	&	All to start research. Make notes of all sources. At least rev
 \emph{Next Meeting: 26th Feb 2014, Location \& Time TBA}
 
 
-\subsection{Meeting 2 - }
+\subsection{Meeting 2 - Progress Meeting}
 \begin{center}
 \begin{longtable}{| m{0.2\textwidth} | m{0.6\textwidth} |} \hline
-\textbf{Purpose} & ELEC6089 Bushing Design Kick Off Meeting \\ \hline
-\textbf{Date and Time} & Thursday 20th February 13:30 \\ \hline
+\textbf{Purpose} & ELEC6089 Bushing Design Progress Meeting \\ \hline
+\textbf{Date and Time} & Wednesday 26th February 11:30 \\ \hline
 \textbf{Venue} & GDP Lab Zepler Building, Highfield Campus \\ \hline
-\textbf{Participants} & TS (Thomas Smith), DA (David Mahmoodi), BH (Brendan Hickman), PF (Patrick Fong)\\ \hline
-\textbf{Apologies} &None \\ \hline
-\multirow{4}{*}{\textbf{Agenda}} & Review what we understand of the project so far. \\
- & Understand the tasks required. \\ 
- & Agree expectations of work and schedule. \\
- & Agree date and agenda of next meeting. \\ \hline
+\textbf{Participants} & TS (Thomas Smith), DM (David Mahmoodi), BH (Brendan Hickman)\\ \hline
+\textbf{Apologies} &PF (Patrick Fong) \\ \hline
+\multirow{4}{*}{\textbf{Agenda}} & Review research progress. \\
+ & Clarify project understanding. \\ 
+ & Start design task. \\
+ & Identify further work. \\ \hline
 \end{longtable}
 \end{center}
 
@@ -61,10 +61,12 @@ A1.0	&	Research	&	All to start research. Make notes of all sources. At least rev
 \begin{longtable}{| p{0.05\textwidth} |>{\raggedright\arraybackslash}p{0.15\textwidth} | p{0.5\textwidth} |>{\raggedright\arraybackslash}p{0.175\textwidth}|} \hline
 \textbf{ID} & \textbf{Subject} & \textbf{Notes and Discussion} & \textbf{Action} \\ \hline
 \endhead
-1.0	&	Research prior to the meeting	&	BH uploaded the course text to the Facebook working group which has a section on stress control by floating screens. TS uploaded a project from KTH university that had similar guidelines and had a useful description to compound the lecturenotes for the module. All agreed to research the topic further and read these sections by the next meeting	&  \textbf{ALL A1.0}	 \\ \hline
-2.0	&	Current understanding of task	&	The group discussed the task at hand. We need to design the bushing using the iterative formulas from the lectures and then build a COMSOL model. The design must be either radial or axial in grading method.	& -	 \\ \hline
-3.0 	& 	Work Breakdown &	The group tried to identify the work to complete. This includes research into field design and grading methods, calculating the bushing design, simulating and report writing. None of these tasks can be completed in parallel, and all need the previous in order to complete the task. Hence each member needs to research, and have knowledge of the design and simulation process. It will become clearer who will be assigned responsibility for what shortly. Currently, remain with all needing to complete research & - \\ \hline
-4.0	&	Next Meeting	&	First meeting with G. Chen in 2 weeks, Tuesday 4th March. Before then have a first model and have begun verification. Have group Latex template for collaboration, good layout and presentation marks. Use Github. Next meeting on Wednesday 26th. & - \\ \hline
+1.0	&	Research update	&	The present team members discussed the task in the context of Kuffel and KTH research. Agreed on bushing definitions and the theory behind capacitive grading. Also took time to verify that the lecture notes matched the explanation in Kuffel. Kuffel pages are 235-241. Also discussed why the capacitors were added, and established the iterative formula to use. All should continue to gain a firmer grounding of the required theory & \textbf{ALL A1.0}  	 \\ \hline
+2.0	&	Github and \LaTeX	&	TS ran the present through the report template, what was required and how to use the distributed revision control system Git as hosted on GitHub. This should make collaboration much easier than using just our facebook group page. 	& -	 \\ \hline
+3.0 	& 	Grading Methods &	DM left the meeting at this point to read the lecture notes. DA will also perform the grading and we can then use this to idependently verify the design. TS and BH started on axial grading method. Both wrote matlab code to calculate spacings. The results were the same, hence reasonable level of confidence of validity. & \textbf{PF \& DM A2.0} \\ \hline
+4.0	&	Remaining work	& BH and TS identified the remaining work for actioning. The report has an introduction which requires review. Sections on Grading methods (why grade? LV solutions using electrodes, DC solution using resistivity, AC capacitive grading), AC grading types (discussion of axial and radial components of tangential fields, radial and axial derivation) and section on the design details (iterative formula, Matlab calculations, visio diagrams). The design must be built in COMSOL which represents significant work to understand COMSOL. Probably want to simulate a non-graded bushing as a baseline for discussion. Aiming to do both radial and axial grading simulations. Then discuss. & - \\ \hline
+5.0	&	Assignment of work	& BH and PF have a key deadline on tuesday 4th March hence largely unavailable until then. TS and DM to get started on tasks. Try and get simulations done before meeting with GC. & \textbf{TS \& DA A3.0 A4.0} \\ \hline
+4.0	&	Next Meeting	&	First meeting with G. Chen  Tuesday 4th March. Before then have a first model and have begun verification. Next meeting on Prior to this meeting. & - \\ \hline
 
 \end{longtable}
 \end{center}
@@ -74,7 +76,11 @@ A1.0	&	Research	&	All to start research. Make notes of all sources. At least rev
 \begin{longtable}{| p{0.05\textwidth} | >{\raggedright\arraybackslash}p{0.15\textwidth} |  p{0.5\textwidth} | >{\raggedright\arraybackslash}p{0.175\textwidth}|} \hline
 \textbf{ID} & \textbf{Action} & \textbf{Comments} & \textbf{Status} \\ \hline
 \endhead
-A1.0	&	Research	&	All to start research. Make notes of all sources. At least reviewed the lecture notes and Kuffel.	& Open 20th Feb \\ \hline	
+A1.0	&	Research	&	All to start research. Make notes of all sources. At least reviewed the lecture notes and Kuffel.	& Open 20th Feb \\ \hline
+A2.0	&	Grading	&	Other members to perform axial grading calculations seperately so that the results can be verified independently	& Open 26th Feb \\ \hline
+A3.0	&	COMSOL	&	Gain an understanding of COMSOL and attempt some simulations. & Open 26th Feb \\ \hline
+A4.0	&	Reporting	&	Continue to document progress in the report.	&	Open 26th Feb \\ \hline
+	
 \end{longtable}
 \end{center}
 
