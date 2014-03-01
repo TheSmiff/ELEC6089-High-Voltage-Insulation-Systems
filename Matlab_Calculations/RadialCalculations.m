@@ -10,7 +10,7 @@ length = zeros(N, 1) %initiate vectors
 radius = zeros(N, 1)
 radius(1) = 52       %set inner radius
 length(1) = 5000     %first foil length
-radius(21) = 148     %outer foil radius
+radius(N) = 148     %outer foil radius
 spacing = (radius(21)-radius(1))/(N-1) %even spacing of foils
 
 %calculate each foil radius and length - from Kuffel and Lecture Notes
@@ -41,6 +41,15 @@ fprintf(FID, '\\end{tabular}\n');
 fprintf(FID, '\\end{center}\n');
 fprintf(FID, '\\end{table}\n');
 fclose(FID);
+
+%For easy plotting in COMSOL
+z = zeros(N, 1)
+r = zeros(N, 1)
+zoffset = 1000
+roffset = 0
+r = radius + roffset
+z = zoffset + ((length(1) - length)/2)
+
 
 
 
