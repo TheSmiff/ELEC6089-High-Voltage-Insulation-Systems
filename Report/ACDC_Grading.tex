@@ -1,4 +1,4 @@
-\section{Overview of Grading Methods}
+\section{Overview of Grading Methods} 
 Electric field stress control is important in the design of many power system elements, especially cable terminations and bushings \cite{james2008condition}.
 Failure of a bushing can damage the power transformer it is protecting, which can be an expensive mistake \cite{warne2005newnes}.
 Bushings are required to withstand Electrical, Mechanical and Thermal stresses as defined in the IEEE standard C57.19.00 \cite{1440990}.
@@ -24,7 +24,7 @@ There are several methods that can be used dependant upon the application.
 Low voltage solutions include internal and external screening electrodes, while resistive stress control can be used for DC applications.
 \inote{TS - I can't find any good references for these types, only his notes and the hst.tu notes seem to cover it and then it is just lecture slides, not a credible resource like a book or something}
 
-\subsection{Capacitive Grading}
+\subsection{Capacitive Grading} \label{ss:CapacitiveGrading}
 Capacitive grading was first proposed by R.Nagel of Siemens in a German paper published in 1906 \cite{harlow2004electric}.
 The value of this type of arrangement was quickly recognised, and is now industry standard practice for AC bushing designs for 25kV - 1500kV applications \cite{james2008condition}.
 The general concept of the design is illustrated in figure \ref{figure:fieldgeneric}, showing the isolated foils inserted inside the solid bushing insulation.
@@ -95,16 +95,18 @@ Equation \ref{eq:simplify} allows the simplification of equation \ref{eq:lengthe
 The two methods for solving the recursive equation in equation \ref{eq:simplefoils} is through either radial or axial grading \cite{Ahmed11}.
 In radial grading, the spacing of the foils $S_n$ is assumed to be constant. 
 This means the length of the foils decreases as it it approaches the outer foils of the bushing.
-Equation \ref{eq:evenspace} gives the method to calculate $S_n$ which can then be used in the recursive equation \ref{}, which is a simple form of equation \ref{eq:simplefoils}.
+Equation \ref{eq:evenspace} gives the method to calculate $S_n$ which can then be used in the recursive equation \ref{eq:recursive}, which is a simple form of equation \ref{eq:simplefoils}.
 \begin{equation}
    \label{eq:evenspace}
   S_n = \frac{Outer Diameter - Conductor Diameter}{N-1}
 \end{equation}
 
 \begin{equation}
-   \label{eq:evenspace}
+   \label{eq:recursive}
   l_{n+1}= l_{n}\frac{r_{n}}{r_{n} + S_{n}}
 \end{equation}
 
 In the axial grading method, the length of each foil is assumed to decay by a constant value with each foil, and the radius at which it is placed is determined by a similar iterative formula.
 Radial grading better suits the purposes of this paper, since there is no requirement to assume the length of the final foil.
+
+\inote{TS - We could derive the recursive equation for axial grading given an assumption of the final foil length here.}

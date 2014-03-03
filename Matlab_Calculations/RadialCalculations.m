@@ -21,10 +21,10 @@ end
 
 %Plot a graph to indicate validity
 lengthhalved = length/2 %half lengths to index from center
-bar(radius, lengthhalved) %plot bars with radius
+bar(radius, lengthhalved, 0.01) %plot bars with radius
 
 %Write values to .tex file for reference in text.
-FID = fopen('RadialVals.tex', 'w');
+FID = fopen('RadialVals21.tex', 'w');
 fprintf(FID, '\\begin{table}[!htb]\n');
 fprintf(FID, '\\caption{Radial Grading Calculations Results}\n');
 fprintf(FID, '\\label{table:radialvals}\n');

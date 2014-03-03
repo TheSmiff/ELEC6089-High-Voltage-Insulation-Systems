@@ -1,3 +1,38 @@
 \section{Design Details}
-A Matlab script was developed to take a required number of foils, and the inner and outer dimensions of the bushing, to calculate the radial location and length of each foil using the radial grading method.
+The reference model for this project is shown in figure \ref{figure:refproblem}. 
+The reference design is a paper impregnated with oil bushing with 21 aluminium foils of $100\mu m$.
+One side of the bushing is exposed to air, the other to oil, similar to a transformer bushing.
+The diameter of the conductor is 100mm, the bushing diameter is 300mm.
+The length of the first foil is 5000mm long, and fixed 2mm into the bushing at the conductor voltage.
+The outer foil is also set 2mm inside the bushing and is directly connected to the earthed flange.
+The conductor is used at 275kV AC voltage, and the design is known to be flawed.
+\begin{figure}[!h]
+   \centering
+   \includegraphics[width = 0.7\textwidth]{ReferenceDiagram.png}
+   \caption{The reference problem taken from \cite{Chen14}}
+   \label{figure:refproblem}
+\end{figure}
+
+A Matlab script was developed to take a required number of foils, and the inner and outer dimensions of the bushing, to calculate the radial location and length of each foil using the radial grading method as described in section \ref{ss:CapacitiveGrading}.
+This script was built to be easily customisable for any number of foils and any initial values, to cater for the calculation of improved designs.
+It automatically outputs data in a form for direct input into the COMSOL model, and auto-updates a \LaTeX  file containing the data in table \ref{table:radialvals21}.
+Finally, the script plots the calculated foil positions in a crude graph shown in figure \ref{Figure:Both21plots}.
+Particularly in figure \ref{Figure:21plot2} the decay shape can be observed as expected.
+This allows a quick verification of the scripts accuracy before proceeding to simulation.
+
 \input{../Matlab_Calculations/RadialVals}
+
+\begin{figure}[!htb]
+  \centering
+  \subfigure[Wide View]{
+    \includegraphics[height = 6cm]{../Matlab_Calculations/RadialGrade21ProfileWide.eps} 
+	\label{Figure:21plot1}
+  }
+  \subfigure[Real Perspective]{
+    \includegraphics[height = 6cm]{../Matlab_Calculations/RadialGrade21ProfileSquash.eps} 
+	\label{Figure:21plot2}
+  }
+\caption{Representation of foil radial position and length}
+  \label{Figure:Both21plots}
+\end{figure}
+
