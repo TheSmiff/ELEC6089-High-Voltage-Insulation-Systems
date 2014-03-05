@@ -65,7 +65,7 @@ Inserting isolated conducting foils forms a set of coaxial capacitor units \cite
 The equation for the capacitance of one of these capacitors depends on the radial displacement $r_n$ and length of each foil $l_n$, as in equation \ref{eq:Cn}.
 \begin{equation}
    \label{eq:Cn}
-   C_n = \frac{2\pi\epsilon l_{n}}{ln(\frac{r_{n}}{r_{n-1}})}
+   C_n = \frac{2\pi\epsilon L_{n}}{ln(\frac{r_{n}}{r_{n-1}})}
 \end{equation}
 
 The most widely used method to choose the dimensions and locations of the foils is double sided capacitive grading, of which there are two variants; radial grading and axial grading \cite{Ahmed11}.
@@ -92,13 +92,13 @@ The lengths and radii of consecutive foils can be calculated from the relationsh
 %Taking the condition described previous that $C_n = C_{n-1} = \dots = C_0$ and equation \ref{eq:Cn}, equation \ref{eq:expcaps} can be written.
 \begin{equation}
    \label{eq:expcaps}
-   C_n = \frac{2\pi\epsilon l_{n}}{ln(\frac{r_{n}}{r_{n-1}})} = C_{n-1} = \frac{2\pi\epsilon l_{n-1}}{ln(\frac{r_{n-1}}{r_{n-2}})} = \dots = C_{1} = \frac{2\pi\epsilon l_{1}}{ln(\frac{r_{1}}{r_{0}})}
+   C_n = \frac{2\pi\epsilon L_{n}}{ln(\frac{r_{n}}{r_{n-1}})} = C_{n-1} = \frac{2\pi\epsilon L_{n-1}}{ln(\frac{r_{n-1}}{r_{n-2}})} = \dots = C_{1} = \frac{2\pi\epsilon L_{1}}{ln(\frac{r_{1}}{r_{0}})}
 \end{equation}
 
 The common factor of $2\pi\epsilon$ cancels from equation \ref{eq:expcaps} giving a simple equation linking the lengths and radial displacements of consecutive foils, as in equation \ref{eq:expcaps2}.
 \begin{equation}
    \label{eq:expcaps2}
-   \frac{l_{n}}{ln(\frac{r_{n}}{r_{n-1}})} = \frac{ l_{n-1}}{ln(\frac{r_{n-1}}{r_{n-2}})} = \dots = \frac{ l_{1}}{ln(\frac{r_{1}}{r_{0}})}
+   \frac{L_{n}}{ln(\frac{r_{n}}{r_{n-1}})} = \frac{ L_{n-1}}{ln(\frac{r_{n-1}}{r_{n-2}})} = \dots = \frac{ L_{1}}{ln(\frac{r_{1}}{r_{0}})}
 \end{equation}
 
 An approximate solution for thin foils can then be found.
@@ -113,7 +113,7 @@ This is shown in equation \ref{eq:simplefoils}.
 
 \begin{equation}
    \label{eq:simplefoils}
-   l_{n}r_{n} \approx l_{n-1}r_{n-1} \approx \dots \approx l_{0}r_{0}
+   L_{n}r_{n} \approx L_{n-1}r_{n-1} \approx \dots \approx L_{0}r_{0}
 \end{equation}
 
 Equation \ref{eq:expcaps2} can then be used to determine an exact solution while equation \ref{eq:simplefoils} can be used to find an approximate solution in conjunction with initial data regarding the length and radial displacement of the first foil and the spacing of the foils to calculate the parameters of all the other foils in the bushing.
@@ -133,7 +133,7 @@ $\Delta V$ is already defined as a constant from equation \ref{eq:voltagediff}, 
 The relationship between $l_n$ and $b_n$ is defined in figure \ref{figure:terms}, as explained in equation \ref{eq:length}.
 \begin{equation}
    \label{eq:length}
-   l_n = l_{n-1} - 2b_n
+   L_n = L_{n-1} - 2b_n
 \end{equation}
 
 Since equation \ref{eq:axialfield} requires the change in foil length $b_n$ to be constant, equation \ref{eq:Cn} for coaxial capacitance requires the radius of each foil to change from foil to foil.

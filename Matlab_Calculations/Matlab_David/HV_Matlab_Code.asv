@@ -22,23 +22,25 @@ Radius = zeros(1,N+1);
 
 %%
 % Calculation
-L(1)=First_foil_length; %This is connec
-r0 = Inner_diameter/2;
-Radius(1)= Inner_diameter/2  + First_Gap;
+L(1)=First_foil_length; %The forst foil is 5000mm and connected to the conductor, no capacitance between conductor and this foil
+r0 = Inner_diameter/2; %Radius of the conductor
+Radius(1)= Inner_diameter/2  + First_Gap; % Radial position of first foil = 52mm
 
+%Calculate the radial positions of all foils
 for i=2:N
     Radius(i)=Radius(i-1) + Del_Radius;
 end
 
-% Second foil length found by assumption that L(1) forms a capacitor with
-% same spacing with conductor surface.
+% Refer to Section 2.2 for an explanation of this assumption
 L(2)= log(Radius(2)/Radius(1))* L(1) / log(Radius(1)/(Radius(1)-Del_Radius)) ;
 
+%Follow the iterative formula
 for i=3:N     
     L(i)= log(Radius(i-1)/Radius(i))* L(i-1) / log(Radius(i-2)/Radius(i-1));
 end
 
-L(N+1)=L(N)+.1*L(N); % design to be made for outhershell
+%For plotting - add the outer shell
+L(N+1)=L(N)+.1*L(N);
 Radius(N+1)=Radius(N)+ Last_Gap;
 
 %%
@@ -94,7 +96,6 @@ fprintf(FID, '\\begin{center}\n');
 fprintf(FID, '\\begin{tabular}{cc}\n');
 fprintf(FID, '\\toprule\n');
 fprintf(FID, '\\textbf{Radius(mm)} & \\textbf{Length(mm)} \\\\ \\toprule\n');
-FID = fopen('RadialGrading21.tex', 'w');
 for i=1:N+1
     fprintf(FID, '%4.2f & %4.2f \\\\\n', Radius(i), L(i));
 end 

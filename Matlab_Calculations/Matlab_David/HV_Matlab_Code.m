@@ -96,7 +96,6 @@ fprintf(FID, '\\begin{center}\n');
 fprintf(FID, '\\begin{tabular}{cc}\n');
 fprintf(FID, '\\toprule\n');
 fprintf(FID, '\\textbf{Radius(mm)} & \\textbf{Length(mm)} \\\\ \\toprule\n');
-FID = fopen('RadialGrading21.tex', 'w');
 for i=1:N+1
     fprintf(FID, '%4.2f & %4.2f \\\\\n', Radius(i), L(i));
 end 
