@@ -39,6 +39,7 @@ It shows that the whole dielectric is much more evenly stressed with the capacit
 
 The insulation is stressed in both a radial and axial direction, which sum to give the tangential field.
 The radial component $E_r$ can cause breakdown of the insulating material, while the axial component $E_z$ can cause surface discharge along the boundary \cite{Ahmed11}.
+Attention must be paid to the design and shape of the boundary, so that the critical value for inception voltage for surface discharge is not exceeded \cite{}.
 These can be seen in green in figure \ref{figure:fieldgeneric}.
 These sum up to give the tangential field $E_t$.
 
@@ -61,7 +62,7 @@ The total number of foils in the system is $N$.
 Also note that subscript $n$ denotes the outermost foil.
 
 Inserting isolated conducting foils forms a set of coaxial capacitor units \cite{kuffel2000high}.
-The equation the capacitance of one of these capacitors depends on the radial displacement $r_n$ and length of each foil $l_n$, as in equation \ref{eq:Cn}.
+The equation for the capacitance of one of these capacitors depends on the radial displacement $r_n$ and length of each foil $l_n$, as in equation \ref{eq:Cn}.
 \begin{equation}
    \label{eq:Cn}
    C_n = \frac{2\pi\epsilon l_{n}}{ln(\frac{r_{n}}{r_{n-1}})}
@@ -75,7 +76,7 @@ To achieve this, an even voltage difference between foils is required as in equa
    \Delta V = \frac{V}{N}
 \end{equation}
 
-For the voltage between each foil to be constant, as in equation \ref{eq:voltagediff}, the capacitance between each consecutive pair of foils must also be constant. then $C_n = C_{n-1} = \dots = C_0$
+For the voltage between each foil to be constant, as in equation \ref{eq:voltagediff}, the capacitance between each consecutive pair of foils must also be constant. This is expressed as $C_n = C_{n-1} = \dots = C_0$
 
 \subsubsection{Radial Grading}
 The radial spacing and dimension of each foil is determined in the following derivation, which has been verified and modified from \cite{kuffel2000high}.
@@ -86,8 +87,9 @@ The radial electric field is related to the voltage difference and the spacing b
    E_r = \frac{\Delta V}{S_n} = Constant
 \end{equation}
 
-Since equation \ref{eq:radialfield} requires the foil spacing $S_n$ to be constant, equation \ref{eq:Cn} for coaxial capacitance requires the length of each foil to change from foil to foil.
-Taking the condition described previous that $C_n = C_{n-1} = \dots = C_0$ and equation \ref{eq:Cn}, equation \ref{eq:expcaps} can be written.
+Given this condition and equation \ref{eq:Cn} for coaxial capacitance, the length of each foil is required to change from foil to foil.
+The lengths and radii of consecutive foils can be calculated from the relationship in equation \ref{eq:expcaps}.
+%Taking the condition described previous that $C_n = C_{n-1} = \dots = C_0$ and equation \ref{eq:Cn}, equation \ref{eq:expcaps} can be written.
 \begin{equation}
    \label{eq:expcaps}
    C_n = \frac{2\pi\epsilon l_{n}}{ln(\frac{r_{n}}{r_{n-1}})} = C_{n-1} = \frac{2\pi\epsilon l_{n-1}}{ln(\frac{r_{n-1}}{r_{n-2}})} = \dots = C_{1} = \frac{2\pi\epsilon l_{1}}{ln(\frac{r_{1}}{r_{0}})}
@@ -100,8 +102,9 @@ The common factor of $2\pi\epsilon$ cancels from equation \ref{eq:expcaps} givin
 \end{equation}
 
 An approximate solution for thin foils can then be found.
-Under the thin foil assumption, $r_{1} = r_{0} + S_n$ and $\frac{S_n}{r_n}<<1$ even for the smallest radii of the inner conductor.
-Equation \ref{eq:simplify} allows the simplification of equation \ref{eq:expcaps2} to equation \ref{eq:simplefoils}.
+Under the thin foil assumption, $r_{1} = r_{0} + S_n$ and $\frac{S_n}{r_n}<<1$ even for the smallest radii of the inner foil.
+This is shown in equation \ref{eq:simplefoils}.
+%Equation \ref{eq:simplify} allows the simplification of equation \ref{eq:expcaps2} to equation \ref{eq:simplefoils}.
 
 \begin{equation}
    \label{eq:simplify}
@@ -117,7 +120,7 @@ Equation \ref{eq:expcaps2} can then be used to determine an exact solution while
 
 \subsubsection{Axial Grading}
 In axial grading, the axial component of the electric field $E_z$ is kept constant between all of the foils. 
-The following equations prove that the length of each foil must decay by a constant value for each consecutive foil, and the radius at which it is placed is determined by a similar iterative formula.
+The following equations prove that the length of each foil must decay by a constant value for each consecutive foil, and the radius at which it is placed is determined by a simple iterative formula.
 
 The axial electric field is related to the voltage difference and the length change between each consecutive foil as in equation \ref{eq:axialfield}. 
 Under symmetric capacitive grading, $b_n = b_{ln} = b_{rn}$ with reference to figure \ref{figure:terms}. 
@@ -176,6 +179,6 @@ All other lengths and radii can then be calculated.
 %\end{equation}
 
 
-Radial grading better suits the purposes of this paper, since there is no requirement to assume the length of the final foil.
+%Radial grading better suits the purposes of this paper, since there is no requirement to assume the length of the final foil.
 
 %\inote{TS - We could derive the recursive equation for axial grading given an assumption of the final foil length here.}
