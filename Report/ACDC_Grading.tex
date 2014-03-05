@@ -65,7 +65,7 @@ Inserting isolated conducting foils forms a set of coaxial capacitor units \cite
 The equation for the capacitance of one of these capacitors depends on the radial displacement $r_n$ and length of each foil $l_n$, as in equation \ref{eq:Cn}.
 \begin{equation}
    \label{eq:Cn}
-   C_n = \frac{2\pi\epsilon L_{n}}{ln(\frac{r_{n}}{r_{n-1}})}
+   C_n =\displaystyle\displaystyle\frac{2\pi\epsilon L_{n}}{ln(\displaystyle\frac{r_{n}}{r_{n-1}})}
 \end{equation}
 
 The most widely used method to choose the dimensions and locations of the foils is double sided capacitive grading, of which there are two variants; radial grading and axial grading \cite{Ahmed11}.
@@ -73,7 +73,7 @@ The aim of capacitive grading is to evenly distribute the electric field between
 To achieve this, an even voltage difference between foils is required as in equation \ref{eq:voltagediff}, where $V$ is the total voltage difference between the conductor and the casing, $N$ is the number of foils required and $\Delta V$ is the voltage between each foil \cite{}.
 \begin{equation}
    \label{eq:voltagediff}
-   \Delta V = \frac{V}{N}
+   \Delta V = \displaystyle\frac{V}{N}
 \end{equation}
 
 For the voltage between each foil to be constant, as in equation \ref{eq:voltagediff}, the capacitance between each consecutive pair of foils must also be constant. This is expressed as $C_n = C_{n-1} = \dots = C_0$
@@ -84,7 +84,7 @@ In radial grading, the radial component of the electric field $E_r$ is kept cons
 The radial electric field is related to the voltage difference and the spacing between each foil, as in equation \ref{eq:radialfield}. $\Delta V$ is already defined as a constant from equation \ref{eq:voltagediff}, and so to have equal field the foil spacing $S_n$ should also be constant. 
 \begin{equation}
    \label{eq:radialfield}
-   E_r = \frac{\Delta V}{S_n} = Constant
+   E_r = \displaystyle\displaystyle\frac{\Delta V}{S_n} = Constant
 \end{equation}
 
 Given this condition and equation \ref{eq:Cn} for coaxial capacitance, the length of each foil is required to change from foil to foil.
@@ -92,23 +92,23 @@ The lengths and radii of consecutive foils can be calculated from the relationsh
 %Taking the condition described previous that $C_n = C_{n-1} = \dots = C_0$ and equation \ref{eq:Cn}, equation \ref{eq:expcaps} can be written.
 \begin{equation}
    \label{eq:expcaps}
-   C_n = \frac{2\pi\epsilon L_{n}}{ln(\frac{r_{n}}{r_{n-1}})} = C_{n-1} = \frac{2\pi\epsilon L_{n-1}}{ln(\frac{r_{n-1}}{r_{n-2}})} = \dots = C_{1} = \frac{2\pi\epsilon L_{1}}{ln(\frac{r_{1}}{r_{0}})}
+   C_n = \displaystyle\frac{2\pi\epsilon L_{n}}{ln(\displaystyle\frac{r_{n}}{r_{n-1}})} = C_{n-1} = \displaystyle\frac{2\pi\epsilon L_{n-1}}{ln(\displaystyle\frac{r_{n-1}}{r_{n-2}})} = \dots = C_{1} = \displaystyle\frac{2\pi\epsilon L_{1}}{ln(\displaystyle\frac{r_{1}}{r_{0}})}
 \end{equation}
 
 The common factor of $2\pi\epsilon$ cancels from equation \ref{eq:expcaps} giving a simple equation linking the lengths and radial displacements of consecutive foils, as in equation \ref{eq:expcaps2}.
 \begin{equation}
    \label{eq:expcaps2}
-   \frac{L_{n}}{ln(\frac{r_{n}}{r_{n-1}})} = \frac{ L_{n-1}}{ln(\frac{r_{n-1}}{r_{n-2}})} = \dots = \frac{ L_{1}}{ln(\frac{r_{1}}{r_{0}})}
+   \displaystyle\frac{L_{n}}{ln(\displaystyle\frac{r_{n}}{r_{n-1}})} = \displaystyle\frac{ L_{n-1}}{ln(\displaystyle\frac{r_{n-1}}{r_{n-2}})} = \dots = \displaystyle\frac{ L_{1}}{ln(\displaystyle\frac{r_{1}}{r_{0}})}
 \end{equation}
 
 An approximate solution for thin foils can then be found.
-Under the thin foil assumption, $r_{1} = r_{0} + S_n$ and $\frac{S_n}{r_n}<<1$ even for the smallest radii of the inner foil.
+Under the thin foil assumption, $r_{1} = r_{0} + S_n$ and $\displaystyle\frac{S_n}{r_n}<<1$ even for the smallest radii of the inner foil.
 This is shown in equation \ref{eq:simplefoils}.
 %Equation \ref{eq:simplify} allows the simplification of equation \ref{eq:expcaps2} to equation \ref{eq:simplefoils}.
 
 \begin{equation}
    \label{eq:simplify}
-   ln(\frac{r_n}{r_{n-1}}) = ln\frac{1}{1-(\frac{S_n}{r_n})} \approx \frac{S_n}{r_n}
+   ln(\displaystyle\frac{r_n}{r_{n-1}}) = ln\displaystyle\frac{1}{1-(\displaystyle\frac{S_n}{r_n})} \approx \displaystyle\frac{S_n}{r_n}
 \end{equation}
 
 \begin{equation}
@@ -127,7 +127,7 @@ Under symmetric capacitive grading, $b_n = b_{ln} = b_{rn}$ with reference to fi
 $\Delta V$ is already defined as a constant from equation \ref{eq:voltagediff}, and so to have equal field, the change in foil length $b_n$ should also be constant.
 \begin{equation}
    \label{eq:axialfield}
-   E_z = \frac{\Delta V}{b_n} = Constant
+   E_z = \displaystyle\frac{\Delta V}{b_n} = Constant
 \end{equation}
 
 The relationship between $l_n$ and $b_n$ is defined in figure \ref{figure:terms}, as explained in equation \ref{eq:length}.
@@ -159,7 +159,7 @@ All other lengths and radii can then be calculated.
 %This can be expanded as in equation \ref{eq:lengthequals}.
 %\begin{equation}
 %   \label{eq:lengthequals}
-%   \frac{l_n}{ln(\frac{r_{n-1}}{r_{n}})} = \frac{l_{n-1}}{ln(\frac{r_{n-2}}{r_{n-1}})} = \frac{l_1}{ln(\frac{r_{0}}{r_{1}})}
+%   \displaystyle\frac{l_n}{ln(\displaystyle\frac{r_{n-1}}{r_{n}})} = \displaystyle\frac{l_{n-1}}{ln(\displaystyle\frac{r_{n-2}}{r_{n-1}})} = \displaystyle\frac{l_1}{ln(\displaystyle\frac{r_{0}}{r_{1}})}
 %\end{equation}
 
 
@@ -170,12 +170,12 @@ All other lengths and radii can then be calculated.
 %Equation \ref{eq:evenspace} gives the method to calculate $S_n$ which can then be used in the recursive equation \ref{eq:recursive}, which is a simple form of equation \ref{eq:simplefoils}.
 %\begin{equation}
 %   \label{eq:evenspace}
-%  S_n = \frac{Outer Diameter - Conductor Diameter}{N-1}
+%  S_n = \displaystyle\frac{Outer Diameter - Conductor Diameter}{N-1}
 %\end{equation}
 %
 %\begin{equation}
 %   \label{eq:recursive}
-%  l_{n+1}= l_{n}\frac{r_{n}}{r_{n} + S_{n}}
+%  l_{n+1}= l_{n}\displaystyle\frac{r_{n}}{r_{n} + S_{n}}
 %\end{equation}
 
 
