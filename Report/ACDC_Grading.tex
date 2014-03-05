@@ -42,15 +42,14 @@ The radial component $E_r$ can cause breakdown of the insulating material, while
 These can be seen in green in figure \ref{figure:fieldgeneric}.
 These sum up to give the tangential field $E_t$.
 
-The most widely used method used to choose the dimensions and locations of the foils is double sided capacitive grading, of which there are two variants \cite{Ahmed11}.
-Before the distinction is made between the two, it is first necessary to introduce some terms.
+Before proceeding, it is first necessary to introduce some terms.
 \begin{figure}[!h]
    \centering
    \includegraphics[width = \textwidth]{GradingSymbols.pdf}
    \caption{Symbols for calculating capacitive grading, modified from \cite{Ahmed11}}
    \label{figure:fieldgeneric}
 \end{figure}
-Firstly, The radius of the foil referenced from the centre of the conductor is termed $r_n$. 
+Firstly, the radius of the foil is referenced from the centre of the conductor, and termed $r_n$. 
 The spacing between each foil is defined in equation \ref{eq:Spacing}.
 \begin{equation}
    \label{eq:Spacing}
@@ -61,16 +60,84 @@ Symmetric double sided capacitive grading is achieved when $b_{ln}=b_{rn}$ \cite
 The total number of foils in the system is $N$.
 Also note that subscript $n$ denotes the outermost foil.
 
+Inserting isolated conducting foils forms a set of coaxial capacitor units \cite{kuffel2000high}.
+The equation the capacitance of one of these capacitors depends on the radial displacement $r_n$ and length of each foil $l_n$, as in equation \ref{eq:Cn}.
+\begin{equation}
+   \label{eq:Cn}
+   C_n = \frac{2\pi\epsilon l_{n}}{ln(\frac{r_{n}}{r_{n-1}})}
+\end{equation}
+
+The most widely used method to choose the dimensions and locations of the foils is double sided capacitive grading, of which there are two variants; radial grading and axial grading \cite{Ahmed11}.
+The aim of capacitive grading is to evenly distribute the electric field between the foils.
+To achieve this, an even voltage difference between foils is required as in equation \ref{eq:voltagediff}, where $V$ is the total voltage difference between the conductor and the casing, $N$ is the number of foils required and $\Delta V$ is the voltage between each foil \cite{}.
+\begin{equation}
+   \label{eq:voltagediff}
+   \Delta V = \frac{V}{N}
+\end{equation}
+
+For the voltage between each foil to be constant, as in equation \ref{eq:voltagediff}, the capacitance between each consecutive pair of foils must also be constant. then $C_n = C_{n-1} = \dots = C_0$
+
+\subsubsection{Radial Grading}
+In radial grading, the radial component of the electric field $E_r$ is kept constant between all the foils.
+The radial electric field is related to the voltage difference and the spacing between each foil, as in equation \ref{eq:radialfield}. $\Delta V$ is already defined as a constant from equation \ref{eq:voltagediff}, and so to have equal field the foil spacing $S_n$ should also be constant \cite{}. 
+\begin{equation}
+   \label{eq:radialfield}
+   E_r = \frac{\Delta V}{S_n} = Constant
+\end{equation}
+
+Since equation \ref{eq:radialfield} requires the foil spacing $S_n$ to be constant, equation \ref{eq:Cn} for coaxial capacitance requires the length of each foil to change from foil to foil.
+Taking the condition described previous that $C_n = C_{n-1} = \dots = C_0$ and equation \ref{eq:Cn}, equation \ref{eq:expcaps} can be written.
+\begin{equation}
+   \label{eq:expcaps}
+   C_n = \frac{2\pi\epsilon l_{n}}{ln(\frac{r_{n}}{r_{n-1}})} = C_{n-1} = \frac{2\pi\epsilon l_{n-1}}{ln(\frac{r_{n-1}}{r_{n-2}})} = \dots = C_{1} = \frac{2\pi\epsilon l_{1}}{ln(\frac{r_{1}}{r_{0}})}
+\end{equation}
+
+The common factor of $2\pi\epsilon$ cancels from equation \ref{eq:expcaps} giving a simple equation linking the lengths and radial displacements of consecutive foils, as in equation \ref{eq:expcaps2}.
+\begin{equation}
+   \label{eq:expcaps2}
+   \frac{l_{n}}{ln(\frac{r_{n}}{r_{n-1}})} = \frac{ l_{n-1}}{ln(\frac{r_{n-1}}{r_{n-2}})} = \dots = \frac{ l_{1}}{ln(\frac{r_{1}}{r_{0}})}
+\end{equation}
+
+An approximate solution for thin foils can then be found.
+Under the thin foil assumption, $r_{1} = r_{0} + S_n$ and $\frac{S_n}{r_n}<<1$ even for the smallest radii of the inner conductor.
+Equation \ref{eq:simplify} allows the simplification of equation \ref{eq:expcaps2} to equation \ref{eq:simplefoils}.
+
+\begin{equation}
+   \label{eq:simplify}
+   ln(\frac{r_n}{r_{n-1}}) = ln\frac{1}{1-(\frac{S_n}{r_n})} \approx \frac{S_n}{r_n}
+\end{equation}
+
+\begin{equation}
+   \label{eq:simplefoils}
+   l_{n}r_{n} \approx l_{n-1}r_{n-1} \approx \dots \approx l_{0}r_{0}
+\end{equation}
+
+Equation \ref{eq:expcaps2} can then be used to determine an exact solution while equation \ref{eq:simplefoils} can be used to find an approximate solution in conjunction with initial data regarding the length and radial displacement of the first foil and the spacing of the foils to calculate the parameters of all the other foils in the bushing.
+
+\subsubsection{Axial Grading}
+In axial grading, the axial component of the electric field $E_z$ is kept constant between all of the foils. 
+The axial electric field is related to the voltage difference and the length change between each consecutive foil as in equation \ref{eq:axialfield}. 
+\begin{equation}
+   \label{eq:axialfield}
+   E_r = \frac{\Delta V}{b_n} = Constant
+\end{equation}
+
+
+\inote{here}
+
+
+
+
+
+
+
 The radial spacing and dimension of each foil is determined in the following derivation, which has been verified and modified from \cite{kuffel2000high}.
 When a conductor is surrounded by concentric foils of dielectric constant $\epsilon$ that is much greater than $\epsilon_{0}$, the system can be treated as a set of coaxial cylindrical capacitor units connected in series.
 In this derivation, the simplest boundary condition is assumed, that is the mean value of the radial field $E_r$ remains constant within the foils.
 The foils are assumed to be of equal thickness, denoted by $\delta$.
 Each of the foils forms a coaxial capacitor stressed by the equal voltage $\Delta V = E_{r}\delta$ providing all capacitances are equal.
 The capacitance of each foil is equal providing $C_n = C_{n-1} = C_0$ where equation \ref{eq:Cn} gives the value of each capacitance.
-\begin{equation}
-   \label{eq:Cn}
-   C_n = \frac{2\pi\epsilon l_{n-1}}{ln(\frac{r_{n-1}}{r_{n}})}
-\end{equation}
+
 
 This can be expanded as in equation \ref{eq:lengthequals}.
 \begin{equation}
@@ -78,19 +145,7 @@ This can be expanded as in equation \ref{eq:lengthequals}.
    \frac{l_n}{ln(\frac{r_{n-1}}{r_{n}})} = \frac{l_{n-1}}{ln(\frac{r_{n-2}}{r_{n-1}})} = \frac{l_1}{ln(\frac{r_{0}}{r_{1}})}
 \end{equation}
 
-An approximate solution for thin foils can then be found.
-Under the thin foil assumption, $r_{1} = r_{0} + S_n$ and $\frac{\delta}{r_n}<<1$ even for the smallest radii of the inner conductor.
-Equation \ref{eq:simplify} allows the simplification of equation \ref{eq:lengthequals} to equation \ref{eq:simplefoils}.
 
-\begin{equation}
-   \label{eq:simplify}
-   ln(\frac{r_n}{r_{n-1}}) = ln\frac{1}{1-(\frac{\delta}{r_n})} \approx \frac{\delta}{r_n}
-\end{equation}
-
-\begin{equation}
-   \label{eq:simplefoils}
-   l_{n}r_{n} \approx l_{n-1}r_{n-1} \approx \dots \approx l_{0}r_{0}
-\end{equation}
 
 The two methods for solving the recursive equation in equation \ref{eq:simplefoils} is through either radial or axial grading \cite{Ahmed11}.
 In radial grading, the spacing of the foils $S_n$ is assumed to be constant. 
