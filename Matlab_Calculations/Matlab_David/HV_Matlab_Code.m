@@ -43,6 +43,9 @@ end
 L(N+1)=L(N)+.1*L(N);
 Radius(N+1)=Radius(N)+ Last_Gap;
 
+LHalfed = zeros(1, N+1);
+LHalfed = L/2;
+
 %%
 % Ploting
 x=zeros(1,2*(N+1));

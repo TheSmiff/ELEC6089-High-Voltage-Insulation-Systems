@@ -40,9 +40,16 @@ The first foil is connected to the high voltage conductor, and the last foil is 
 This is to eliminate the electric field on the boundary interface as far as possible on both sides of the bushing, so that the voltage drop occurs exclusively inside the bushing insulation.
 
 This has an impact on the calculations described in section \ref{ss:CapacitiveGrading}.
-Since the innermost foil is at the same voltage as the conductor, there is no capacitance between them, hence the first foil shown on the diagram is not the first index for the iterative calculation.
+Since the innermost foil is at the same voltage as the conductor, there is no capacitance between them, as shown in figure \ref{figure:required assumptions}, hence the first foil shown on the diagram is not the first index for the iterative calculation.
 The derivation of the iterative equation assumes a capacitance between each foil. 
-The first foil in figure \ref{figure:refproblem} is therefore indexed as zero.
+The first foil in figure \ref{figure:refproblem} is therefore indexed as 0 and not 1.
+
+\begin{figure}[!h]
+   \centering
+   \includegraphics[width = \textwidth]{AssumptionExplanation.pdf}
+   \caption{Diagram to explain the assumptions required}
+   \label{figure:required assumptions}
+\end{figure}
 
 This means that there is not sufficient initial information to proceed, since the first non-connected foil length $L_1$ is not given.
 The iterative equations require the first non-connected foil length $L_1$ to be known as shown in equation \ref{eq:ref0}. 
@@ -57,7 +64,7 @@ All radii variables are known due to the even spacings under radial grading.
    L_{2} = L_{1}\displaystyle\frac{{ln(\displaystyle\frac{r_{2}}{r_{1}})} }{ln(\displaystyle\frac{r_{1}}{r_{0}})} 
 \end{equation}
 
-\inote{Insert figure with close up showing foil 0, 1 and 2 with 0 the closest to the conductor}
+
 
 If this is not taken into account then a flawed design will be produced.
 Equation \ref{eq:ref0wrongfilled} shows a wrongly described first iteration of the radial grading formula which results in the design in figure \ref{figure:flawedgraph}. This is clearly wrong, and does not give the hyperbolic shape from the beginning of the foils.
