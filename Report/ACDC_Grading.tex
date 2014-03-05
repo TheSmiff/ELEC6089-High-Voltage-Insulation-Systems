@@ -47,7 +47,7 @@ Before proceeding, it is first necessary to introduce some terms.
    \centering
    \includegraphics[width = \textwidth]{GradingSymbols.pdf}
    \caption{Symbols for calculating capacitive grading, modified from \cite{Ahmed11}}
-   \label{figure:fieldgeneric}
+   \label{figure:terms}
 \end{figure}
 Firstly, the radius of the foil is referenced from the centre of the conductor, and termed $r_n$. 
 The spacing between each foil is defined in equation \ref{eq:Spacing}.
@@ -78,8 +78,9 @@ To achieve this, an even voltage difference between foils is required as in equa
 For the voltage between each foil to be constant, as in equation \ref{eq:voltagediff}, the capacitance between each consecutive pair of foils must also be constant. then $C_n = C_{n-1} = \dots = C_0$
 
 \subsubsection{Radial Grading}
+The radial spacing and dimension of each foil is determined in the following derivation, which has been verified and modified from \cite{kuffel2000high}.
 In radial grading, the radial component of the electric field $E_r$ is kept constant between all the foils.
-The radial electric field is related to the voltage difference and the spacing between each foil, as in equation \ref{eq:radialfield}. $\Delta V$ is already defined as a constant from equation \ref{eq:voltagediff}, and so to have equal field the foil spacing $S_n$ should also be constant \cite{}. 
+The radial electric field is related to the voltage difference and the spacing between each foil, as in equation \ref{eq:radialfield}. $\Delta V$ is already defined as a constant from equation \ref{eq:voltagediff}, and so to have equal field the foil spacing $S_n$ should also be constant. 
 \begin{equation}
    \label{eq:radialfield}
    E_r = \frac{\Delta V}{S_n} = Constant
@@ -116,52 +117,65 @@ Equation \ref{eq:expcaps2} can then be used to determine an exact solution while
 
 \subsubsection{Axial Grading}
 In axial grading, the axial component of the electric field $E_z$ is kept constant between all of the foils. 
+The following equations prove that the length of each foil must decay by a constant value for each consecutive foil, and the radius at which it is placed is determined by a similar iterative formula.
+
 The axial electric field is related to the voltage difference and the length change between each consecutive foil as in equation \ref{eq:axialfield}. 
+Under symmetric capacitive grading, $b_n = b_{ln} = b_{rn}$ with reference to figure \ref{figure:terms}. 
+$\Delta V$ is already defined as a constant from equation \ref{eq:voltagediff}, and so to have equal field, the change in foil length $b_n$ should also be constant.
 \begin{equation}
    \label{eq:axialfield}
-   E_r = \frac{\Delta V}{b_n} = Constant
+   E_z = \frac{\Delta V}{b_n} = Constant
 \end{equation}
 
-
-\inote{here}
-
-
-
-
-
-
-
-The radial spacing and dimension of each foil is determined in the following derivation, which has been verified and modified from \cite{kuffel2000high}.
-When a conductor is surrounded by concentric foils of dielectric constant $\epsilon$ that is much greater than $\epsilon_{0}$, the system can be treated as a set of coaxial cylindrical capacitor units connected in series.
-In this derivation, the simplest boundary condition is assumed, that is the mean value of the radial field $E_r$ remains constant within the foils.
-The foils are assumed to be of equal thickness, denoted by $\delta$.
-Each of the foils forms a coaxial capacitor stressed by the equal voltage $\Delta V = E_{r}\delta$ providing all capacitances are equal.
-The capacitance of each foil is equal providing $C_n = C_{n-1} = C_0$ where equation \ref{eq:Cn} gives the value of each capacitance.
-
-
-This can be expanded as in equation \ref{eq:lengthequals}.
+The relationship between $l_n$ and $b_n$ is defined in figure \ref{figure:terms}, as explained in equation \ref{eq:length}.
 \begin{equation}
-   \label{eq:lengthequals}
-   \frac{l_n}{ln(\frac{r_{n-1}}{r_{n}})} = \frac{l_{n-1}}{ln(\frac{r_{n-2}}{r_{n-1}})} = \frac{l_1}{ln(\frac{r_{0}}{r_{1}})}
+   \label{eq:length}
+   l_n = l_{n-1} - 2b_n
 \end{equation}
 
+Since equation \ref{eq:axialfield} requires the change in foil length $b_n$ to be constant, equation \ref{eq:Cn} for coaxial capacitance requires the radius of each foil to change from foil to foil.
+This can be simplified to a similar form as equation \ref{eq:expcaps2}, except that the initial information required is the radius and length of the first foil, and the constant difference in length between each of the foils.
+All other lengths and radii can then be calculated.
+
+%\inote{here}
 
 
-The two methods for solving the recursive equation in equation \ref{eq:simplefoils} is through either radial or axial grading \cite{Ahmed11}.
-In radial grading, the spacing of the foils $S_n$ is assumed to be constant. 
-This means the length of the foils decreases as it it approaches the outer foils of the bushing.
-Equation \ref{eq:evenspace} gives the method to calculate $S_n$ which can then be used in the recursive equation \ref{eq:recursive}, which is a simple form of equation \ref{eq:simplefoils}.
-\begin{equation}
-   \label{eq:evenspace}
-  S_n = \frac{Outer Diameter - Conductor Diameter}{N-1}
-\end{equation}
 
-\begin{equation}
-   \label{eq:recursive}
-  l_{n+1}= l_{n}\frac{r_{n}}{r_{n} + S_{n}}
-\end{equation}
 
-In the axial grading method, the length of each foil is assumed to decay by a constant value with each foil, and the radius at which it is placed is determined by a similar iterative formula.
+
+
+
+%
+%When a conductor is surrounded by concentric foils of dielectric constant $\epsilon$ that is much greater than $\epsilon_{0}$, the system can be treated as a set of coaxial cylindrical capacitor units connected in series.
+%In this derivation, the simplest boundary condition is assumed, that is the mean value of the radial field $E_r$ remains constant within the foils.
+%The foils are assumed to be of equal thickness, denoted by $\delta$.
+%Each of the foils forms a coaxial capacitor stressed by the equal voltage $\Delta V = E_{r}\delta$ providing all capacitances are equal.
+%The capacitance of each foil is equal providing $C_n = C_{n-1} = C_0$ where equation \ref{eq:Cn} gives the value of each capacitance.
+
+
+%This can be expanded as in equation \ref{eq:lengthequals}.
+%\begin{equation}
+%   \label{eq:lengthequals}
+%   \frac{l_n}{ln(\frac{r_{n-1}}{r_{n}})} = \frac{l_{n-1}}{ln(\frac{r_{n-2}}{r_{n-1}})} = \frac{l_1}{ln(\frac{r_{0}}{r_{1}})}
+%\end{equation}
+
+
+
+%The two methods for solving the recursive equation in equation \ref{eq:simplefoils} is through either radial or axial grading \cite{Ahmed11}.
+%In radial grading, the spacing of the foils $S_n$ is assumed to be constant. 
+%This means the length of the foils decreases as it it approaches the outer foils of the bushing.
+%Equation \ref{eq:evenspace} gives the method to calculate $S_n$ which can then be used in the recursive equation \ref{eq:recursive}, which is a simple form of equation \ref{eq:simplefoils}.
+%\begin{equation}
+%   \label{eq:evenspace}
+%  S_n = \frac{Outer Diameter - Conductor Diameter}{N-1}
+%\end{equation}
+%
+%\begin{equation}
+%   \label{eq:recursive}
+%  l_{n+1}= l_{n}\frac{r_{n}}{r_{n} + S_{n}}
+%\end{equation}
+
+
 Radial grading better suits the purposes of this paper, since there is no requirement to assume the length of the final foil.
 
-\inote{TS - We could derive the recursive equation for axial grading given an assumption of the final foil length here.}
+%\inote{TS - We could derive the recursive equation for axial grading given an assumption of the final foil length here.}
