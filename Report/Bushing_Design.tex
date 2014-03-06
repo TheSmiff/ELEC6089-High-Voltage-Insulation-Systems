@@ -25,7 +25,7 @@ In the reference design the following initial information is given.
 \toprule
 \textbf{Initial Information} & \textbf{Value)} \\ \toprule
 Conductor Diameter (ID) & $100mm$ \\
-First Foil Length $L_1$ & $5000mm$ \\
+First Foil Length $l_1$ & $5000mm$ \\
 First Foil Radius $r_1$&$52mm$ \\
 Outer Bushing Diameter (OD) & $300mm$\\
 Outer Foil Radius $r_21$ & $148mm$\\
@@ -51,17 +51,17 @@ The first foil in figure \ref{figure:refproblem} is therefore indexed as 0 and n
    \label{figure:required assumptions}
 \end{figure}
 
-This means that there is not sufficient initial information to proceed, since the first non-connected foil length $L_1$ is not given.
-The iterative equations require the first non-connected foil length $L_1$ to be known as shown in equation \ref{eq:ref0}. 
+This means that there is not sufficient initial information to proceed, since the first non-connected foil length $l_1$ is not given.
+The iterative equations require the first non-connected foil length $l_1$ to be known as shown in equation \ref{eq:ref0}. 
 All radii variables are known due to the even spacings under radial grading. 
 
 \begin{equation}
    \label{eq:ref0}
-   \displaystyle\frac{L_{1}}{ln(\displaystyle\frac{r_{1}}{r_{0}})} = \displaystyle\frac{ L_{2}}{ln(\displaystyle\frac{r_{2}}{r_{1}})} 
+   \displaystyle\frac{l_{1}}{ln(\displaystyle\frac{r_{1}}{r_{0}})} = \displaystyle\frac{ l_{2}}{ln(\displaystyle\frac{r_{2}}{r_{1}})} 
 \end{equation}
 \begin{equation}
    \label{eq:ref0forl1}
-   L_{2} = L_{1}\displaystyle\frac{{ln(\displaystyle\frac{r_{2}}{r_{1}})} }{ln(\displaystyle\frac{r_{1}}{r_{0}})} 
+   1_{2} = 1_{1}\displaystyle\frac{{ln(\displaystyle\frac{r_{2}}{r_{1}})} }{ln(\displaystyle\frac{r_{1}}{r_{0}})}
 \end{equation}
 
 
@@ -70,7 +70,7 @@ If this is not taken into account then a flawed design will be produced.
 Equation \ref{eq:ref0wrongfilled} shows a wrongly described first iteration of the radial grading formula which results in the design in figure \ref{figure:flawedgraph}. This is clearly wrong, and does not give the hyperbolic shape from the beginning of the foils.
 \begin{equation}
    \label{eq:ref0wrongfilled}
-   L_{1} = 5000mm\displaystyle\frac{{ln(\displaystyle\frac{56.8mm}{52mm})} }{ln(\displaystyle\frac{52mm}{50mm})}
+   l_{1} = 5000mm\displaystyle\frac{{ln(\displaystyle\frac{56.8mm}{52mm})} }{ln(\displaystyle\frac{52mm}{50mm})}
    = 11256mm
 \end{equation}
 
@@ -94,7 +94,7 @@ The first iteration has been calculated under these assumptions, giving the resu
 The remainder the foil parameters can then be calculated using the iterative formula.
 \begin{equation}
    \label{eq:ref0correct}
-   L_{1}
+   l_{1}
    = 5000mm\displaystyle\frac{{ln(\displaystyle\frac{56.8mm}{52mm})} }{ln(\displaystyle\frac{52mm}{47.2mm})}
    = 4558mm
 \end{equation}
