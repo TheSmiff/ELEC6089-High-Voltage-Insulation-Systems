@@ -69,14 +69,16 @@ for i=1:2:2*(N+1)
     hold on
     line(x(i:i+1), y(i:i+1), 'LineWidth',2)
     line(x(i:i+1), y2(i:i+1),'LineWidth',2)
+    %axis equal
 end
 
 % 3D Plot
+scl=1; % Z direction scalling value for plotting
 figure
 R=[r0 r0];
-[X,Y,Z] = cylinder(R,500);
-Z(2, :) = L(1)+ .4*L(1);
-Z(1, :) = -Z(2, :);
+[X,Y,Z] = cylinder(R,50);
+Z(2, :) =( L(1)+ .4*L(1))*scl;
+Z(1, :) = - scl* Z(2, :);
 surf(X,Y,Z, 'FaceColor', [1,0,0]);
 
 for i=1:N+1
@@ -86,8 +88,13 @@ for i=1:N+1
     [X,Y,Z] = cylinder(R,K);
     Z(2,:)= L(i);
     Z(1,:)= -L(i);
+    p= 6*N/3+1;
+    X = X(:,1:p);
+    Y = Y(:,1:p);
+    Z = Z(:,1:p)*scl;
     testsubject = surf(X,Y,Z); 
     set(testsubject,'FaceAlpha',0.5)
+    %axis equal
 end
 
 % Saving results to file
@@ -107,8 +114,6 @@ fprintf(FID, '\\end{tabular}\n');
 fprintf(FID, '\\end{center}\n');
 fprintf(FID, '\\end{table}\n');
 fclose(FID);
-
-
 
 
 
