@@ -102,7 +102,7 @@ The common factor of $2\pi\epsilon$ cancels from equation \ref{eq:expcaps} givin
 \end{equation}
 
 An approximate solution for thin foils can then be found.
-Under the thin foil assumption, $r_{1} = r_{0} + S_n$ and $\displaystyle\frac{S_n}{r_n}<<1$ even for the smallest radii of the inner foil.
+Under the thin foil assumption, $r_{n} = r_{n-1} + S_n$ and $\displaystyle\frac{S_n}{r_n}<<1$ even for the smallest radii of the inner foil.
 This is shown in equation \ref{eq:simplefoils}.
 %Equation \ref{eq:simplify} allows the simplification of equation \ref{eq:expcaps2} to equation \ref{eq:simplefoils}.
 
@@ -113,7 +113,7 @@ This is shown in equation \ref{eq:simplefoils}.
 
 \begin{equation}
    \label{eq:simplefoils}
-   L_{n}r_{n} \approx L_{n-1}r_{n-1} \approx \dots \approx L_{0}r_{0}
+   l_{n}r_{n} \approx l_{n-1}r_{n-1} \approx \dots \approx l_{0}r_{0}
 \end{equation}
 
 Equation \ref{eq:expcaps2} can then be used to determine an exact solution while equation \ref{eq:simplefoils} can be used to find an approximate solution in conjunction with initial data regarding the length and radial displacement of the first foil and the spacing of the foils to calculate the parameters of all the other foils in the bushing.
@@ -133,7 +133,7 @@ $\Delta V$ is already defined as a constant from equation \ref{eq:voltagediff}, 
 The relationship between $l_n$ and $b_n$ is defined in figure \ref{figure:terms}, as explained in equation \ref{eq:length}.
 \begin{equation}
    \label{eq:length}
-   L_n = L_{n-1} - 2b_n
+   l_n = l_{n-1} - 2b_n
 \end{equation}
 
 Since equation \ref{eq:axialfield} requires the change in foil length $b_n$ to be constant, equation \ref{eq:Cn} for coaxial capacitance requires the radius of each foil to change from foil to foil.
