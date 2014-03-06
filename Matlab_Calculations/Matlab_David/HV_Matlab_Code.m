@@ -77,7 +77,7 @@ scl=1; % Z direction scalling value for plotting
 figure
 R=[r0 r0];
 [X,Y,Z] = cylinder(R,50);
-Z(2, :) =( L(1)+ .4*L(1))*scl;
+Z(2, :) =( L(1)+ .1*L(1))*scl;
 Z(1, :) = - scl* Z(2, :);
 surf(X,Y,Z, 'FaceColor', [1,0,0]);
 
@@ -94,7 +94,7 @@ for i=1:N+1
     Z = Z(:,1:p)*scl;
     testsubject = surf(X,Y,Z); 
     set(testsubject,'FaceAlpha',0.5)
-    %axis equal
+    axis equal
 end
 
 % Saving results to file
