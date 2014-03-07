@@ -40,7 +40,7 @@ for i=3:N
 end
 
 %For plotting - add the outer shell
-L(N+1)=L(N)-.9*L(N);
+L(N+1)=L(N)-.5*L(N);
 Radius(N+1)=Radius(N)+ Last_Gap;
 
 %%
@@ -59,6 +59,7 @@ y2=-y;
 
 % 2D Plot
 figure
+axes('FontSize',16,'fontWeight','bold')
 rect_H = rectangle('Position', [-1.1.*x(1),- r0, 2.2*x(1), 2*r0]); 
 set(rect_H, 'FaceColor', 'r') 
 
@@ -68,19 +69,25 @@ for i=1:2:2*(N)
     line(x(i:i+1), y2(i:i+1),'LineWidth',2)
     %axis equal
 end
-rect_H = rectangle('Position', [-L(N+1),Outer_diameter/2, 2*L(N+1), 10]); 
+rect_H = rectangle('Position', [-L(N+1)/2,Outer_diameter/2, L(N+1), 10]); 
 set(rect_H, 'FaceColor',[0, 0, 0])
-rect_H = rectangle('Position', [-L(N+1),-10-Outer_diameter/2, 2*L(N+1), 10]); 
-set(rect_H, 'FaceColor',[0, 0, 0])
+rect_H = rectangle('Position', [-L(N+1)/2,-10-Outer_diameter/2, L(N+1), 10]); 
+set(rect_H, 'FaceColor',[0, 0, 0]);
+title('Radial Graing','FontName','Times New Roman','FontSize',34,'fontWeight','bold');
+xlabel('Length (mm)','FontName','Times New Roman','FontSize',24,'fontWeight','bold')
+ylabel('Radius (mm)','FontName','Times New Roman','FontSize',24,'fontWeight','bold')
+xlim([x(2) x(1)]);ylim([y2(end)-10 y(end)+10])
+
 
 % 3D Plot
-K=50; scl=1; % Z direction scalling value for plotting
+K=50; scl=.1; % Z direction scalling value for plotting
 p= 6*N/3+1; %adjusting the Cut in the 3D shap
 figure
+axes('FontSize',16,'fontWeight','bold');
 R=[r0 r0];
 [X,Y,Z] = cylinder(R,5*K);
 Z(2, :) =( L(1)+ .1*L(1))*scl;
-Z(1, :) = - scl* Z(2, :);
+Z(1, :) = - Z(2, :);
 surf(X,Y,Z, 'FaceColor',[1,0,0],'EdgeColor', [1,0,0]);
 for i=1:N
     hold on
@@ -99,8 +106,8 @@ Ground=Radius(N+1)-1;
 for i=1:30
     R=[Ground+i Ground+i];
     [X,Y,Z] = cylinder(R,K);
-    Z(2, :) = L(N+1) *scl;
-    Z(1, :) = - scl* Z(2, :);
+    Z(2, :) = L(N+1)*scl;
+    Z(1, :) = - Z(2, :);
     X = X(:,1:p);
     Y = Y(:,1:p);
     Z = Z(:,1:p)*scl;
@@ -108,6 +115,9 @@ for i=1:30
 end
 camlight
 lighting gouraud
+title('Radial Graing','FontName','Times New Roman','FontSize',24,'fontWeight','bold');
+xlabel('R(mm)','FontName','Times New Roman','FontSize',16,'fontWeight','bold','Rotation',90,'HorizontalAlignment','right')
+zlabel('L(cm)','FontName','Times New Roman','FontSize',16,'fontWeight','bold','HorizontalAlignment','right')
 
 % Saving results to file
 FID = fopen('RadialVals21.tex', 'w');
