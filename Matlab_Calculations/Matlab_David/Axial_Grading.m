@@ -33,7 +33,7 @@ R_parameter=1.007; % Parameter for adjesting assumption value of r0
 
 %%
 % Calculation
-L(1)=First_foil_length; %The forst foil is 5000mm and connected to the conductor, no capacitance between conductor and this foil
+L(1)=First_foil_length; %The first foil is 5000mm and connected to the conductor, no capacitance between conductor and this foil
 r0 = Inner_diameter/2 ; %Radius of the conductor
 Radius(1)= Inner_diameter/2  + First_Gap; % Radial position of first foil = 52mm
 L_Air(1)= L(1)/2;
