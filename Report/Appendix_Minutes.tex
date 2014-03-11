@@ -1,4 +1,6 @@
 %  Appendix_Minutes.tex
+% !TeX spellcheck = en_GB
+% !TeX root = ReportMain.tex
 
 \section{Meeting Minutes}
 \subsection{Meeting 1 - Kick-off Meeting}
@@ -66,7 +68,7 @@ A1.0	&	Research	&	All to start research. Make notes of all sources. At least rev
 3.0 	& 	Grading Methods &	DM left the meeting at this point to read the lecture notes. DA will also perform the grading and we can then use this to idependently verify the design. TS and BH started on axial grading method. Both wrote matlab code to calculate spacings. The results were the same, hence reasonable level of confidence of validity. & \textbf{PF \& DM A2.0} \\ \hline
 4.0	&	Remaining work	& BH and TS identified the remaining work for actioning. The report has an introduction which requires review. Sections on Grading methods (why grade? LV solutions using electrodes, DC solution using resistivity, AC capacitive grading), AC grading types (discussion of axial and radial components of tangential fields, radial and axial derivation) and section on the design details (iterative formula, Matlab calculations, visio diagrams). The design must be built in COMSOL which represents significant work to understand COMSOL. Probably want to simulate a non-graded bushing as a baseline for discussion. Aiming to do both radial and axial grading simulations. Then discuss. & - \\ \hline
 5.0	&	Assignment of work	& BH and PF have a key deadline on tuesday 4th March hence largely unavailable until then. TS and DM to get started on tasks. Try and get simulations done before meeting with GC. & \textbf{TS \& DA A3.0 A4.0} \\ \hline
-4.0	&	Next Meeting	&	First meeting with G. Chen  Tuesday 4th March. Before then have a first model and have begun verification. Next meeting on Prior to this meeting. & - \\ \hline
+6.0	&	Next Meeting	&	First meeting with G. Chen  Tuesday 4th March. Before then have a first model and have begun verification. Next meeting on Prior to this meeting. & - \\ \hline
 
 \end{longtable}
 \end{center}
@@ -85,3 +87,63 @@ A4.0	&	Reporting	&	Continue to document progress in the report.	&	Open 26th Feb 
 \end{center}
 
 \emph{Next Meeting: 4th March 2014, Preceeding meeting with GC}
+
+\subsection{Meeting 3 - Progress Meeting}
+\begin{center}
+\begin{longtable}{| m{0.2\textwidth} | m{0.6\textwidth} |} \hline
+\textbf{Purpose} & ELEC6089 Bushing Design Progress Meeting \\ \hline
+\textbf{Date and Time} & Tuesday 4th March Before Meeting with GC \\ \hline
+\textbf{Venue} & Building 58, Highfield Campus \\ \hline
+\textbf{Participants} & TS (Thomas Smith), DM (David Mahmoodi), BH (Brendan Hickman), PF (Patrick Fong)\\ \hline
+\textbf{Apologies} & - \\ \hline
+\multirow{4}{*}{\textbf{Agenda}} & Review progress. \\
+ & Prepare Questions for Meeting. \\ 
+ & Identify further work required. \\
+ & Allocate work. \\ \hline
+\end{longtable}
+\end{center}
+
+\subsubsection{Minutes of the Meeting}
+\begin{center}
+\begin{longtable}{| p{0.05\textwidth} |>{\raggedright\arraybackslash}p{0.15\textwidth} | p{0.5\textwidth} |>{\raggedright\arraybackslash}p{0.175\textwidth}|} \hline
+\textbf{ID} & \textbf{Subject} & \textbf{Notes and Discussion} & \textbf{Action} \\ \hline
+\endhead
+1.0	&	Project Update	& DM updated the group with his work in Matlab using the natural log derivation of the grading formula. TS updated the group with report progress and progress using COMSOL. Significant work completed by TS, including Introduction, an overview of grading methods, an attempt to derive the equations and initial COMSOL models. BH and PF have nothing to update due to another deadline just prior to the meeting. & -  \\ \hline
+2.0	&	Questions to ask in GC meeting	& Meaning of dimensions for 'failed' 275kV bushing? Will it work, must we improve it? Will it fail without foils but work with? & -	 \\ 
+2.1	&						& Can we change the length or width of the bushing? The material/insulation of the bushing or the number of foils? & -	 \\ 
+2.2	&						& Check that TS output data/graphs are correct. Check conductor, meshing, and length of grounded aluminium transformer. & -	 \\ 
+2.3	&						& Should we have radial and axial grading to compare? & -	 \\ 
+2.4	&						& Can we design shedding in comsol for the air side as extra to bushing?& -	 \\ 
+2.5	&						& Should we count last boundary of oil-end interface as a capacitor, even take it into account?& -	 \\ 
+2.6	&						& Check formatting of paper& -	 \\ \hline
+3.0 	& 	Meeting with GC 	&	The Group attended a meeting with GC to gain some feedback on progress so far. & - \\
+3.1 	& 				&	Answer to 2.1, 2.3, 2.4 - Later on, you can change dimensions but there are also other (better?) improvements & - \\
+3.2 	& 				&	Find/mesh tightly the areas of interest, the bushing and not the air to make the meshing more efficient. Look at the interfaces, at end of Al foil there is more chance of discharge. In the middle the field is symmetrical.& - \\
+3.3 	& 				&	Graphs should be a clear demonstration of info, potential distribution and field strength 2/3. Check where the ground/transformer is, is it half in or more or less? Different flashover lengths, partial discharges etc.& - \\
+3.4 	& 				&	The first and last foils are connected to the conductor and ground respectively. Flashover can go through interface of paper\&oil& - \\
+3.5 	& 				&	45 page maximum including appendices& - \\ \hline
+4.0	&	Work Allocation	& low voltage, DC solutions, electrode grading and external shaping investigation for the report & \textbf{PF A5.0} \\ 
+4.1	&				& Partial discharge, flashover (\& voltages) and related criteria so we can judge how good a solution is & \textbf{BH A6.0} \\ 
+4.2	&				& Comsol, further learning + shaping of field & \textbf{TS and DM A7.0} \\  \hline
+5.0	&	Next Meeting	&	Meet on 11th March - 1 week time & - \\ \hline
+
+\end{longtable}
+\end{center}
+
+\subsubsection{Action List}
+\begin{center}
+\begin{longtable}{| p{0.05\textwidth} | >{\raggedright\arraybackslash}p{0.15\textwidth} |  p{0.5\textwidth} | >{\raggedright\arraybackslash}p{0.175\textwidth}|} \hline
+\textbf{ID} & \textbf{Action} & \textbf{Comments} & \textbf{Status} \\ \hline
+\endhead
+A1.0	&	Research	&	All to start research. Make notes of all sources. At least reviewed the lecture notes and Kuffel.	& Open 20th Feb Closed 4th March \\ \hline
+A2.0	&	Grading	&	Other members to perform axial grading calculations seperately so that the results can be verified independently	& Open 26th Feb Closed 4th March \\ \hline
+A3.0	&	COMSOL	&	Gain an understanding of COMSOL and attempt some simulations. & Open 26th Feb Closed 4th March\\ \hline
+A4.0	&	Reporting	&	Continue to document progress in the report.	&	Open 26th Feb \\ \hline
+A5.0	&	LV and DC	&	Research and document LV solutions and DC alternatives.	&	Open 4th March\\ \hline
+A6.0	&	Criteria	&	Define a set of assessment criteria.	&	Open 4th March\\ \hline
+A7.0	&	Simulations	&	Continue to refine Matlab script and develop COMSOL simulations accurately portraying what is happening so that the design can be assessed critically.	&	Open 4th March\\ \hline
+	
+\end{longtable}
+\end{center}
+
+\emph{Next Meeting: 11th March 2014}
