@@ -123,21 +123,20 @@ Two Matlab scripts were developed for computation of radial and axial grading. I
 
 For current design with specified parameters, the script plots the calculated foil positions in a 3D graph shown in figure \ref{Figure:Both21plots}. Also the 2D plot of this design is shown in  figure \ref{Figure:21plot2}. This figure illustrates  the hyperbolic shape which was expected for radial grading.
 These figures allows a quick verification of the scripts accuracy before proceeding to simulation.
-
-\begin{figure}[!htb]
-  \centering
-  \subfigure[Wide View]{
-  
-      \includegraphics[height = 6cm]{../Matlab_Calculations/Matlab_David/2DRadial.eps} 
-  	\label{Figure:21plot2}    
-  }
-  \subfigure[Real Perspective]{
-  \includegraphics[width=\textwidth,height = 10cm ]{../Matlab_Calculations/Matlab_David/Designeactualsize.eps} 
+\begin{figure}[h!]
+ \centering
+  \includegraphics[height = 6cm ]{../Matlab_Calculations/Matlab_David/Designeactualsize.eps} 
   	\label{Figure:21plot1}
-  }
-\caption{Representation of foil radial position and length}
+  \caption{3D Representation of foil radial position and length}
   \label{Figure:Both21plots}
 \end{figure}
+\begin{figure}[h!]
+  \centering
+   \includegraphics[height = 5cm]{../Matlab_Calculations/Matlab_David/2DRadial.eps} 
+   \caption{2D Representation of foil radial position and length}
+  	\label{Figure:21plot2}    
+\end{figure}
+
 
 Table \ref{table:radialvals} shows the values obtained for radial grading.
 The final information required to be able to proceed to the axial simulation phase is the relative permittivity of each material.
@@ -161,6 +160,30 @@ Aluminium & $10^8$\\
 \end{table}
 
 \subsection{Matlab Axial Grading}
+In this case the code also takes same parameters as input. However, as it is explain in reference \cite{David1}  the constant difference of foil length in oil and air side of bushing ($b_{air}$, $b_{oil}$ ) is calculated by considering the value of flash over distance $L_{air}$ and $L_{oil}$. These values are calculated by using the fact that average electric field strength along the boundary surface in oil side should be 3 to 4 Kv/cm and nearly 9 to 12 Kv/cm  in air side of the bushing. These values are calculated using equation \ref{eq:bes}. 
+ 
+\begin{equation}
+\label{eq:bes}
+ b_{air} = \displaystyle \frac{  \Delta V}{900 \;^v/_{mm}} \qquad ,\qquad
+ b_{oil} = \displaystyle \frac{  \Delta V}{300 \;^v/_{mm}}
+\end{equation}
 
-
-
+Additionally, as it is shown in equation \ref{eq:ref02}, in calculation of $r_2$ a parameter called $R_{parameter}$ is subtracted form $r_0$  to change the position of assumed-conductor-surface. The radius of the last foil ($r_{21}$) could be correctly adjusted by making changes in this parameter and executing the script. $R_{parameter}=1.007mm$ was the best value found for this design.
+\begin{equation}
+  \label{eq:ref02}
+  \displaystyle r_2= \displaystyle  r_{1} \displaystyle \exp\big( \displaystyle  \frac{L_2}{L_{1}}ln(\displaystyle \frac{r_1}{r_0-R_{parameter}})\big) 
+\end{equation}
+This script plots 2 and 3D plots of axial grading to the user. Figure \ref{Figure:21plot221} illustrates the 3D configuration of  design's axial bushing.  The 2D plot of this design, which is shown in figure \ref{Figure:21plot22}, shows linear reduction on file length on both side. It also illustrates that $b_{air}>b_{oil} $ as it was expected.  Finally the calculated values for axial grading, using this design method, is shown in \ref{table:axiallvals}. These values along the given parameters on table \ref{table:perm} was used for COMDSOL seulation of the axial grading.
+\begin{figure}[h!]
+  \centering
+   \includegraphics[height = 8cm]{../Matlab_Calculations/Matlab_David/Axial3D.eps} 
+   \caption{2D Representation of foil radial position and length}
+  	\label{Figure:21plot221}    
+\end{figure}
+\begin{figure}[h!]
+  \centering
+   \includegraphics[height = 5cm]{../Matlab_Calculations/Matlab_David/Axsial2D.eps} 
+   \caption{2D Representation of foil radial position and length}
+  	\label{Figure:21plot22}    
+\end{figure}
+\input{../Matlab_Calculations/Matlab_David/AxialVals21}

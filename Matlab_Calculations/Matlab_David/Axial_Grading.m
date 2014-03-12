@@ -79,13 +79,13 @@ set(rect_H, 'FaceColor', 'r')
 
 for i=1:2:2*(N)
     hold on
-    line(x(i:i+1), y(i:i+1), 'LineWidth',2)
-    line(x(i:i+1), y2(i:i+1),'LineWidth',2)
+    line(-x(i:i+1), -y(i:i+1), 'LineWidth',2)
+    line(-x(i:i+1), -y2(i:i+1),'LineWidth',2)
     %axis equal
 end
-rect_H = rectangle('Position', [-L(N+1)/2,Outer_diameter/2, L(N+1)/2, 1000]); 
+rect_H = rectangle('Position', [L(N+1)/3,Outer_diameter/2, L(N+1)/2, 1000]); 
 set(rect_H, 'FaceColor',[0, 0, 0])
-rect_H = rectangle('Position', [-L(N+1)/2,-10-Outer_diameter/2, L(N+1)/2, 10]); 
+rect_H = rectangle('Position', [L(N+1)/3,-10-Outer_diameter/2, L(N+1)/2, 10]); 
 set(rect_H, 'FaceColor',[0, 0, 0])
 title('Axial Graing','FontName', 'Times New Roman','FontSize',34,'fontWeight','bold');
 xlabel('Length (mm)','FontName', 'Times New Roman','FontSize',24,'fontWeight','bold')
@@ -123,20 +123,20 @@ for i=1:30
     Z(1, :) = -  Z(2, :);
     X = X(:,1:p);
     Y = Y(:,1:p);
-    Z = Z(:,1:p)*scl;
+    Z = Z(:,1:p)*scl-100;
     surf(X,Y,Z, 'FaceColor', [0,0,0],'EdgeColor',[0, 0, 0]);
 end
 camlight
 lighting gouraud
-title('Radial Graing','FontName','Times New Roman','FontSize',24,'fontWeight','bold');
+title('Axial Graing','FontName','Times New Roman','FontSize',24,'fontWeight','bold');
 xlabel('R(mm)','FontName','Times New Roman','FontSize',16,'fontWeight','bold','Rotation',90,'HorizontalAlignment','right')
 zlabel('L(cm)','FontName','Times New Roman','FontSize',16,'fontWeight','bold','HorizontalAlignment','right')
 
 % Saving results to file
 FID = fopen('AxialVals21.tex', 'w');
 fprintf(FID, '\\begin{table}[!htb]\n');
-fprintf(FID, '\\caption{Radial Grading Calculations Results}\n');
-fprintf(FID, '\\label{table:radialvals}\n');
+fprintf(FID, '\\caption{Axial Grading Calculations Results}\n');
+fprintf(FID, '\\label{table:axiallvals}\n');
 fprintf(FID, '\\begin{center}\n');
 fprintf(FID, '\\begin{tabular}{cc}\n');
 fprintf(FID, '\\toprule\n');
