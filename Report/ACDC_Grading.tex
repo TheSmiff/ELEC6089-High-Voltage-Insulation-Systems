@@ -5,6 +5,13 @@ Bushings are required to withstand Electrical, Mechanical and Thermal stresses a
 The design of the bushing is largely determined by the insulation material chosen and the resolution of these conflicting sources of stress.
 A good bushing design has insulation that can withstand the applied voltage and thermal characteristics appropriate for the current carried by the conductor \cite{harlow2004electric}.
 
+\begin{figure}[!h]
+   \centering
+   \includegraphics[width = 0.5\textwidth]{GenericBushing.pdf}
+   \caption{The Bushing Problem}
+   \label{figure:problem}
+\end{figure}
+
 The problem grading methods attempt to resolve is laid out in figure \ref{figure:problem}.
 The grounded transformer casing is shown in light grey which is perpendicular to the the bushing insulation shown in dark grey and the high voltage conductor in white.
 The top of the bushing is exposed to air, while the other side is exposed to transformer oil.
@@ -12,22 +19,21 @@ Conducting a numerical analysis or simulation would show that the conductor surf
 The bushing insulation is designed to withstand the high electric field between the conductor and the transformer casing, however at the points marked with crosses the interface between the solid insulation and the air/transformer oil would cause surface discharge leading to relatively low flashover voltages \cite{kuffel2000high}.
 It is therefore necessary to develop methods of reducing electric field stress to a more uniform distribution for both functional purposes and the economic use of space and materials \cite{james2008condition}.
 
-\begin{figure}[!h]
-   \centering
-   \includegraphics[width = 0.7\textwidth]{GenericBushing.pdf}
-   \caption{The Bushing Problem}
-   \label{figure:problem}
-\end{figure}
-
 \subsection{Low Voltage and DC Solutions}
 There are several methods that can be used dependant upon the application.
 Low voltage solutions include internal and external screening electrodes, while resistive stress control can be used for DC applications.
 %%starts here(PPLF)
 
-External screening electrodes are parts outside the conductor and are not electrically connected to the conductor. Some are intended to reduce the electric field strength around the bushing terminal, hence reducing the chance of corona or partial discharge and others are intended to reduce the potential gradient of insulator, hence reducing the chance of electrical breakdown. These screening electrodes come with various shapes according to the different designs. The main types of design take the shape of sphere, toroid or ring, these are shapes which prevent regions of intense electric field and help contain electric field as much as possible. The reduction in corona discharge not only reduces the power loss, it also suppresses the speed of ageing of insulator.
+\begin{figure}[!h]
+   \centering
+   \includegraphics[width = 0.7\textwidth]{Deflector.pdf}
+   \caption{Field distribution with deflector}
+   \label{figure:deflector}
+\end{figure}
 
-Internal screening electrodes are also used to 
-\inote{http://www.docstoc.com/docs/144150876/Gas-insulated-high-voltage-bushing-with-shield-electrode-embedded-in-an-annular-insulating-body}
+External screening electrodes are parts outside the conductor and are not electrically connected to the conductor. Some are intended to reduce the electric field strength around the bushing terminal, hence reducing the chance of corona or partial discharge and others are intended to reduce the potential gradient of insulator, hence reducing the chance of electrical breakdown. These screening electrodes come with various shapes according to the different designs. The main types of design take the shape of sphere, toroid or ring, these are shapes which prevent regions of intense electric field strength by varying the electric potential distribution and help contain electric field as much as possible. The reduction in corona discharge not only reduces the power loss, it also suppresses the ageing speed of the insulator.
+
+Internal screening electrodes are also used to control the electric potential distribution so the electric field strength is within acceptable level to avoid chance of breakdown. They are placed inside the insulator and usually in a pressurised gas. Some existing designs have the shape of internal electrode in a cone like shape and maybe referred as a deflector. An example of the field distribution around a deflector is demonstrated by \ref{figure:deflector}.
  
 \inote{TS - I can't find any good references for these types, only his notes and the hst.tu notes seem to cover it and then it is just lecture slides, not a credible resource like a book or something}
 
