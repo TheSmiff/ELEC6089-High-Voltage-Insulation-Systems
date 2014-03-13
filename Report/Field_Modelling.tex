@@ -29,41 +29,51 @@ A set of linear algebraic equations are formed by minimising the error between t
 
 \subsection{Equation Derivation}
 The electrostatics interface of the AC/DC COMSOL module uses the electric potential $V$ to calculate static electric fields.
-A Poisson type partial differential equation is derived using classical electrostatics and Gauss' Law.
+A Poisson type partial differential equation is derived using classical electrostatics and Gauss' Law \cite{hayt2012engineering}.
 
-The equation for electric flux density $\mathbf{D}$:
+By taking Gauss's Law:
+\begin{equation}
+\nabla.\mathbf{D} = \rho v
+\end{equation}
+the equation for electric flux density $\mathbf{D}$:
 \begin{equation}
 \mathbf{D} = \epsilon_0\epsilon_r\mathbf{E}
 \end{equation}
-where $\epsilon_0$ is the permittivity of free space, $\epsilon_r$ is the relative permittivity of the material and $\mathbf{E}$ is the electric field strength.
-This can be combined with the equation for a static electric field:
+this can be combined with the equation for a static electric field:
 \begin{equation}
 \mathbf{E} = -\nabla V
 \end{equation}
-
-Gauss' Law in conventional form:
+to give by substitution:
 \begin{equation}
-\nabla.\mathbf{E} = \rho/\epsilon_0
+\nabla.\mathbf{D} = \nabla.(\epsilon_0 \epsilon_r \mathbf{E}) = -\nabla.(\epsilon_0 \epsilon_r \nabla V) = \rho v
 \end{equation}
-
-The first two equations can be used to rewrite Gauss Law as a Poisson type partial differential equation:
+which is more usually written:
 \begin{equation}
--\nabla.(\epsilon_0\epsilon_r \nabla V) = \rho
+\nabla^{2}V = -\frac{\rho v}{\epsilon_0 \epsilon_r}
+\end{equation}
+where $\epsilon_0$ is the permittivity of free space, $\epsilon_r$ is the relative permittivity of the material, $\mathbf{E}$ is the electric field strength and $\rho v$ is the volume charge density.
+
+In the special case where there is zero volume charge density, that is $\rho v = 0$ then the equation simplifies to Laplace's Equation:
+\begin{equation}
+\nabla^{2}V = 0
 \end{equation}
 
 The models used in this paper are 2D axisymmetric, meaning that a 2D model is used to describe a 3D object that can be rotated $360^o$ about a central point $r=0$ to give a 3D geometry.
-In this case, Poissons equation can be rewritten in cylindrical coordinates for a 2D axisymmetric model:
+This assumes that not only is the geometry the same in the $\varphi$ direction, but also that the electric potential is constant.
+In this case, Poissons equation can be rewritten in cylindrical coordinates for a 2D axisymmetric model, it is multiplied by r to ensure there are no singularities at $r=0$ \cite{meshkatoddini2006study}.
 \begin{equation}
--\begin{bmatrix} 
+\begin{bmatrix} 
 \frac{\partial}{\partial r} \\
 \frac{\partial}{\partial z}
 \end{bmatrix}^T
-.(r\epsilon_0 \begin{bmatrix}
+.(r \begin{bmatrix}
 \frac{\partial V}{\partial r} \\
 \frac{\partial V}{\partial z}
 \end{bmatrix})
-= r\rho
+= -\frac{r\rho v}{\epsilon_0 \epsilon_r}
 \end{equation}
+
+\inote{Boundary Conditions}
 
 \subsection{Workflow}
 In order to simulate the electric field distribution within our bushing design, 2D axisymmetric models were created. The general workflow to achieve this is:
