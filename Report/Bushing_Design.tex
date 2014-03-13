@@ -1,3 +1,7 @@
+%  Bushing_Design.tex
+% !TeX spellcheck = en_GB
+% !TeX root = ReportMain.tex
+
 \section{Design Details}
 The reference model for this project is shown in figure \ref{figure:refproblem}. 
 The reference design is a paper impregnated with oil bushing with 21 aluminium foils of $100\mu m$.
@@ -123,19 +127,35 @@ Two Matlab scripts were developed for computation of radial and axial grading. I
 
 For current design with specified parameters, the script plots the calculated foil positions in a 3D graph shown in figure \ref{Figure:Both21plots}. Also the 2D plot of this design is shown in  figure \ref{Figure:21plot2}. This figure illustrates  the hyperbolic shape which was expected for radial grading.
 These figures allows a quick verification of the scripts accuracy before proceeding to simulation.
+%\begin{figure}[h!]
+% \centering
+%  \includegraphics[height = 6cm ]{../Matlab_Calculations/Matlab_David/Designeactualsize.eps} 
+%  	\label{Figure:21plot1}
+%  \caption{3D Representation of foil radial position and length}
+%  \label{Figure:Both21plots}
+%\end{figure}
+%\begin{figure}[h!]
+%  \centering
+%   \includegraphics[height = 5cm]{../Matlab_Calculations/Matlab_David/2DRadial.eps} 
+%   \caption{2D Representation of foil radial position and length}
+%  	\label{Figure:21plot2}    
+%\end{figure}
 \begin{figure}[h!]
- \centering
-  \includegraphics[height = 6cm ]{../Matlab_Calculations/Matlab_David/Designeactualsize.eps} 
-  	\label{Figure:21plot1}
-  \caption{3D Representation of foil radial position and length}
-  \label{Figure:Both21plots}
+\centering
+\begin{subfigure}[3D Representation of foil radial position and length]{
+\includegraphics[height = 4.1cm]{../Matlab_Calculations/Matlab_David/Designeactualsize.eps} 
+  	\label{Figure:21plot1}}
+\end{subfigure}
+\begin{subfigure}[2D Representation of foil radial position and length]{
+\includegraphics[height = 4.1cm]{../Matlab_Calculations/Matlab_David/2DRadial.eps}    
+ 	\label{Figure:21plot2}  }
+\end{subfigure}
+\caption{Matlab Generated Plots of Geometric Radial Design}
+ \label{Figure:Both21plots}
 \end{figure}
-\begin{figure}[h!]
-  \centering
-   \includegraphics[height = 5cm]{../Matlab_Calculations/Matlab_David/2DRadial.eps} 
-   \caption{2D Representation of foil radial position and length}
-  	\label{Figure:21plot2}    
-\end{figure}
+
+
+
 
 
 Table \ref{table:radialvals} shows the values obtained for radial grading.
