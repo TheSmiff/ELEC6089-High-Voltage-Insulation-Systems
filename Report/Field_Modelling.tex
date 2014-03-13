@@ -5,16 +5,65 @@
 \section{Modelling Results}
 The following simulations were completed using the COMSOL multiphysics software package.
 COMSOL is a professional finite element simulation package able to model a variety of physical features.
-The following models are created using the AC/DC module, which is used to simulate electric and magnetic fields \cite{ACDCCOMSOLMODULE}.
+The following models are created using the AC/DC module, which is used to simulate electric and magnetic fields \cite{ComsolACDC}.
 Specifically, the electrostatics interface is used. 
-This solves a charge conservation equation for a given voltage and spacial distribution of charge.
+This solves a charge conservation equation for a given voltage and spacial distribution of charge \cite{ComsolACDC}.
 
-The charge conservation equation is:
+\subsection{Finite Element Methods (FEM)}
+There are inherent difficulties in solving the partial differential equations that govern many practical engineering problems \cite{kuffel2000high}.
+Despite knowing the equations and appropriate boundary conditions that govern a problem, many are complicated by irregular geometries or other discontinuities.
+Numerical methods allow approximate solutions to be obtained for problems intractable by analytic methods \cite{meshkatoddini2006study}.
+In an analytic solution, the whole system is governed by a mathematical equation valid for the entire region of interest. 
+Although these differential equations are often mathematically compact, it is difficult to obtain an answer unless the system is unreasonably simplified \cite{meshkatoddini2006study}.
+In FEMs, the complex geometry is broken into a series of much smaller and simpler geometries \cite{kuffel2000high}.
+These geometries can be squares, rectangles or triangles in 2D or the 3D equivalent shapes. 
+These simpler shapes form interconnected subregions for which an approximate function, usually a high order polynomial, can be used to represent the actual function.
+If the complex is split into an adequate number of simple shapes, these approximate functions closely matches the exact solution \cite{meshkatoddini2006study}.
+
+By default COMSOL uses a triangular discretisation to split up a complex geometry in a process called meshing.
+This forms an unstructured grid of triangles, allowing the mapping of complex or curved geometries.
+Other numerical methods such as Finite Difference Methods require a structured grid, hence FEMs are more flexible with regards to geometry \cite{kuffel2000high}.
+Meshing requires an initial understanding of the expected outcomes of the problem, so that the mesh can be refined in areas of interest.
+Each triangular element is approximated by a linear interpolation of the potential at the vertices of the triangle.
+A set of linear algebraic equations are formed by minimising the error between the actual solution and a set of approximate linear trial functions \cite{meshkatoddini2006study}.
+
+\subsection{Equation Derivation}
+The electrostatics interface of the AC/DC COMSOL module uses the electric potential $V$ to calculate static electric fields.
+A Poisson type partial differential equation is derived using classical electrostatics and Gauss' Law.
+
+The equation for electric flux density $\mathbf{D}$:
 \begin{equation}
-E = -\nabla V
+\mathbf{D} = \epsilon_0\epsilon_r\mathbf{E}
+\end{equation}
+where $\epsilon_0$ is the permittivity of free space, $\epsilon_r$ is the relative permittivity of the material and $\mathbf{E}$ is the electric field strength.
+This can be combined with the equation for a static electric field:
+\begin{equation}
+\mathbf{E} = -\nabla V
 \end{equation}
 
-The equations are derived from Maxwell's equations 
+Gauss' Law in conventional form:
+\begin{equation}
+\nabla.\mathbf{E} = \rho/\epsilon_0
+\end{equation}
+
+The first two equations can be used to rewrite Gauss Law as a Poisson type partial differential equation:
+\begin{equation}
+-\nabla.(\epsilon_0\epsilon_r \nabla V) = \rho
+\end{equation}
+
+The models used in this paper are 2D axisymmetric, meaning that a 2D model is used to describe a 3D object that can be rotated $360^o$ about a central point $r=0$ to give a 3D geometry.
+In this case, Poissons equation can be rewritten in cylindrical coordinates for a 2D axisymmetric model:
+\begin{equation}
+-\begin{bmatrix} 
+\frac{\partial}{\partial r} \\
+\frac{\partial}{\partial z}
+\end{bmatrix}^T
+.(r\epsilon_0 \begin{bmatrix}
+\frac{\partial V}{\partial r} \\
+\frac{\partial V}{\partial z}
+\end{bmatrix})
+= r\rho
+\end{equation}
 
 \subsection{Workflow}
 In order to simulate the electric field distribution within our bushing design, 2D axisymmetric models were created. The general workflow to achieve this is:
@@ -59,7 +108,23 @@ Therefore all further models will adhere to this geometry, ensuring that the are
 \dots
 
 \subsection{No Grading}
-\dots
+\begin{figure}[!htb]
+  \centering
+  \subfigure[Geometry]{
+    \includegraphics[height = 15cm]{./Figures/Simulations/Edited_No_Grading_Final/Geometry.png} 
+	\label{Figure:No_Foil_Large_Geom}
+  }
+  \subfigure[Meshing]{
+    \includegraphics[height = 15cm]{./Figures/Simulations/Edited_No_Grading_Final/Meshing.png} 
+	\label{Figure:No_Foil_Large_Mesh}
+  }
+\subfigure[Normal Electric Field (V/m)]{
+    \includegraphics[height = 15cm]{./Figures/Simulations/Edited_No_Grading_Final/E_Field_Norm.png} 
+	\label{Figure:No_Foil_Large_Field}
+  }
+\caption{Baseline Model Simulation - X and Y axis are dimensions in mm}
+  \label{Figure:No_Foil_Large}
+\end{figure}
 
 \subsection{Radial Grading}
 \dots
