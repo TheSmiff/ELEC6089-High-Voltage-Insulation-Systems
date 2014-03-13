@@ -1,6 +1,33 @@
+%  Field_Modelling.tex
+% !TeX spellcheck = en_GB
+% !TeX root = ReportMain.tex
+
 \section{Modelling Results}
 The following simulations were completed using the COMSOL multiphysics software package.
-COMSOL uses finite element methods to solve the the laplacian electric field partial differential equation.
+COMSOL is a professional finite element simulation package able to model a variety of physical features.
+The following models are created using the AC/DC module, which is used to simulate electric and magnetic fields \cite{}.
+Specifically, the electrostatics interface is used. 
+This solves a charge conservation equation for a given voltage and spacial distribution of charge.
+
+The charge conservation equation is:
+\begin{equation}
+E = -\grad V
+\end{equation}
+
+\subsection{Workflow}
+In order to simulate the electric field distribution within our bushing design, 2D axisymmetric models were created. The general workflow to achieve this is:
+\begin{enumerate}
+\item Build a geometry representing the physical structure of the bushing.
+\item Assign each geometric domain a material. The material selection determines the relative permittivity $\epsilon_r$ of each domain.
+\item Define the charge conservation equation and all initial conditions. This includes setting which boundaries are at ground and conductor potential and setting boundary conditions.
+\item Design a mesh. The geometry is split into smaller elements in order to compute the charge conservation equation. For designs with foils, special meshing parameters are required to speed up the process.
+\item Carry out the study. This stage is the actual computation of the solution.
+\item Post-processing - Display the results in a number of formats including 3D, 2D and 1D plots, or export the data for post-processing in Matlab.
+\end{enumerate}
+
+
+\subsection{Baseline Model}
+
 
 \subsection{No Grading}
 As a baseline for comparison, a bushing with no foils has been constructed and simulated.
