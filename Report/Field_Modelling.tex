@@ -1,33 +1,174 @@
+%  Field_Modelling.tex
+% !TeX spellcheck = en_GB
+% !TeX root = ReportMain.tex
+
 \section{Modelling Results}
 The following simulations were completed using the COMSOL multiphysics software package.
-COMSOL uses finite element methods to solve the the laplacian electric field partial differential equation.
+COMSOL is a professional finite element simulation package able to model a variety of physical features.
+The following models are created using the AC/DC module, which is used to simulate electric and magnetic fields \cite{ComsolACDC}.
+Specifically, the electrostatics interface is used. 
+This solves a charge conservation equation for a given voltage and spacial distribution of charge \cite{ComsolACDC}.
+
+\subsection{Finite Element Methods (FEM)}
+There are inherent difficulties in solving the partial differential equations that govern many practical engineering problems \cite{kuffel2000high}.
+Despite knowing the equations and appropriate boundary conditions that govern a problem, many are complicated by irregular geometries or other discontinuities.
+Numerical methods allow approximate solutions to be obtained for problems intractable by analytic methods \cite{meshkatoddini2006study}.
+In an analytic solution, the whole system is governed by a mathematical equation valid for the entire region of interest. 
+Although these differential equations are often mathematically compact, it is difficult to obtain an answer unless the system is unreasonably simplified \cite{meshkatoddini2006study}.
+In FEMs, the complex geometry is broken into a series of much smaller and simpler geometries \cite{kuffel2000high}.
+These geometries can be squares, rectangles or triangles in 2D or the 3D equivalent shapes. 
+These simpler shapes form interconnected subregions for which an approximate function, usually a high order polynomial, can be used to represent the actual function.
+If the complex is split into an adequate number of simple shapes, these approximate functions closely matches the exact solution \cite{meshkatoddini2006study}.
+
+By default COMSOL uses a triangular discretisation to split up a complex geometry in a process called meshing.
+This forms an unstructured grid of triangles, allowing the mapping of complex or curved geometries.
+Other numerical methods such as Finite Difference Methods require a structured grid, hence FEMs are more flexible with regards to geometry \cite{kuffel2000high}.
+Meshing requires an initial understanding of the expected outcomes of the problem, so that the mesh can be refined in areas of interest.
+Each triangular element is approximated by a linear interpolation of the potential at the vertices of the triangle.
+A set of linear algebraic equations are formed by minimising the error between the actual solution and a set of approximate linear trial functions \cite{meshkatoddini2006study}.
+
+\subsection{Equation Derivation}
+The electrostatics interface of the AC/DC COMSOL module uses the electric potential $V$ to calculate static electric fields.
+A Poisson type partial differential equation is derived using classical electrostatics and Gauss' Law \cite{hayt2012engineering}.
+
+By taking Gauss's Law:
+\begin{equation}
+\nabla.\mathbf{D} = \rho v
+\end{equation}
+the equation for electric flux density $\mathbf{D}$:
+\begin{equation}
+\mathbf{D} = \epsilon_0\epsilon_r\mathbf{E}
+\end{equation}
+this can be combined with the equation for a static electric field:
+\begin{equation}
+\mathbf{E} = -\nabla V
+\end{equation}
+to give by substitution:
+\begin{equation}
+\nabla.\mathbf{D} = \nabla.(\epsilon_0 \epsilon_r \mathbf{E}) = -\nabla.(\epsilon_0 \epsilon_r \nabla V) = \rho v
+\end{equation}
+which is more usually written:
+\begin{equation}
+\nabla^{2}V = -\frac{\rho v}{\epsilon_0 \epsilon_r}
+\end{equation}
+where $\epsilon_0$ is the permittivity of free space, $\epsilon_r$ is the relative permittivity of the material, $\mathbf{E}$ is the electric field strength and $\rho v$ is the volume charge density.
+
+In the special case where there is zero volume charge density, that is $\rho v = 0$ then the equation simplifies to Laplace's Equation:
+\begin{equation}
+\nabla^{2}V = 0
+\end{equation}
+
+The models used in this paper are 2D axisymmetric, meaning that a 2D model is used to describe a 3D object that can be rotated $360^o$ about a central point $r=0$ to give a 3D geometry.
+This assumes that not only is the geometry the same in the $\varphi$ direction, but also that the electric potential is constant.
+In this case, Poissons equation can be rewritten in cylindrical coordinates for a 2D axisymmetric model, it is multiplied by r to ensure there are no singularities at $r=0$ \cite{meshkatoddini2006study}.
+\begin{equation}
+\begin{bmatrix} 
+\frac{\partial}{\partial r} \\
+\frac{\partial}{\partial z}
+\end{bmatrix}^T
+.(r \begin{bmatrix}
+\frac{\partial V}{\partial r} \\
+\frac{\partial V}{\partial z}
+\end{bmatrix})
+= -\frac{r\rho v}{\epsilon_0 \epsilon_r}
+\end{equation}
+
+\inote{Boundary Conditions}
+
+\subsection{Workflow}
+In order to simulate the electric field distribution within our bushing design, 2D axisymmetric models were created. The general workflow to achieve this is:
+\begin{enumerate}
+\item Build a geometry representing the physical structure of the bushing.
+\item Assign each geometric domain a material. The material selection determines the relative permittivity $\epsilon_r$ of each domain.
+\item Define the charge conservation equation and all initial conditions. This includes setting which boundaries are at ground and conductor potential and setting boundary conditions.
+\item Design a mesh. The geometry is split into smaller elements in order to compute the charge conservation equation. For designs with foils, special meshing parameters are required to speed up the process.
+\item Carry out the study. This stage is the actual computation of the solution.
+\item Post-processing - Display the results in a number of formats including 3D, 2D and 1D plots, or export the data for post-processing in Matlab.
+\end{enumerate}
+
+
+\subsection{Baseline Model}
+In order to minimise the computation time required for each model, it was necessary to determine the areas of interest in the model.
+A bushing geometry was built with no foils inserted, a high quality mesh was produced and the system was solved to find the electric field distribution throughout the bushing and the surrounding area.
+\begin{figure}[!htb]
+  \centering
+  \subfigure[Geometry]{
+    \includegraphics[height = 10cm]{./Figures/Simulations/Edited_No_Foils_Large/Geometry.png} 
+	\label{Figure:No_Foil_Large_Geom}
+  }
+  \subfigure[Extra Fine Mesh]{
+    \includegraphics[height = 10cm]{./Figures/Simulations/Edited_No_Foils_Large/Meshing.png} 
+	\label{Figure:No_Foil_Large_Mesh}
+  }
+\subfigure[Normal Electric Field (V/m)]{
+    \includegraphics[height = 10cm]{./Figures/Simulations/Edited_No_Foils_Large/Norm_E_Field.png} 
+	\label{Figure:No_Foil_Large_Field}
+  }
+\caption{Baseline Model Simulation - X and Y axis are dimensions in mm}
+  \label{Figure:No_Foil_Large}
+\end{figure}
+
+The model is made up with a very large geometry. 
+The air and oil extends radially 2m from the end of the bushing and 1m in the axial direction.
+This is to understand the anticipated area of interest in the model.
+By considering figure \ref{Figure:No_Foil_Large_Field} it is clear that there is very little happening further than 500mm radially from the bushing surface and there is very little of interest further than 200mm in the radial direction.
+Therefore all further models will adhere to this geometry, ensuring that the area of interest is captured, while decreasing simulation times to a minimum.
+
+\subsection{No Foils}
+\dots
 
 \subsection{No Grading}
-As a baseline for comparison, a bushing with no foils has been constructed and simulated.
-The geometry of the model was built as in figure \ref{figure:Geom:Nograde}.
-The system is an axialsymmetric 2D model, which takes the central vertical point $r=0$ as the centre of a cylinder.
-\begin{figure}[!h]
-   \centering
-   \includegraphics[width = 0.8\textwidth]{NoGradingBlock.pdf}
-   \caption{COMSOL Geometry Annotated with Materials - No Grading}
-   \label{figure:Geom:Nograde}
+\begin{figure}[!htb]
+  \centering
+  \subfigure[Geometry]{
+    \includegraphics[height = 15cm]{./Figures/Simulations/Edited_No_Grading_Final/Geometry.png} 
+	\label{Figure:No_Foil_Large_Geom}
+  }
+  \subfigure[Meshing]{
+    \includegraphics[height = 15cm]{./Figures/Simulations/Edited_No_Grading_Final/Meshing.png} 
+	\label{Figure:No_Foil_Large_Mesh}
+  }
+\subfigure[Normal Electric Field (V/m)]{
+    \includegraphics[height = 15cm]{./Figures/Simulations/Edited_No_Grading_Final/E_Field_Norm.png} 
+	\label{Figure:No_Foil_Large_Field}
+  }
+\caption{Baseline Model Simulation - X and Y axis are dimensions in mm}
+  \label{Figure:No_Foil_Large}
 \end{figure}
 
-Once the geometry of the model is defined, a finite element mesh can be created as shown in figure \ref{figure:Mesh:Nograde}.
-This model is fairly simple, hence a very fine graded mesh was used improving the accuracy of results.
-\begin{figure}[!h]
-   \centering
-   \includegraphics[width = 0.8\textwidth]{NoGradingMesh.pdf}
-   \caption{COMSOL Mesh - No Grading}
-   \label{figure:Mesh:Nograde}
-\end{figure}
+\subsection{Radial Grading}
+\dots
 
-The next stage is to define the relative permittivity of each of the materials used for each sub section of the geometry.
-The initial conditions must then be set, with the conductor set to 275kV, and the transformer wall and all outer boundaries earthed.
-All other boundaries are assumed to be continuity boundaries.
+\subsection{Axial Grading}
+\dots
+ 
 
-The model can then be solved to give the electric field distribution
-\inote{TS - Report done up to here 03/03/2014}
+%\subsection{No Grading}
+%As a baseline for comparison, a bushing with no foils has been constructed and simulated.
+%The geometry of the model was built as in figure \ref{figure:Geom:Nograde}.
+%The system is an axialsymmetric 2D model, which takes the central vertical point $r=0$ as the centre of a cylinder.
+%\begin{figure}[!h]
+%   \centering
+%   \includegraphics[width = 0.8\textwidth]{NoGradingBlock.pdf}
+%   \caption{COMSOL Geometry Annotated with Materials - No Grading}
+%   \label{figure:Geom:Nograde}
+%\end{figure}
+%
+%Once the geometry of the model is defined, a finite element mesh can be created as shown in figure \ref{figure:Mesh:Nograde}.
+%This model is fairly simple, hence a very fine graded mesh was used improving the accuracy of results.
+%\begin{figure}[!h]
+%   \centering
+%   \includegraphics[width = 0.8\textwidth]{NoGradingMesh.pdf}
+%   \caption{COMSOL Mesh - No Grading}
+%   \label{figure:Mesh:Nograde}
+%\end{figure}
+%
+%The next stage is to define the relative permittivity of each of the materials used for each sub section of the geometry.
+%The initial conditions must then be set, with the conductor set to 275kV, and the transformer wall and all outer boundaries earthed.
+%All other boundaries are assumed to be continuity boundaries.
+%
+%The model can then be solved to give the electric field distribution
+%\inote{TS - Report done up to here 03/03/2014}
 .
 %\begin{figure}[!h]
 %   \centering
