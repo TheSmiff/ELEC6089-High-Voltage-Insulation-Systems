@@ -1,8 +1,11 @@
-clc
-close all
-clear all
-%%
-% Declareing Given Variables 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ELEC6089 High Volatage Insulation Bushing Design                        
+% Axial grading calculation                                              
+% Author - David Mahmoodi                                                 
+% Date - 14/02/2014  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+clc; close all; clear all 
+%% Declareing Given Variables 
 Voltage = 275000;         %Applied voltage (volt)
 Inner_diameter = 100;     %mm
 Outer_diameter = 300;     %mm
@@ -11,28 +14,19 @@ N = 21;
 Foil_Thickness = 0.1;     %mm
 First_Gap = 2;            %mm
 Last_Gap  = 2;            %mm
-
 E_boundary_surface_Air = 300;   %volt/mm
 E_boundary_surface_Oil = 3*300; %volt/mm
-
-%%
-% Defining new variables
+%% Defining new variables
 Del_Voltage = Voltage/N-1; %Voltage between each foil
 b_Air = Del_Voltage/E_boundary_surface_Air;
 b_Oil = Del_Voltage/E_boundary_surface_Oil;
-L_Air =  b_Air * (N-1); 
-L_Oil =  b_Oil * (N-1);
-
-% Del_Radius = ((Outer_diameter- Inner_diameter)-2*(First_Gap+Last_Gap))/(2*(N-1)); % Spacing between each foil
 %Initialise vectors (22 for 3D plotting)
 L = zeros(1,N+1); 
 L_Air = zeros(1,N+1);
 L_Oil = zeros(1,N+1); 
 Radius = zeros(1,N+1);
 R_parameter=1.007; % Parameter for adjesting assumption value of r0
-
-%%
-% Calculation
+%% Calculation
 L(1)=First_foil_length; %The first foil is 5000mm and connected to the conductor, no capacitance between conductor and this foil
 r0 = Inner_diameter/2 ; %Radius of the conductor
 Radius(1)= Inner_diameter/2  + First_Gap; % Radial position of first foil = 52mm
@@ -44,24 +38,19 @@ for i=2:N
     L_Oil(i)=L_Oil(i-1)- b_Oil;
     L(i)= L_Air(i)+L_Oil(i);
 end
-
 % Refer to Section 2.2 for an explanation of this assumption
 Radius(2)=  Radius(1)* exp( (L(2)/L(1)) * log(Radius(1)/(r0-R_parameter)));
-
 %Follow the iterative formula
 for i=3:N     
     Radius(i)= Radius(i-1)* exp( (L(i)/L(i-1)) * log(Radius(i-1)/Radius(i-2)));
 end
-
 %For plotting - add the outer shell
 L(N+1)=L(N)- .5*L(N);
 Radius(N+1)=Radius(N)+ Last_Gap;
 
-%%
-% Ploting
+%% Ploting
 x=zeros(1,2*(N+1));
-y=x;
-j=1;
+y=x; j=1;
 for i=1:2:2*(N+1)
     x(i)=L_Air(j);
     x(i+1)=-L_Oil(j);
@@ -70,13 +59,11 @@ for i=1:2:2*(N+1)
     j=j+1;
 end
 y2=-y;
-
 % 2D Plot
 figure
 axes('FontSize',16,'fontWeight','bold')
 rect_H = rectangle('Position', [-1.1.*x(1),- r0, 2.2*x(1), 2*r0]); 
 set(rect_H, 'FaceColor', 'r') 
-
 for i=1:2:2*(N)
     hold on
     line(-x(i:i+1), -y(i:i+1), 'LineWidth',2)
@@ -91,7 +78,6 @@ title('Axial Graing','FontName', 'Times New Roman','FontSize',34,'fontWeight','b
 xlabel('Length (mm)','FontName', 'Times New Roman','FontSize',24,'fontWeight','bold')
 ylabel('Radius (mm)','FontName', 'Times New Roman','FontSize',24,'fontWeight','bold')
 xlim([x(2) x(1)]);ylim([y2(end)-10 y(end)+10])
-
 % 3D Plot
 K=50; scl=.1; % Z direction scalling value for plotting
 p= 6*N/3+1; %adjusting the Cut in the 3D shap
@@ -131,24 +117,25 @@ lighting gouraud
 title('Axial Graing','FontName','Times New Roman','FontSize',24,'fontWeight','bold');
 xlabel('R(mm)','FontName','Times New Roman','FontSize',16,'fontWeight','bold','Rotation',90,'HorizontalAlignment','right')
 zlabel('L(cm)','FontName','Times New Roman','FontSize',16,'fontWeight','bold','HorizontalAlignment','right')
-
-% Saving results to file
+%% Saving results to file
 FID = fopen('AxialVals21.tex', 'w');
 fprintf(FID, '\\begin{table}[!htb]\n');
-fprintf(FID, '\\caption{Axial Grading Calculations Results}\n');
-fprintf(FID, '\\label{table:axiallvals}\n');
+fprintf(FID, '\\label{table:radialvals}\n');
 fprintf(FID, '\\begin{center}\n');
-fprintf(FID, '\\begin{tabular}{cc}\n');
+fprintf(FID, '\\begin{tabular}{|c||cc|c||cc|}\n');
 fprintf(FID, '\\toprule\n');
-fprintf(FID, '\\textbf{Radius(mm)} & \\textbf{Length(mm)} \\\\ \\toprule\n');
-for i=1:N+1
-    fprintf(FID, '%4.2f & %4.2f \\\\\n', Radius(i), L(i));
+fprintf(FID, '\\textbf{Foil N.O} & \\textbf{Radius(mm)} & \\textbf{Length(mm)} & \\textbf{Foil N.O} & \\textbf{Radius(mm)} & \\textbf{Length(mm)}\\\\ \\toprule\n');
+Max = floor((N+1)/2); L(N+1)= 00;
+for i=1:Max
+     fprintf(FID, '%.f & %4.2f & %4.2f & %.f & %4.2f & %4.2f \\\\\n',i,Radius(i),L(i),(i+Max),Radius(i+Max),L(i+Max));
 end 
 fprintf(FID, '\\bottomrule\n');
 fprintf(FID, '\\end{tabular}\n');
 fprintf(FID, '\\end{center}\n');
+fprintf(FID, '\\caption{Radial Grading Calculations Results}\n');
 fprintf(FID, '\\end{table}\n');
 fclose(FID);
+
 
 
 
