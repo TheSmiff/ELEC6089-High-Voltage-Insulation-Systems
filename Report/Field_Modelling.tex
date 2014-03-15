@@ -27,7 +27,7 @@ Meshing requires an initial understanding of the expected outcomes of the proble
 Each triangular element is approximated by a linear interpolation of the potential at the vertices of the triangle.
 A set of linear algebraic equations are formed by minimising the error between the actual solution and a set of approximate linear trial functions \cite{meshkatoddini2006study}.
 
-\subsection{Equation Derivation}
+\subsection{Equation Derivation and Boundary Conditions}
 The electrostatics interface of the AC/DC COMSOL module uses the electric potential $V$ to calculate static electric fields.
 A Poisson type partial differential equation is derived using classical electrostatics and Gauss' Law \cite{hayt2012engineering}.
 
@@ -73,7 +73,12 @@ In this case, Poissons equation can be rewritten in cylindrical coordinates for 
 = -\frac{r\rho v}{\epsilon_0 \epsilon_r}
 \end{equation}
 
-\inote{Boundary Conditions}
+The boundary conditions are defined as the following:
+\begin{enumerate}
+\item All boundaries with the conductor and with foil 0 are set to $V = V_0 = 275kV$
+\item All boundaries with the transformer wall and with the outermost foil are set to $V = 0$
+\item The interface between two insulator sub-domains is defined by $n.(\mathbf{D}_{1} -\mathbf{D}_{2}) = \rho v$ and $n\times(\mathbf{E}_{1} -\mathbf{E}_{2}) = 0$. These equations specify that the normal component of the electric flux density is discontinuous at the interface between two dielectrics, and that the tangential component of the electric field is continuous across the dielectric interface. $n$ is the normal outward vector pointing from dielectric 2 to dielectric 1.
+\end{enumerate}
 
 \subsection{Workflow}
 In order to simulate the electric field distribution within our bushing design, 2D axisymmetric models were created. The general workflow to achieve this is:
