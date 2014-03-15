@@ -27,7 +27,7 @@ In the reference design the following initial information is given.
 \begin{center}
 \begin{tabular}{cc}
 \toprule
-\textbf{Initial Information} & \textbf{Value)} \\ \toprule
+\textbf{Initial Information} & \textbf{Value} \\ \toprule
 Conductor Diameter (ID) & $100mm$ \\
 First Foil Length $L_1$ & $5000mm$ \\
 First Foil Radius $r_1$&$52mm$ \\
@@ -41,11 +41,11 @@ Outer Foil Radius $r_21$ & $148mm$\\
 This information intuitively fits radial grading best, since there is no requirement to assume the length of the outermost foil.
 However, there is a discrepancy between the standard literature problem and the reference design.
 The first foil is connected to the high voltage conductor, and the last foil is connected to the earthed flange.
-It is understood that this is to eliminate the electric field on the boundary interface as far as possible on both sides of the bushing, so that the voltage drop occurs exclusively inside the bushing insulation.
+This is to eliminate the electric field on the boundary interface as far as possible on both sides of the bushing, so that the voltage drop occurs exclusively inside the bushing insulation.
 
 This has an impact on the calculations described in section \ref{ss:CapacitiveGrading}.
-Since the innermost foil is at the same voltage as the conductor, there is no capacitance between them, as shown in figure \ref{figure:required assumptions}, hence the first foil shown on the diagram is not the first index for the iterative calculation.
-The derivation of the iterative equations assumes a capacitance between each foil and previous foil (or conductor) ($r_n,r_{n-1}$). 
+Since the innermost foil is at the same voltage as the conductor, there is no capacitance between them, as shown in figure \ref{figure:required assumptions}, hence the first foil shown on the diagram is not index 0 for the iterative calculation.
+The derivation of the iterative equations assumes a capacitance between the current foil and the previous foil (or conductor) ($r_n,r_{n-1}$). 
 The first foil in figure \ref{figure:refproblem} is therefore indexed as 0 and not 1.
 
 \begin{figure}[!h]
@@ -55,9 +55,9 @@ The first foil in figure \ref{figure:refproblem} is therefore indexed as 0 and n
    \label{figure:required assumptions}
 \end{figure}
 
-This means that there is not sufficient initial information to proceed with ether radial or axial grading , since the first non-connected foil length $L_1$ is not given.
+This means that there is not sufficient initial information to proceed with ether radial or axial grading, since the first non-connected foil length $L_1$ is not given.
 The iterative equations require the first non-connected foil length $L_1$ for radial ( $L_1$ \& $r_1$ for axial) grading to be known as shown in equation \ref{eq:ref0forl1} and \ref{eq:ref0}. 
-In axial grading all radii variables are known due to the even spacings under radial grading. Also in axial grading the length of foils are known due to known parameters $b_{ln}$ and $b_{rn}$.
+In axial grading all radii variables are known due to the even spacings under radial grading. In the axial grading case, the length of foils are known due to known parameters $b_{ln}$ and $b_{rn}$.
 
 \begin{equation}
    \label{eq:ref0forl1}
@@ -91,7 +91,7 @@ Equations \ref{eq:ref0wrongfilled} and \ref{eq:ref0wrongfilledA} show a wrongly 
 
 In order to proceed with the calculations there must be an assumption of the length of the first unconnected foil.
 A reasonable assumption is that this follows the hyperbolic shape of the other foils in radial grading and also in axial grading  it is assumed to be the first unconnected foil. These assumptions in both cases help to evenly distribute the electric field radially or axially accordingly.
-To achieve this design mathematically, two assumptions are made.
+To achieve this design mathematically, the following assumptions are made:
 \begin{enumerate}
 \item Foil $0$ is not connected to the HV conductor for both cases.
 \item The conductor surface is spaced a distance of $S_n$ from foil $0$ in \textbf{radial grading}.
@@ -119,10 +119,12 @@ The remainder of foil parameters can then be calculated using the iterative form
 
 
 \section{Matlab Calculations}
-Two Matlab scripts were developed for computation of radial and axial grading. In each case the required parameters could be entered to the program by user. The final results are displayed on both 2 and 3D figures to the user. These scripts were built to be easily customisable for any number of foils and any initial values, to cater for the calculation of improved designs. They also automatically outputs data in a form for direct input into the COMSOL model, and auto-updates a \LaTeX  file containing the data to form results table.
+Two Matlab scripts were developed for computation of radial and axial grading. 
+These scripts were built to be easily customisable for any number of foils and any initial values, to cater for the calculation of improved designs. 
+They also automatically outputs data in a form for direct input into the COMSOL model, auto-updates a \LaTeX  file containing the data to form results table and displays the results in both 2D and 3D plots for quick design verification.
 
 \subsection{Matlab Radial Grading}
- In case of radial grading  the code takes a required number of foils, and the inner and outer dimensions of the bushing, to calculate the radial location and length of each foil using the radial grading method as described in section \ref{ss:CapacitiveGrading} and also using the assumptions made for redial grading design on \ref{Section:Design Issues}. 
+In case of radial grading  the code takes a required number of foils, and the inner and outer dimensions of the bushing, to calculate the radial location and length of each foil using the radial grading method as described in section \ref{ss:CapacitiveGrading} and also using the assumptions made for redial grading design on \ref{Section:Design Issues}. 
 
 
 For current design with specified parameters, the script plots the calculated foil positions in a 3D graph shown in figure \ref{Figure:Both21plots}. Also the 2D plot of this design is shown in  figure \ref{Figure:21plot2}. This figure illustrates  the hyperbolic shape which was expected for radial grading.
@@ -180,30 +182,53 @@ Aluminium & $10^8$\\
 \end{table}
 
 \subsection{Matlab Axial Grading}
-In this case the code also takes same parameters as input. However, as it is explain in reference \cite{David1}  the constant difference of foil length in oil and air side of bushing ($b_{air}$, $b_{oil}$ ) is calculated by considering the value of flash over distance $L_{air}$ and $L_{oil}$. These values are calculated by using the fact that average electric field strength along the boundary surface in oil side should be 3 to 4 Kv/cm and nearly 9 to 12 Kv/cm  in air side of the bushing. These values are calculated using equation \ref{eq:bes}. 
+The axial grading script is similar to the radial grading script in design. 
+However, as it is explain in reference \cite{David1}, the constant difference of foil length in oil and air side of bushing ($b_{air}$, $b_{oil}$) is calculated by considering the value of flash over distance $L_{air}$ and $L_{oil}$. 
+These values are calculated by using the fact that average electric field strength along the boundary surface in oil side should be 3 to 4 Kv/cm and nearly 9 to 12 Kv/cm  in air side of the bushing. 
+These values are calculated using equation \ref{eq:bes}. 
  
 \begin{equation}
 \label{eq:bes}
- b_{air} = \displaystyle \frac{  \Delta V}{900 \;^v/_{mm}} \qquad ,\qquad
+ b_{air} = \displaystyle \frac{  \Delta V}{900 \;^v/_{mm}} \qquad \qquad
  b_{oil} = \displaystyle \frac{  \Delta V}{300 \;^v/_{mm}}
 \end{equation}
 
-Additionally, as it is shown in equation \ref{eq:ref02}, in calculation of $r_2$ a parameter called $R_{parameter}$ is subtracted form $r_0$  to change the position of assumed-conductor-surface. The radius of the last foil ($r_{21}$) could be correctly adjusted by making changes in this parameter and executing the script. $R_{parameter}=1.007mm$ was the best value found for this design.
+Additionally, as shown in equation \ref{eq:ref02}, in the calculation of $r_2$ a parameter called $R_{parameter}$ is subtracted form $r_0$  to change the position of assumed conductor surface. 
+The radius of the last foil ($r_{21}$) could be correctly adjusted by making changes in this parameter and executing the script. $R_{parameter}=1.007mm$ was the best value found for this design.
 \begin{equation}
   \label{eq:ref02}
   \displaystyle r_2= \displaystyle  r_{1} \displaystyle \exp\big( \displaystyle  \frac{L_2}{L_{1}}ln(\displaystyle \frac{r_1}{r_0-R_{parameter}})\big) 
 \end{equation}
-This script plots 2 and 3D plots of axial grading to the user. Figure \ref{Figure:21plot221} illustrates the 3D configuration of  design's axial bushing.  The 2D plot of this design, which is shown in figure \ref{Figure:21plot22}, shows linear reduction on file length on both side. It also illustrates that $b_{air}>b_{oil} $ as it was expected.  Finally the calculated values for axial grading, using this design method, is shown in \ref{table:axiallvals}. These values along the given parameters on table \ref{table:perm} was used for COMDSOL seulation of the axial grading.
+
+The script plots 2D and 3D plots of axial grading to the user. Figure \ref{Figure:21plot221} illustrates the 3D configuration of design's axial bushing.  
+The 2D plot of this design, which is shown in figure \ref{Figure:21plot22}, shows linear reduction on foil length on both sides. 
+It also illustrates that $b_{air}>b_{oil} $ as it was expected due to the relative permittivity of each material.  
+Finally the calculated values for axial grading, using this design method, are shown in \ref{table:axiallvals}. 
+These values along the given parameters in table \ref{table:perm} were used for COMSOL simulations of this axial grading design.
+%\begin{figure}[h!]
+%  \centering
+%   \includegraphics[height = 8cm]{../Matlab_Calculations/Matlab_David/Axial3D.eps} 
+%   \caption{2D Representation of foil radial position and length}
+%  	\label{Figure:21plot221}    
+%\end{figure}
+%\begin{figure}[h!]
+%  \centering
+%   \includegraphics[height = 5cm]{../Matlab_Calculations/Matlab_David/Axsial2D.eps} 
+%   \caption{2D Representation of foil radial position and length}
+%  	\label{Figure:21plot22}    
+%\end{figure}
+%\input{../Matlab_Calculations/Matlab_David/AxialVals21}
+
 \begin{figure}[h!]
-  \centering
-   \includegraphics[height = 8cm]{../Matlab_Calculations/Matlab_David/Axial3D.eps} 
-   \caption{2D Representation of foil radial position and length}
-  	\label{Figure:21plot221}    
+\centering
+\begin{subfigure}[3D Representation of foil radial position and length]{
+\includegraphics[height = 3.9cm]{../Matlab_Calculations/Matlab_David/Axial3D.eps} 
+  	\label{Figure:21plot221}}
+\end{subfigure}
+\begin{subfigure}[2D Representation of foil radial position and length]{
+\includegraphics[height = 3.9cm]{../Matlab_Calculations/Matlab_David/Axsial2D.eps}    
+ 	\label{Figure:21plot22}  }
+\end{subfigure}
+\caption{Matlab Generated Plots of Geometric Axial Design}
+ \label{Figure:Both22plots}
 \end{figure}
-\begin{figure}[h!]
-  \centering
-   \includegraphics[height = 5cm]{../Matlab_Calculations/Matlab_David/Axsial2D.eps} 
-   \caption{2D Representation of foil radial position and length}
-  	\label{Figure:21plot22}    
-\end{figure}
-\input{../Matlab_Calculations/Matlab_David/AxialVals21}
