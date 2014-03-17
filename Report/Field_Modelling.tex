@@ -98,22 +98,22 @@ A bushing geometry was built with no foils inserted, a high quality mesh was pro
 \begin{figure}[!h]
   \centering
     \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Foils_Large/Geometry.eps} 
-	\label{Figure:No_Foil_Large_Geom}
 \caption{Baseline Model Geometry}
+\label{Figure:No_Foil_Large_Geom}
 \end{figure}
 
 \begin{figure}[!h]
   \centering
     \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Foils_Large/Meshing.eps} 
-	\label{Figure:No_Foil_Large_Mesh}
 \caption{Extra Fine Meshing for Baseline Model}
+\label{Figure:No_Foil_Large_Mesh}
 \end{figure}
 
 \begin{figure}[!h]
   \centering
     \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Foils_Large/Norm_E_Field.eps} 
-	\label{Figure:No_Foil_Large_Field}
 \caption{Normal Electric Field (V/m) for Baseline Model}
+\label{Figure:No_Foil_Large_Field}
 \end{figure}
 
 The model is made up with a very large geometry. 
@@ -123,37 +123,47 @@ By considering figure \ref{Figure:No_Foil_Large_Field} it is clear that there is
 Therefore all further models will adhere to this geometry, ensuring that the area of interest is captured, while decreasing simulation times to a minimum.
 
 \subsection{No Foils}
-In order to illustrate the requirement for capacitive grading within AC bushings, a simulation of a bushing with no grading was conducted, as shown in figure \ref{Figure:No_Foil}. Figure \ref{Figure:No_Foil_Geom} shows the geometry and materials used for each section.
+In order to illustrate the requirement for capacitive grading within AC bushings, a simulation of a bushing with no grading was conducted.
+Figure \ref{Figure:No_Foil_Geom} shows the geometry and materials used for each section.
 The conductor length is $6000mm$ and has a width of half the inner diameter, $50mm$. 
 The paper impregnated with oil insulation is $5500mm$ long in order to accommodate the first foil length of $5000mm$ with sufficient clearance. 
 The transformer wall is modelled as a $50mm$ high aluminium block that is $500mm$ wide, and is placed vertically in the middle of the design. The surrounding oil and air are $500mm$ wide at the centre of the bushing, and extend to the length of the conductor.
+The paper impregnated with oil insulation is sloped to avoid sharp corners and high field strengths.
 \begin{figure}[!h]
   \centering
-  \subfigure[Geometry and materials]{
-    \includegraphics[height = 14cm]{./Figures/Simulations/Edited_No_Foils_Final/Geometry.png} 
-	\label{Figure:No_Foil_Geom}
-  }
-  \subfigure[Meshing]{
-    \includegraphics[height = 14cm]{./Figures/Simulations/Edited_No_Foils_Final/Mesh.png} 
-	\label{Figure:No_Foil_Mesh}
-  }
-\subfigure[Normal Electric Field (V/m)]{
-    \includegraphics[height = 14cm]{./Figures/Simulations/Edited_No_Foils_Final/E_Field_Norm.png} 
-	\label{Figure:No_Foil_Field}
-  }
-\caption{No Foil Simulation - X and Y axis are dimensions in mm}
-  \label{Figure:No_Foil}
+    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Foils_Final/Geometry.eps} 
+	\caption{Geometry and Materials for No Foils Bushing}
+\label{Figure:No_Foil_Geom}
 \end{figure}
 
+
+A very fine mesh was used in this model as shown in figure \ref{Figure:No_Foil_Mesh}. This allows for the maximum level of accuracy in the results produced, and is possible since the geometry of this model is not over-complex.
+\begin{figure}[!h]
+  \centering
+    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Foils_Final/Mesh.eps} 
+	\caption{Extra Fine Mesh for No Foils Bushing}
+\label{Figure:No_Foil_Mesh}
+\end{figure}
+
+
+\begin{figure}[!h]
+  \centering
+    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Foils_Final/E_Field_Norm.eps} 
+	\caption{Normal Electric Field (V/m) for No Foils Bushing}
+\label{Figure:No_Foil_Field}
+\end{figure}
+
+
 The motivation for capacitive grading is clear in figure \ref{Figure:No_Foil_Field}. 
-The central area of stress is shown in figure \ref{figure:problemfield}.
+The central area of stress is shown zoomed in figure \ref{figure:problemfield}.
 The highest stress is shown at the corners of the transformer wall and in the plane between the transformer wall and the conductor.
 This reaches field strengths greater than $3.5kV/mm$.
 This simulation bears close resemblance to the theory explained in many texts and explained in figure \ref{figure:problem} in section \ref{s:method} of this report.
+In order for this bushing to function within the design constraints, capacitive grading must be used.
 
 \begin{figure}[!h]
    \centering
-   \includegraphics[width = 0.5\textwidth]{./Figures/Simulations/Edited_No_Foils_Final/E_Field_Norm_Close_Centre.png}
+   \includegraphics[width = 0.5\textwidth]{./Figures/Simulations/Edited_No_Foils_Final/E_Field_Norm_Wall.eps}
    \caption{Area of very high electric stress}
    \label{figure:problemfield}
 \end{figure}
@@ -173,16 +183,16 @@ The bushing has 21 foils spaced at an even radial spacing, but with no change in
 \begin{figure}[!h]
   \centering
     \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Grading_Final/Meshing.png} 
-	\label{Figure:No_Grading_Mesh}
 	\caption{User defined meshing for no grading simulation}
+\label{Figure:No_Grading_Mesh}
 \end{figure}
 
 \begin{figure}[!h]
   \centering
 
     \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Grading_Final/E_Field_Norm.png} 
-	\label{Figure:No_Grading_Field}
 	\caption{Normal Electric Field (V/m)}
+\label{Figure:No_Grading_Field}
 \end{figure}
 
 \subsection{Radial Grading}
