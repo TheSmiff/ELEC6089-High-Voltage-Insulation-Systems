@@ -169,22 +169,42 @@ In order for this bushing to function within the design constraints, capacitive 
 \end{figure}
 
 \subsection{No Grading}
-In order to rectify the issue, isolated foils are introduced to capacitively grade the electric field.
+In order to rectify the high electric stress identified in the no foils model, isolated foils are introduced to capacitively grade the electric field.
 To prove the requirement for grading the lengths or radial displacement of the foils, a simulation where the foils are maintained at the same length was performed.
-The bushing has 21 foils spaced at an even radial spacing, but with no change in length.
+The bushing has 21 foils spaced at an even radial spacing, but with no change in length of each foil.
+Each foil is $1756mm$ in length, and is centred in the within the bushing. 
 
 \begin{figure}[!h]
   \centering
-    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Grading_Final/Geometry.png} 
-	\caption{No Foils Geometry (mm)}
+    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Grading_Final/Geometry.eps} 
+	\caption{Geometry of the No Grading Model}
 	\label{Figure:No_Grading_Geom}
+\end{figure}
+
+Producing a finite element mesh for this model caused issues with long computation time. 
+Even using the coarsest default setting, the meshing time was of the order of days.
+This is due to the difference in size of the aspects of the geometry.
+The foils are just $0.1mm$ thick, which requires a very small set of triangles in order to mesh this area.
+The other domains are up to $6000mm$ long, which is considerably larger and requires a different size of triangles.
+
+In order to solves the issue, a set of meshing rules were produced.
+Firstly, the mesh within the conductor and within the foils can be very coarse.
+Within a conducting material, no electric field is expected, hence there is no reason to finely mesh that area.
+Areas of interest or areas where the field changes rapidly need to have a very fine mesh to ensure the accuracy of the results is sufficient.
+The meshing rules dictated a minimum number of points at the tip of each foil, and along the surface of the bushing.
+
+\begin{figure}[!h]
+  \centering
+    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Grading_Final/Mesh_wide.eps} 
+	\caption{User defined meshing for no grading simulation - whole view}
+\label{Figure:No_Grading_Mesh1}
 \end{figure}
 
 \begin{figure}[!h]
   \centering
-    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Grading_Final/Meshing.png} 
-	\caption{User defined meshing for no grading simulation}
-\label{Figure:No_Grading_Mesh}
+    \includegraphics[width = 0.6\textwidth]{./Figures/Simulations/Edited_No_Grading_Final/Mesh_Close.eps} 
+	\caption{User defined meshing for no grading simulation - foil tip view}
+\label{Figure:No_Grading_Mesh2}
 \end{figure}
 
 \begin{figure}[!h]
