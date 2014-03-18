@@ -252,16 +252,49 @@ In order to reduce computation time but maintain a reasonable level of accuracy 
 \begin{figure}[!h]
   \centering
     \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_Radial_Final/Meshing.eps} 
-	\caption{Meshing of the No Radial Model}
+	\caption{Meshing of the Radial Model}
 	\label{Figure:Radial_Mesh_wide}
 \end{figure}
 
 \begin{figure}[!h]
   \centering
     \includegraphics[width = 0.7\textwidth]{./Figures/Simulations/Edited_Radial_Final/Mesh_Close.eps} 
-	\caption{Meshing of the No Radial Model Focused on a Foil Tip}
+	\caption{Meshing of the Radial Model Focused on a Foil Tip}
 	\label{Figure:Radial_Mesh_close}
 \end{figure}
+
+
+\begin{figure}[!h]
+  \centering
+   %\subfigure[Normal Electric Field (V/m) for the No-Grading Model]{
+    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_Radial_Final/E_Field_Norm_Wide.eps} 
+	\caption{Normal Electric Field (V/m) for the Radial - Whole view}
+	\label{Figure:Radial_Field_Wide}
+   \end{figure}
+
+\begin{figure}[!h]
+  \centering
+\subfigure[Normal Electric Field (V/m) in the Plane of the Transformer Wall]{
+    \includegraphics[width = 0.35\textwidth]{./Figures/Simulations/Edited_Radial_Final/E_Field_Norm_Middle.eps} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:Radial_Field_CloseMid}
+   } 
+\subfigure[Normal Electric Field (V/m) at the tips of the Foils]{
+    \includegraphics[width = 0.55\textwidth]{./Figures/Simulations/Edited_Radial_Final/E_Field_Norm_Tip.eps} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:Radial_Field_CloseTip}
+   }
+\caption{Examination of the Electric Field in the Radial Model}
+\label{Figure:No_Grading_Field}
+\end{figure}
+
+The electric field in the system can now be analysed.
+It can be seen in figure \ref{Figure:Radial_Field_CloseMid} that the field between the foils nearest the conductor is reduced to $3kV/mm$.
+This is now evenly spread in the radial direction, as expected due to the radial grading of the electric field.
+
+However, the electric field at the tips of the foils is not considered in the design method.
+The field at the foil tips is largely due to the axial field strength, which is neglected during the radial grading design method.
+It can be seen that the electric field at the tips of the foil is as large as $3.5kV/mm$.
 
 
 \subsection{Axial Grading}
