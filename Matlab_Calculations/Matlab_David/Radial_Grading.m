@@ -110,7 +110,6 @@ zlabel('L(cm)','FontName','Times New Roman','FontSize',16,'fontWeight','bold','H
 %% Saving results to file
 FID = fopen('RadialVals21.tex', 'w');
 fprintf(FID, '\\begin{table}[!htb]\n');
-fprintf(FID, '\\label{table:radialvals}\n');
 fprintf(FID, '\\begin{center}\n');
 fprintf(FID, '\\begin{tabular}{|c||cc|c||cc|}\n');
 fprintf(FID, '\\toprule\n');
@@ -122,7 +121,8 @@ end
 fprintf(FID, '\\bottomrule\n');
 fprintf(FID, '\\end{tabular}\n');
 fprintf(FID, '\\end{center}\n');
-fprintf(FID, '\\caption{Axial Grading Calculations Results}\n');
+fprintf(FID, '\\caption{Radial Grading Calculations Results}\n');
+fprintf(FID, '\\label{table:radialvals}\n');
 fprintf(FID, '\\end{table}\n');
 fclose(FID);
 

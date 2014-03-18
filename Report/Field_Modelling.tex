@@ -97,21 +97,21 @@ In order to minimise the computation time required for each model, it was necess
 A bushing geometry was built with no foils inserted, a high quality mesh was produced and the system was solved to find the electric field distribution throughout the bushing and the surrounding area.
 \begin{figure}[!h]
   \centering
-    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Foils_Large/Geometry.eps} 
+    \includegraphics[width = 0.8\textwidth]{./Figures/Simulations/Edited_No_Foils_Large/Geometry.eps} 
 \caption{Baseline Model Geometry}
 \label{Figure:No_Foil_Large_Geom}
 \end{figure}
 
 \begin{figure}[!h]
   \centering
-    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Foils_Large/Meshing.eps} 
+    \includegraphics[width = 0.8\textwidth]{./Figures/Simulations/Edited_No_Foils_Large/Meshing.eps} 
 \caption{Extra Fine Meshing for Baseline Model}
 \label{Figure:No_Foil_Large_Mesh}
 \end{figure}
 
 \begin{figure}[!h]
   \centering
-    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Foils_Large/Norm_E_Field.eps} 
+    \includegraphics[width = 0.8\textwidth]{./Figures/Simulations/Edited_No_Foils_Large/Norm_E_Field.eps} 
 \caption{Normal Electric Field (V/m) for Baseline Model}
 \label{Figure:No_Foil_Large_Field}
 \end{figure}
@@ -207,21 +207,141 @@ The meshing rules dictated a minimum number of points at the tip of each foil, a
 \label{Figure:No_Grading_Mesh2}
 \end{figure}
 
-Once the geometry has been meshed appropriately, the system can be solved to determine the electric field strength throughout the model.
+Once the geometry has been meshed appropriately, the system can be solved to determine the electric field strength throughout the model, as shown in figure \ref{Figure:No_Grading_Field}.
 
 
 \begin{figure}[!h]
   \centering
-    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Grading_Final/E_Field_Norm.png} 
-	\caption{Normal Electric Field (V/m)}
+   \subfigure[Normal Electric Field (V/m) for the No-Grading Model]{
+    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Grading_Final/E_Field_Norm_Wide.eps} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model - Whole view}
+	\label{Figure:No_Grading_Field_Wide}
+   }\\
+
+\subfigure[Normal Electric Field (V/m) in the Plane of the Transformer Wall]{
+    \includegraphics[width = 0.45\textwidth]{./Figures/Simulations/Edited_No_Grading_Final/E_Field_Norm_Close_Mid.eps} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:No_Grading_Field_CloseMid}
+   } \quad
+\subfigure[Normal Electric Field (V/m) at the tips of the Foils]{
+    \includegraphics[width = 0.45\textwidth]{./Figures/Simulations/Edited_No_Grading_Final/E_Field_Norm_Close_Tip.eps} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:No_Grading_Field_CloseTip}
+   }
+\caption{Examination of the Electric Field in the Non-Grading Model}
 \label{Figure:No_Grading_Field}
 \end{figure}
 
+Simply adding foils into the bushing achieves nothing at all, and indicates the need for the grading methods used in the subsequent models.
+
+
 \subsection{Radial Grading}
-\dots
+The geometry for the radial grading design is in figure \ref{Figure:Radial_Geom}. 
+Each foil is an equal radial distance according to the radial grading method.
+The lengths of each foil are determined from table \ref{table:radialvals}.
+The remainder of the geometry is identical to the No Foils and No Grading models.
+\begin{figure}[!h]
+  \centering
+    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_Radial_Final/Geometry.eps} 
+	\caption{Geometry of the Radial Model}
+	\label{Figure:Radial_Geom}
+\end{figure}
+
+As with the No Grading model, the geometry in this design is very complex with a variety of scales.
+In order to reduce computation time but maintain a reasonable level of accuracy in areas of interest, the mesh was produced to the rules outlined for the No Grading model.
+\begin{figure}[!h]
+  \centering
+    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_Radial_Final/Meshing.eps} 
+	\caption{Meshing of the Radial Model}
+	\label{Figure:Radial_Mesh_wide}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+    \includegraphics[width = 0.7\textwidth]{./Figures/Simulations/Edited_Radial_Final/Mesh_Close.eps} 
+	\caption{Meshing of the Radial Model Focused on a Foil Tip}
+	\label{Figure:Radial_Mesh_close}
+\end{figure}
+
+
+\begin{figure}[!h]
+  \centering
+   %\subfigure[Normal Electric Field (V/m) for the No-Grading Model]{
+    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_Radial_Final/E_Field_Norm_Wide.eps} 
+	\caption{Normal Electric Field (V/m) for the Radial - Whole view}
+	\label{Figure:Radial_Field_Wide}
+   \end{figure}
+
+\begin{figure}[!h]
+  \centering
+\subfigure[Normal Electric Field (V/m) in the Plane of the Transformer Wall]{
+    \includegraphics[width = 0.35\textwidth]{./Figures/Simulations/Edited_Radial_Final/E_Field_Norm_Middle.eps} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:Radial_Field_CloseMid}
+   } 
+\subfigure[Normal Electric Field (V/m) at the tips of the Foils]{
+    \includegraphics[width = 0.55\textwidth]{./Figures/Simulations/Edited_Radial_Final/E_Field_Norm_Tip.eps} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:Radial_Field_CloseTip}
+   }
+\caption{Examination of the Electric Field in the Radial Model}
+\label{Figure:No_Grading_Field}
+\end{figure}
+
+The electric field in the system can now be analysed.
+It can be seen in figure \ref{Figure:Radial_Field_CloseMid} that the field between the foils nearest the conductor is reduced to $3kV/mm$.
+This is now evenly spread in the radial direction, as expected due to the radial grading of the electric field.
+
+However, the electric field at the tips of the foils is not considered in the design method.
+The field at the foil tips is largely due to the axial field strength, which is neglected during the radial grading design method.
+It can be seen in figure \ref{Figure:Radial_Field_CloseTip} that the electric field at the tips of the foil is as large as $3.5kV/mm$.
+
 
 \subsection{Axial Grading}
-\dots
+\begin{figure}[!h]
+  \centering
+    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_Axial_Final/Geometry.eps} 
+	\caption{Geometry of the Axial Model}
+	\label{Figure:Axial_Geom}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_Axial_Final/Meshing_Wide.eps} 
+	\caption{Meshing of the Axial Model}
+	\label{Figure:Axial_Mesh_wide}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+    \includegraphics[width = 0.7\textwidth]{./Figures/Simulations/Edited_Axial_Final/Meshing_Tip.eps} 
+	\caption{Meshing of the Axial Model Focused on a Foil Tip}
+	\label{Figure:Axial_Mesh_close}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+   %\subfigure[Normal Electric Field (V/m) for the No-Grading Model]{
+    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_Axial_Final/E_Field_Norm_Wide.eps} 
+	\caption{Normal Electric Field (V/m) for the Axial Model - Whole view}
+	\label{Figure:Radial_Field_Wide}
+   \end{figure}
+
+\begin{figure}[!h]
+  \centering
+\subfigure[Normal Electric Field (V/m) in the Plane of the Transformer Wall]{
+    \includegraphics[width = 0.45\textwidth]{./Figures/Simulations/Edited_Axial_Final/E_Field_Norm_Mid.eps} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:Radial_Field_CloseMid}
+   } 
+\subfigure[Normal Electric Field (V/m) at the tips of the Foils]{
+    \includegraphics[width = 0.45\textwidth]{./Figures/Simulations/Edited_Axial_Final/E_Field_Norm_Tip.eps} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:Radial_Field_CloseTip}
+   }
+\caption{Examination of the Electric Field in the Axial Model}
+\label{Figure:No_Grading_Field}
+\end{figure}
 
 \clearpage 
 
