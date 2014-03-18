@@ -239,11 +239,28 @@ Simply adding foils into the bushing achieves nothing at all, and indicates the 
 The geometry for the radial grading design is in figure \ref{Figure:Radial_Geom}. 
 Each foil is an equal radial distance according to the radial grading method.
 The lengths of each foil are determined from table \ref{table:radialvals}.
+The remainder of the geometry is identical to the No Foils and No Grading models.
 \begin{figure}[!h]
   \centering
-    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Grading_Final/Geometry.eps} 
-	\caption{Geometry of the No Grading Model}
-	\label{Figure:No_Grading_Geom}
+    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_Radial_Final/Geometry.eps} 
+	\caption{Geometry of the Radial Model}
+	\label{Figure:Radial_Geom}
+\end{figure}
+
+As with the No Grading model, the geometry in this design is very complex with a variety of scales.
+In order to reduce computation time but maintain a reasonable level of accuracy in areas of interest, the mesh was produced to the rules outlined for the No Grading model.
+\begin{figure}[!h]
+  \centering
+    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_Radial_Final/Meshing.eps} 
+	\caption{Meshing of the No Radial Model}
+	\label{Figure:Radial_Mesh_wide}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+    \includegraphics[width = 0.7\textwidth]{./Figures/Simulations/Edited_Radial_Final/Mesh_Close.eps} 
+	\caption{Meshing of the No Radial Model Focused on a Foil Tip}
+	\label{Figure:Radial_Mesh_close}
 \end{figure}
 
 
