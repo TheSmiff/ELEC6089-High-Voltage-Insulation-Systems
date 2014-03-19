@@ -307,6 +307,8 @@ This requires the paper insulation to take a different profile than the other mo
 	\label{Figure:Axial_Geom}
 \end{figure}
 
+The meshing for this model follows the design rules, in order to produce the finest mesh over the key points of interest, shown in figure \ref{Figure:Axial_Mesh_wide}.
+Particularly figure \ref{Figure:Axial_Mesh_close} shows the fine mesh around the tip of a foil, which is a key area of interest to determine if the PD inception condition is maintained.
 \begin{figure}[!h]
   \centering
     \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_Axial_Final/Axial_Mesh_Wide.eps} 
@@ -320,6 +322,10 @@ This requires the paper insulation to take a different profile than the other mo
 	\caption{Meshing of the Axial Model Focused on a Foil Tip}
 	\label{Figure:Axial_Mesh_close}
 \end{figure}
+
+The electric field problem can now be solved over the whole model.
+This produces the surface plots shown in figures \ref{Figure:Radial_Field_Wide} and \ref{Figure:No_Grading_Field}.
+These will be discussed and contrasted with the other designs in the discussion below.
 
 \begin{figure}[!h]
   \centering
@@ -345,7 +351,7 @@ This requires the paper insulation to take a different profile than the other mo
 \label{Figure:No_Grading_Field}
 \end{figure}
 
-\clearpage 
+%\clearpage 
 
 %\subsection{No Grading}
 %As a baseline for comparison, a bushing with no foils has been constructed and simulated.
