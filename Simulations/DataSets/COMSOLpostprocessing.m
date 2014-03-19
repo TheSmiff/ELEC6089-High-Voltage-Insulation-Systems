@@ -190,3 +190,13 @@ No_Grading_OilFoil_E_Z = data(:, 4);
 No_Grading_OilFoil_E_Norm = data(:, 5);
 No_Grading_OilFoil_V= data(:, 6);
 
+
+h = plot(No_Foil_MidWall_R, No_Foil_MidWall_E_Norm, No_Foil_AirWall_R, No_Foil_AirWall_E_Norm, No_Foil_OilWall_R, No_Foil_OilWall_E_Norm, [0 500], [3500000 3500000])
+hold on
+legend('Mid Wall', 'PD Inception Voltage', 'Air Interface', 'Oil Interface')
+xlabel('Radial Distance from Conductor Centre (mm)', 'FontSize', 14, 'FontName', 'Times')
+ylabel('Normal Electric Field Strength (V/m)', 'FontSize', 14, 'FontName', 'Times')
+title('Normal Electric Field in the No Foils Model', 'FontSize', 14, 'FontName', 'Times')
+axis([45 250 0 10000000])
+
+
