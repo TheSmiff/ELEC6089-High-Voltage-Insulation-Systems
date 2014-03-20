@@ -95,8 +95,14 @@
 \setcounter{bottomnumber}{9}
 \setcounter{totalnumber}{20}
 \setcounter{dbltopnumber}{9}
+
 \usepackage{graphicx}
 \usepackage{epstopdf}
+\epstopdfsetup{update,prepend,verbose,suffix=-eps-converted-to} % use suffix because you don't want to accidentally overwrite a file that might have been a pdf source. The epstopdf package manual has more on that.
+
+\DeclareGraphicsExtensions{.eps,.pdf}
+
+\epstopdfDeclareGraphicsRule{.eps}{pdf}{.pdf}{epstopdf --gsopt="-dPDFSETTINGS=/prepress -dAutoFilterColorImages=false -dAutoFilterGrayImages=false -sColorImageFilter=FlateEncode -sGrayImageFilter=FlateEncode -sCompressPages=false -dPreserveHalftoneInfo=true" #1 --outfile=\OutputFile}
 \usepackage[scriptsize]{subfigure}
 \usepackage{booktabs}
 \usepackage{rotating}

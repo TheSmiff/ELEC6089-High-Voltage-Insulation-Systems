@@ -140,7 +140,7 @@ The paper impregnated with oil insulation is sloped to avoid sharp corners and h
 A very fine mesh was used in this model as shown in figure \ref{Figure:No_Foil_Mesh}. This allows for the maximum level of accuracy in the results produced, and is possible since the geometry of this model is not over-complex.
 \begin{figure}[!h]
   \centering
-    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Foils_Final/Mesh.eps} 
+    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Foils_Final/No_Foils_Mesh_Wide.eps} 
 	\caption{Extra Fine Mesh for No Foils Bushing}
 \label{Figure:No_Foil_Mesh}
 \end{figure}
@@ -148,7 +148,7 @@ A very fine mesh was used in this model as shown in figure \ref{Figure:No_Foil_M
 
 \begin{figure}[!h]
   \centering
-    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Foils_Final/E_Field_Norm.eps} 
+    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Foils_Final/No_Foils_E_Field_Norm_Wide.eps} 
 	\caption{Normal Electric Field (V/m) for No Foils Bushing}
 \label{Figure:No_Foil_Field}
 \end{figure}
@@ -163,7 +163,7 @@ In order for this bushing to function within the design constraints, capacitive 
 
 \begin{figure}[!h]
    \centering
-   \includegraphics[width = 0.5\textwidth]{./Figures/Simulations/Edited_No_Foils_Final/E_Field_Norm_Wall.eps}
+   \includegraphics[width = 0.5\textwidth]{./Figures/Simulations/Edited_No_Foils_Final/No_Foils_E_Field_Norm_Close.eps}
    \caption{Area of very high electric stress}
    \label{figure:problemfield}
 \end{figure}
@@ -251,14 +251,14 @@ As with the No Grading model, the geometry in this design is very complex with a
 In order to reduce computation time but maintain a reasonable level of accuracy in areas of interest, the mesh was produced to the rules outlined for the No Grading model.
 \begin{figure}[!h]
   \centering
-    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_Radial_Final/Meshing.eps} 
+    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_Radial_Final/Radial_Mesh_Wide.eps} 
 	\caption{Meshing of the Radial Model}
 	\label{Figure:Radial_Mesh_wide}
 \end{figure}
 
 \begin{figure}[!h]
   \centering
-    \includegraphics[width = 0.7\textwidth]{./Figures/Simulations/Edited_Radial_Final/Mesh_Close.eps} 
+    \includegraphics[width = 0.7\textwidth]{./Figures/Simulations/Edited_Radial_Final/Radial_Mesh_Close.eps} 
 	\caption{Meshing of the Radial Model Focused on a Foil Tip}
 	\label{Figure:Radial_Mesh_close}
 \end{figure}
@@ -267,7 +267,7 @@ In order to reduce computation time but maintain a reasonable level of accuracy 
 \begin{figure}[!h]
   \centering
    %\subfigure[Normal Electric Field (V/m) for the No-Grading Model]{
-    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_Radial_Final/E_Field_Norm_Wide.eps} 
+    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_Radial_Final/Radial_E_Field_Norm_Wide.eps} 
 	\caption{Normal Electric Field (V/m) for the Radial - Whole view}
 	\label{Figure:Radial_Field_Wide}
    \end{figure}
@@ -280,7 +280,7 @@ In order to reduce computation time but maintain a reasonable level of accuracy 
 	\label{Figure:Radial_Field_CloseMid}
    } 
 \subfigure[Normal Electric Field (V/m) at the tips of the Foils]{
-    \includegraphics[width = 0.55\textwidth]{./Figures/Simulations/Edited_Radial_Final/E_Field_Norm_Tip.eps} 
+    \includegraphics[width = 0.55\textwidth]{./Figures/Simulations/Edited_Radial_Final/Radial_E_Field_Norm_Close_Tip.eps} 
 	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
 	\label{Figure:Radial_Field_CloseTip}
    }
@@ -307,19 +307,25 @@ This requires the paper insulation to take a different profile than the other mo
 	\label{Figure:Axial_Geom}
 \end{figure}
 
+The meshing for this model follows the design rules, in order to produce the finest mesh over the key points of interest, shown in figure \ref{Figure:Axial_Mesh_wide}.
+Particularly figure \ref{Figure:Axial_Mesh_close} shows the fine mesh around the tip of a foil, which is a key area of interest to determine if the PD inception condition is maintained.
 \begin{figure}[!h]
   \centering
-    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_Axial_Final/Meshing_Wide.eps} 
+    \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_Axial_Final/Axial_Mesh_Wide.eps} 
 	\caption{Meshing of the Axial Model}
 	\label{Figure:Axial_Mesh_wide}
 \end{figure}
 
 \begin{figure}[!h]
   \centering
-    \includegraphics[width = 0.5\textwidth]{./Figures/Simulations/Edited_Axial_Final/Meshing_Tip.eps} 
+    \includegraphics[width = 0.5\textwidth]{./Figures/Simulations/Edited_Axial_Final/Axial_Mesh_Close.eps} 
 	\caption{Meshing of the Axial Model Focused on a Foil Tip}
 	\label{Figure:Axial_Mesh_close}
 \end{figure}
+
+The electric field problem can now be solved over the whole model.
+This produces the surface plots shown in figures \ref{Figure:Radial_Field_Wide} and \ref{Figure:No_Grading_Field}.
+These will be discussed and contrasted with the other designs in the discussion below.
 
 \begin{figure}[!h]
   \centering
@@ -337,7 +343,7 @@ This requires the paper insulation to take a different profile than the other mo
 	\label{Figure:Radial_Field_CloseMid}
    } 
 \subfigure[Normal Electric Field (V/m) at the tips of the Foils]{
-    \includegraphics[width = 0.45\textwidth]{./Figures/Simulations/Edited_Axial_Final/E_Field_Norm_Tip.eps} 
+    \includegraphics[width = 0.45\textwidth]{./Figures/Simulations/Edited_Axial_Final/Axial_E_Field_Norm_Close_Tip.eps} 
 	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
 	\label{Figure:Radial_Field_CloseTip}
    }
@@ -345,7 +351,7 @@ This requires the paper insulation to take a different profile than the other mo
 \label{Figure:No_Grading_Field}
 \end{figure}
 
-\clearpage 
+%\clearpage 
 
 %\subsection{No Grading}
 %As a baseline for comparison, a bushing with no foils has been constructed and simulated.
