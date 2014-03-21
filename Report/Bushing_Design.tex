@@ -32,7 +32,7 @@ Conductor Diameter (ID) & $100mm$ \\
 First Foil Length $L_1$ & $5000mm$ \\
 First Foil Radius $r_1$&$52mm$ \\
 Outer Bushing Diameter (OD) & $300mm$\\
-Outer Foil Radius $r_21$ & $148mm$\\
+Outer Foil Radius $r_{21}$ & $148mm$\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -194,15 +194,15 @@ These values are calculated using equation \ref{eq:bes}.
  b_{oil} = \displaystyle \frac{  \Delta V}{300 \;^v/_{mm}}
 \end{equation}
 
-Additionally, as shown in equation \ref{eq:ref02}, in the calculation of $r_2$ a parameter called $R_{parameter}$ is subtracted form $r_0$  to change the position of assumed conductor surface. 
+Additionally, as shown in equation \ref{eq:ref02}, in the calculation of $r_2$ a parameter called $R_{parameter}$ is subtracted from $r_0$  to change the position of assumed conductor surface. 
 The radius of the last foil ($r_{21}$) could be correctly adjusted by making changes in this parameter and executing the script. $R_{parameter}=1.007mm$ was the best value found for this design.
 \begin{equation}
   \label{eq:ref02}
   \displaystyle r_2= \displaystyle  r_{1} \displaystyle \exp\big( \displaystyle  \frac{L_2}{L_{1}}ln(\displaystyle \frac{r_1}{r_0-R_{parameter}})\big) 
 \end{equation}
 
-The script plots 2D and 3D plots of axial grading to the user. Figure \ref{Figure:21plot221} illustrates the 3D configuration of design's axial bushing.  
-The 2D plot of this design, which is shown in figure \ref{Figure:21plot22}, shows linear reduction on foil length on both sides. 
+The script plots 2D and 3D plots of axial grading to the user. Figure \ref{Figure:21plot221} illustrates the 3D configuration of the design's axial bushing.  
+The 2D plot of this design, which is shown in figure \ref{Figure:21plot22}, shows a nearly straight line from first to last foil. In fact, the foil length reduction is constant  on both sides ($b_{oil},b_{air}$).  But, as the Matlab script is using the exact calculation (Non-linear) rather than the approximate method (Linear), the foil endings are not placed exactly on a straight  line .
 It also illustrates that $b_{air}>b_{oil} $ as it was expected due to the relative permittivity of each material.  
 Finally the calculated values for axial grading, using this design method, are shown in \ref{table:axialvals}. 
 These values along the given parameters in table \ref{table:perm} were used for COMSOL simulations of this axial grading design.
