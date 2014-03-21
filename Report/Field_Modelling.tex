@@ -9,6 +9,8 @@ The following models are created using the AC/DC module, which is used to simula
 Specifically, the electrostatics interface is used. 
 This solves a charge conservation equation for a given voltage and spacial distribution of charge \cite{ComsolACDC}.
 
+
+
 \subsection{Finite Element Methods (FEM)}
 There are inherent difficulties in solving the partial differential equations that govern many practical engineering problems \cite{kuffel2000high}.
 Despite knowing the equations and appropriate boundary conditions that govern a problem, many are complicated by irregular geometries or other discontinuities.
@@ -116,14 +118,20 @@ A bushing geometry was built with no foils inserted, a high quality mesh was pro
 \label{Figure:No_Foil_Large_Field}
 \end{figure}
 
-The model is made up with a very large geometry. 
 The air and oil extends radially 2m from the end of the bushing and 1m in the axial direction.
 This is to understand the anticipated area of interest in the model.
 By considering figure \ref{Figure:No_Foil_Large_Field} it is clear that there is very little happening further than 500mm radially from the bushing surface and there is very little of interest further than 200mm in the radial direction.
 Therefore all further models will adhere to this geometry, ensuring that the area of interest is captured, while decreasing simulation times to a minimum.
 
+In figure \ref{Figure:No_Foil_Large_Field}, the normal electric field throughout the whole system is displayed.
+Electric field is usually taken to be a vector quantity, that is a magnitude and direction. 
+For example, the electric field in the radial direction is termed $E_r$ and in the axial direction is $E_z$.
+The normal electric field is not a normal vector, but an absolute value of the electric field strength at that point. 
+This can be described mathematically as $normE = \sqrt{\mathbf{E}.\mathbf{E}}$.
+It gives a reasonable interpretation of the electric field strength in either vector direction in the model, and will be used to compare all other models.
+
 \subsection{No Foils}
-In order to illustrate the requirement for capacitive grading within AC bushings, a simulation of a bushing with no grading was conducted.
+In order to illustrate the requirement for capacitive grading within AC bushings, a simulation of a bushing with no foils was conducted.
 Figure \ref{Figure:No_Foil_Geom} shows the geometry and materials used for each section.
 The conductor length is $6000mm$ and has a width of half the inner diameter, $50mm$. 
 The paper impregnated with oil insulation is $5500mm$ long in order to accommodate the first foil length of $5000mm$ with sufficient clearance. 
@@ -137,7 +145,7 @@ The paper impregnated with oil insulation is sloped to avoid sharp corners and h
 \end{figure}
 
 
-A very fine mesh was used in this model as shown in figure \ref{Figure:No_Foil_Mesh}. This allows for the maximum level of accuracy in the results produced, and is possible since the geometry of this model is not over-complex.
+A very fine mesh was used in this model as shown in figure \ref{Figure:No_Foil_Mesh}. This allows for the maximum level of accuracy in the results produced, and is possible since the geometry of this model is not over-complex. It was necessary to ensure the mesh in the plane of the transformer wall was very fine in order to sufficiently capture areas of very high field.
 \begin{figure}[!h]
   \centering
     \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Foils_Final/No_Foils_Mesh_Wide.eps} 
@@ -155,10 +163,10 @@ A very fine mesh was used in this model as shown in figure \ref{Figure:No_Foil_M
 
 
 The motivation for capacitive grading is clear in figure \ref{Figure:No_Foil_Field}. 
-The central area of stress is shown zoomed in figure \ref{figure:problemfield}.
+The central area of stress in the plane of the transformer wall is shown in figure \ref{figure:problemfield}.
 The highest stress is shown at the corners of the transformer wall and in the plane between the transformer wall and the conductor.
-This reaches field strengths greater than $3.5kV/mm$.
-This simulation bears close resemblance to the theory explained in many texts and explained in figure \ref{figure:problem} in section \ref{s:method} of this report.
+This reaches field strengths greater than $3.5kV/mm$ which can cause the inception of partial discharge.
+This simulation bears close resemblance to figure \ref{figure:problem} in section \ref{s:method} of this report, which was used to describe the electric field problem.
 In order for this bushing to function within the design constraints, capacitive grading must be used.
 
 \begin{figure}[!h]
@@ -168,9 +176,10 @@ In order for this bushing to function within the design constraints, capacitive 
    \label{figure:problemfield}
 \end{figure}
 
-\subsection{No Grading}
+\subsection{No Grading} \label{ss:no_grading}
 In order to rectify the high electric stress identified in the no foils model, isolated foils are introduced to capacitively grade the electric field.
 To prove the requirement for grading the lengths or radial displacement of the foils, a simulation where the foils are maintained at the same length was performed.
+This model was expected to fail the design criteria, proving that introducing isolated foils into the bushing achieves nothing and it is the radial or axial grading of the field that is critical.
 The bushing has 21 foils spaced at an even radial spacing, but with no change in length of each foil.
 Each foil is $1756mm$ in length, and is centred in the within the bushing. 
 
@@ -192,6 +201,7 @@ Firstly, the mesh within the conductor and within the foils can be very coarse.
 Within a conducting material, no electric field is expected, hence there is no reason to finely mesh that area.
 Areas of interest or areas where the field changes rapidly need to have a very fine mesh to ensure the accuracy of the results is sufficient.
 The meshing rules dictated a minimum number of points at the tip of each foil, and along the surface of the bushing.
+This resulted in a refined mesh shown in figures \ref{Figure:No_Grading_Mesh1} and \ref{Figure:No_Grading_Mesh2}.
 
 \begin{figure}[!h]
   \centering
@@ -207,7 +217,7 @@ The meshing rules dictated a minimum number of points at the tip of each foil, a
 \label{Figure:No_Grading_Mesh2}
 \end{figure}
 
-Once the geometry has been meshed appropriately, the system can be solved to determine the electric field strength throughout the model, as shown in figure \ref{Figure:No_Grading_Field}.
+Once the geometry has been meshed appropriately, the system can be solved to determine the electric field strength throughout the model, as shown in figure \ref{Figure:No_Grading_Fieldxy}.
 
 
 \begin{figure}[!h]
@@ -229,17 +239,25 @@ Once the geometry has been meshed appropriately, the system can be solved to det
 	\label{Figure:No_Grading_Field_CloseTip}
    }
 \caption{Examination of the Electric Field in the Non-Grading Model}
-\label{Figure:No_Grading_Field}
+\label{Figure:No_Grading_Fieldxy}
 \end{figure}
 
-Simply adding foils into the bushing achieves nothing at all, and indicates the need for the grading methods used in the subsequent models.
+Figure \ref{Figure:No_Grading_Field_CloseMid} shows the normal electric field in the plane of the transformer wall. 
+The areas of very high field at the corners of the transformer wall have been eliminated by the use of the capacitive foils.
+However, the field close to the conductor is still very high.
+An additional issue is introduced by using capacitive foils.
+Considering figure \ref{Figure:No_Grading_Field_CloseTip}, the tips of the foils cause some considerable disturbance of the electric field.
+This model achieves very little improvement, if at all, over the model with no foils.
+
+Now that the requirement for grading has been shown in section \ref{ss:no_grading}, and the requirement to use a formal axial or radial grading method in this section, the radial and axial designs can be compared.
 
 
 \subsection{Radial Grading}
-The geometry for the radial grading design is in figure \ref{Figure:Radial_Geom}. 
+The COMSOL geometry for the radial grading model is shown figure \ref{Figure:Radial_Geom}. 
 Each foil is an equal radial distance according to the radial grading method.
-The lengths of each foil are determined from table \ref{table:radialvals}.
+The lengths of each foil are taken from table \ref{table:radialvals}.
 The remainder of the geometry is identical to the No Foils and No Grading models.
+
 \begin{figure}[!h]
   \centering
     \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_Radial_Final/Geometry.eps} 
@@ -248,7 +266,7 @@ The remainder of the geometry is identical to the No Foils and No Grading models
 \end{figure}
 
 As with the No Grading model, the geometry in this design is very complex with a variety of scales.
-In order to reduce computation time but maintain a reasonable level of accuracy in areas of interest, the mesh was produced to the rules outlined for the No Grading model.
+In order to reduce computation time but maintain a reasonable level of accuracy in areas of interest, the mesh was produced to the rules outlined for the No Grading model. The meshing for this model is shown in figure \ref{Figure:Radial_Mesh_wide} and \ref{Figure:Radial_Mesh_close}. 
 \begin{figure}[!h]
   \centering
     \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_Radial_Final/Radial_Mesh_Wide.eps} 
@@ -263,6 +281,16 @@ In order to reduce computation time but maintain a reasonable level of accuracy 
 	\label{Figure:Radial_Mesh_close}
 \end{figure}
 
+The model was then solved to find the normal electric field throughout the model.
+It can be seen in figure \ref{Figure:Radial_Field_CloseMid} that the field between the foils nearest the conductor is reduced below $3.5kV/mm$.
+This is now evenly spread in the radial direction, as expected due to the radial grading of the electric field.
+The electric field in the radial direction is much improved.
+
+However, the axial electric field is not considered in the radial grading design method.
+The field at the foil tips is largely due to the axial field strength.
+It is necessary to inspect the strength of the electric fields at the tips of the foils.
+It can be seen in figure \ref{Figure:Radial_Field_CloseTip} that the electric field at the tips of the foil is as large as $3.5kV/mm$.
+Section \ref{s:Discussion} will take this observation further, to establish if it meet the design criteria.
 
 \begin{figure}[!h]
   \centering
@@ -285,21 +313,17 @@ In order to reduce computation time but maintain a reasonable level of accuracy 
 	\label{Figure:Radial_Field_CloseTip}
    }
 \caption{Examination of the Electric Field in the Radial Model}
-\label{Figure:No_Grading_Field}
+\label{Figure:Radial_Field}
 \end{figure}
 
-The electric field in the system can now be analysed.
-It can be seen in figure \ref{Figure:Radial_Field_CloseMid} that the field between the foils nearest the conductor is reduced to $3kV/mm$.
-This is now evenly spread in the radial direction, as expected due to the radial grading of the electric field.
 
-However, the electric field at the tips of the foils is not considered in the design method.
-The field at the foil tips is largely due to the axial field strength, which is neglected during the radial grading design method.
-It can be seen in figure \ref{Figure:Radial_Field_CloseTip} that the electric field at the tips of the foil is as large as $3.5kV/mm$.
 
 
 \subsection{Axial Grading}
 The asymmetric axial grading method results in an uneven geometry about the centre of the bushing.
+The lengths of each foil is determined in table \ref{table:axialvals}.
 This requires the paper insulation to take a different profile than the other models in order to adequately cover the foils, as shown in figure \ref{Figure:Axial_Geom}.
+The air side has a much longer surface area due to the higher creepage distance of air.
 \begin{figure}[!h]
   \centering
     \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_Axial_Final/Geometry.eps} 
@@ -325,7 +349,8 @@ Particularly figure \ref{Figure:Axial_Mesh_close} shows the fine mesh around the
 
 The electric field problem can now be solved over the whole model.
 This produces the surface plots shown in figures \ref{Figure:Radial_Field_Wide} and \ref{Figure:No_Grading_Field}.
-These will be discussed and contrasted with the other designs in the discussion below.
+It can be seen that the field in the plane of the transformer wall is not well graded, and neither is the field at the tips of the foils.
+This will be discussed and contrasted with the other designs in the discussion in section \ref{s:Discussion}.
 
 \begin{figure}[!h]
   \centering
