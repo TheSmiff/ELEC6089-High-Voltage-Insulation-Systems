@@ -38,6 +38,10 @@ end
 L(N+1)=L(N)-.5*L(N);
 Radius(N+1)=Radius(N)+ Last_Gap;
 %% Ploting
+figure
+plot(Radius(1:end-1),((6000+L(1:end-1))/2),'o'); hold on
+plot(Radius(1:end-1),((6000-L(1:end-1))/2),'o');%axis equal
+
 x=zeros(1,2*(N+1));
 y=x; j=1;
 for i=1:2:2*(N+1)
@@ -88,7 +92,7 @@ for i=1:N
     Y = Y(:,1:p);
     Z = Z(:,1:p)*scl;
     testsubject = surf(X,Y,Z); 
-    set(testsubject,'FaceAlpha',0.8,'EdgeColor','b')
+    set(testsubject,'FaceAlpha',0.6,'EdgeColor','b')
     axis equal
 end
 Ground=Radius(N+1)-1;
@@ -126,5 +130,14 @@ fprintf(FID, '\\label{table:radialvals}\n');
 fprintf(FID, '\\end{table}\n');
 fclose(FID);
 
-
+SID = fopen('Radial-Points-Air.txt', 'w');
+for i=1:N
+     fprintf(FID, '%f\t%f\t\r\n',Radius(i),3000+(L(i)/2));
+end 
+fclose(SID);
+SID = fopen('Radial-Points-Oil.txt', 'w');
+for i=1:N
+     fprintf(FID, '%f\t%f\t\r\n',Radius(i),3000-(L(i)/2));
+end 
+fclose(SID);
 
