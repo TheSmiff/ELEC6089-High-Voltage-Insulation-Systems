@@ -50,8 +50,8 @@ Radius(N+1)=Radius(N)+ Last_Gap;
 
 %% Ploting
 figure
-plot(Radius(1:end-1),((6000+L_Air(1:end-1))/2),'o');hold on%axis equal
-plot(Radius(1:end-1),((6000-L_Oil(1:end-1))/2),'o');%axis equal
+plot(Radius(1:end-1),3000+L_Air(1:end-1),'o');hold on%axis equal
+plot(Radius(1:end-1),3000-L_Oil(1:end-1),'o');%axis equal
 x=zeros(1,2*(N+1));
 y=x; j=1;
 for i=1:2:2*(N+1)
@@ -141,12 +141,12 @@ fclose(FID);
 
 SID = fopen('Axial-Points-Air.txt', 'w');
 for i=1:N
-     fprintf(FID, '%f\t%f\t\r\n',Radius(i),((6000+L_Air(i))/2));
+     fprintf(FID, '%f\t%f\t\r\n',Radius(i),3000.1+L_Air(i));
 end 
 fclose(SID);
 SID = fopen('Axial-Points-Oil.txt', 'w');
 for i=1:N
-     fprintf(FID, '%f\t%f\t\r\n',Radius(i),((6000-L_Oil(i))/2));
+     fprintf(FID, '%f\t%f\t\r\n',Radius(i),2999.9-L_Oil(i));
 end 
 fclose(SID);
 

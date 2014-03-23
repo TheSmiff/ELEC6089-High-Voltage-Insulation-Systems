@@ -132,12 +132,12 @@ fclose(FID);
 
 SID = fopen('Radial-Points-Air.txt', 'w');
 for i=1:N
-     fprintf(FID, '%f\t%f\t\r\n',Radius(i),3000+(L(i)/2));
+     fprintf(FID, '%f\t%f\t\r\n',Radius(i),3000.01+(L(i)/2));
 end 
 fclose(SID);
 SID = fopen('Radial-Points-Oil.txt', 'w');
 for i=1:N
-     fprintf(FID, '%f\t%f\t\r\n',Radius(i),3000-(L(i)/2));
+     fprintf(FID, '%f\t%f\t\r\n',Radius(i),2999.99-(L(i)/2));
 end 
 fclose(SID);
 
