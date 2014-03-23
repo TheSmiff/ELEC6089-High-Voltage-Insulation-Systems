@@ -3,12 +3,24 @@
 % !TeX root = ReportMain.tex
 
 \section{Discussion} \label{s:Discussion}
-Comparison and discussion (Suggestions on improvement).
+As has been outlined in this report so far, there are problems inherent within bushing design and multiple solutions to these problems. A full discussion and comparison will be made to determine the most accurate and reliable model for HV bushing design. Additionally, reasoning and justification for the incremental changes will outline the development of bushing and possible further improvements that could be made in design.
 %BH
 \subsection{Success Criteria}
-What are the values the design must pass?
+In section 2 four criteria were mentioned to determine the efficacy of the design: general/intrinsic breakdown defined by the radial field, surface discharge defined by the axial field, partial discharge within the material defined by areas of high tangential field and corona discharge within air. 
+
+Regarding general breakdown it is the largest breakdown strength of the model and so the least likely to fail. High Voltage Engineering Fundamentals has it defined as well in excess of  1MV/cm \cite{kuffel2000high}. The area of interest for this intrinsic breakdown is the line from the conductor straight to the flange, and a measurement of radial electric field.
+
+Surface discharge is not as readily defined for typical graded designs, however a comparison can be made from shedding specifications. Shedding increases the effective creepage length of the bushing by a factor of 4 and for a typical design 40mm/kV is given as the required length for the operational voltage \cite{HVEngandTesting}.
+
+Fortunately and reasonably given its significance, partial discharge inception voltage is well defined for all types of insulation material. For resin-impregnated paper the value is 36kV/cm and for oil-impregnated paper the value is 45kV/cm, justifying the more common use of OIP \cite{HVEngandTesting}. Due to its nature, a simple investigation of trends is not sufficient to estimate areas of possible PD origins and areas of interest must be found and tested against the inception voltage. They are typically located at the edges of foils or near the conductor itself.
+
+Corona discharge can occur in both air and oil, however, since the inception voltage is much lower for air and the effects of weather and pollution affect the air side of the bushing much greater it is of higher importance. For the discussion, it will be studied as a subsection of surface discharge.  
 
 \subsection{No Foils}
+%BH
+%fig 6.7
+Nowadays, solid bushing is only used for voltages below 25kV. This is due to a combination of all factors as shown in the previous figure 6.7. When simulated with a conductor ten times its rated voltage its flaws are clear. As mentioned previously, the primary criteria to solve are high electric fields inducing partial discharges and large axial fields causing flashover. 
+
 \begin{figure}[!h]
   \centering
     \includegraphics[width = 0.8\textwidth]{../Simulations/DataSets/No_Foil_Fail.eps} 
@@ -16,7 +28,14 @@ What are the values the design must pass?
 \label{Figure:NoFoilsFail}
 \end{figure}
 
+This is best illustrated with figure 7.1, not only are the fields present at the interface to the flange well in excess of the PD inception voltage, the location of these high electric fields also mean flashover is a serious risk due to the lack of shaping of the axial electric field distribution. A result of such localised electric stress is that because the field is greater than the PD inception voltage the voids will generate exponentially more discharges, leading to faster ageing and a much higher chance of breakdown. The solution, assuming keeping voltage constant, would be to increase the bushing height and width. 
 \subsection{No Grading}
+%BH
+%fig 6.11b, 6.11c
+%same graph as 7.1 but for no grading
+%done but need to make .fig into pdf then add to latex (help needed)
+The proposal to study a model of condenser bushing without any thought to grading exposes the fundamentals to grading design. Figure 7.2 shows that, for the most part the electric field is below the PD inception voltage, at least at the central interface. However looking at figures 6.11b and 6.11c show that the foil placement did not effectively shape the field at the bushing interface at the tips.  Beyond analysing the concentrations of electric field it is important to note that the distribution is non-linear; in comparison to the ideal goal of a linear drop of field across the capacitors \citep{kuffel2000high}. The placement of the outermost foil serves as a location of high field density and although located far from the flange itself it would likely be a source of both PDs and corona discharges. 
+% want a plot of the tips?
 
 \subsection{Comparison of Axial and Radial Grading Solutions}
 The design of both types of capacitive grading method were discussed in the previous sections. The difference in performance of the types in general is the radial grading will improve the intensity of the radial electric field and the axial grading will improve the intensity of the axial electric field. By improvement of intensity of electric field, this means the electric field according to the type of grading method is evenly distributed in a particular direction. Choosing the right design for different application is essential as this will reduce the chances of various types of electrical breakdown and hence the bushing design would be more durable.
@@ -39,8 +58,11 @@ The result clearly shows the peak value of electric field for the axial design (
 The axial electric is graded in this design, therefore the expected result is for the axial graded design to have a lower peak in electric field than the radial graded design and also the electric field in the axial graded design should be more evenly distributed.
 
 \subsubsection{Surface Flashover}
+%talk about the addition of shedding in completeness. Limitations of current model without shedding -> primarily some extra shaping of fields. The effect of grounding the outermost capacitor.
 
 \subsection{Choice of Design Method}
 
 \section{Conclusions}
 Conclusions.
+
+%regarding area of interest of tips of foils a suggestion in (Graham?) was to line the capacitors with semiconductor material to more evenly spread out the field distribution.
