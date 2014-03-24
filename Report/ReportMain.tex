@@ -19,9 +19,19 @@
 %% ----------------------------------------------------------------
 \usepackage{caption}
 \captionsetup[figure]{figurewithin=section}
+%\numberwithin{figure}{section}
+
 \captionsetup[table]{tablewithin=section}
 \usepackage{enumitem}
 \usepackage{placeins}
+\renewcommand{\thefigure}{\thesection.\Alph{figure}}
+\renewcommand{\thesubfigure}{\thesection.\arabic{figure}(\alph{subfigure})}
+\makeatletter
+\renewcommand{\p@subfigure}{\thesection.\arabic{figure}}
+\renewcommand{\thesubfigure}{(\alph{subfigure})}
+\renewcommand{\@thesubfigure}{(\alph{subfigure})\hskip\subfiglabelskip}
+\renewcommand{\@@thesubfigure}{(\alph{subfigure})}
+\makeatother
 
 \begin{document}
 \frontmatter

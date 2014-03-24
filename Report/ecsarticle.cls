@@ -104,6 +104,7 @@
 
 \epstopdfDeclareGraphicsRule{.eps}{pdf}{.pdf}{epstopdf --gsopt="-dPDFSETTINGS=/prepress -dAutoFilterColorImages=false -dAutoFilterGrayImages=false -sColorImageFilter=FlateEncode -sGrayImageFilter=FlateEncode -sCompressPages=false -dPreserveHalftoneInfo=true" #1 --outfile=\OutputFile}
 \usepackage[scriptsize]{subfigure}
+%\usepackage[scriptsize]{subcaption}
 \usepackage{booktabs}
 \usepackage{rotating}
 \usepackage{listings}
