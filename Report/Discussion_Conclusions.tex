@@ -150,14 +150,16 @@ The maximum intensity of the radial electric field for the radial design is expe
 \label{Figure:No_Grad_Failing}
 \end{figure}
 
-The result clearly shows the peak value of electric field for the axial design ($\approx 4.5 \times 10^3 kVm^{-1}$) is greater than the peak value of electric field for the radial design ($\approx 3.5 \times 10^3 kVm^{-1}$). Also, from the figure \ref{figure:rfield}, the radial electric field of the radial grading design is more evenly distributed. This is the effect of grading, hence similar effect should be seen in the axial electric for axial grading design. The electric field distribution across any perpendicular cut lines to the foils would result in almost identical results, because the foils behave similar to capacitors in series. Electric field being constant across a capacitor and this is true across any two neighbouring foils. Figure \ref{figure:constantfield} shows the electric field with in foils from mid-point to the tips and very constant electric field is seen.
 
-\begin{figure}[!t]
+\begin{figure}[!h]
 \centering
 \includegraphics[width=\textwidth]{ConstantAxialField.eps}
 \caption{2D surface plot showing the distribution of electric field from mid-point to the air end of bushing}
 \label{figure:constantfield}
 \end{figure}
+The result clearly shows the peak value of electric field for the axial design ($\approx 4.5 \times 10^3 kVm^{-1}$) is greater than the peak value of electric field for the radial design ($\approx 3.5 \times 10^3 kVm^{-1}$). Also, from the figure \ref{figure:rfield}, the radial electric field of the radial grading design is more evenly distributed. This is the effect of grading, hence similar effect should be seen in the axial electric for axial grading design. The electric field distribution across any perpendicular cut lines to the foils would result in almost identical results, because the foils behave similar to capacitors in series. Electric field being constant across a capacitor and this is true across any two neighbouring foils. Figure \ref{figure:constantfield} shows the electric field with in foils from mid-point to the tips and very constant electric field is seen.
+
+
 
 \subsubsection{Axial Electric Field}
 The axial component of electric field is responsible for the surface discharges along the surface of the bushing design. Axial component of the field contributes to these surfaces, because the axial electric field at the edges of the foil are the most intense. Figure \ref{figure:afield} shows the magnitude of electric field at each foil edge. 
@@ -191,6 +193,81 @@ In bushing designs, the creepage distance is increased by the addition of a shed
 According to the typical value to calculate the creepage distance, for a 275kV design, the creepage distance required is 9625mm. Where the designs of bushing in this report has axial length of approximately 3m, the ratio of minimum nominal creepage distance to axial length required is 3.2:1.
 
 These shed provides a greater creepage distance to reduce the chance of surface flashover, however, they have little affect on the electric field of the bushing. Hence, addition of shed does not reduce corona discharge. 
+
+\subsection{Design Improvements}
+The high electric field at the tips of the foils has been identified as a cause for concern.
+The field strength at this point exceeds the PD inception voltage by double in the axial design, and around four times in the radial design.
+It is therefore necessary to improve the base design.
+
+The first aspect to consider is the accuracy and relevance of the COMSOL model.
+The very thin foils are modelled as perfect rectangles with sharp $90^{o}$ corners.
+This approximation was made to make the geometry of the model simple for input to COMSOL.
+Sharp corners cause areas of exceedingly high field strengths. 
+A refined model was required, to confirm that the unrealistic sharp corners on the foils were not causing the exceedingly high field strengths.
+
+The radial model was taken forward, since it already passes the radial field criteria.
+If a way to reduce the field at the foil tips could be found, the radial design would pass all criteria.
+The end of each of the foils was filleted, so that the ends formed a semi-circle.
+While this is still not the optimum design for an electrode, it is certainly an improvement over the sharp angles.
+
+\begin{figure}[!h]
+\centering
+\subfigure[Curved Foil Tips]{
+\includegraphics[width = 0.45\textwidth]{./Figures/Simulations/Improvements/Curved.eps}
+\label{figure:Curved}
+}
+\subfigure[Angled Foil Tips]{
+\includegraphics[width = 0.45\textwidth]{./Figures/Simulations/Improvements/Old.eps}
+\label{figure:Angled}
+}
+\caption{Normal Electric Field at the Tips Improvement}
+\label{figure:curvedcompare}
+\end{figure}
+
+The curved foil tip is clearly visible in figure \ref{figure:Curved}.
+There is an improvement, the curved design has a slightly smaller area of field strengths higher than the threshold.
+However, it has not solved the issue completely.
+Further design modifications are required.
+
+Literature on bushing design refer to the high field at the tips problem \cite{kuffel2000high}.
+One possible solution commonly suggested is to coat the tip of the foil in a semiconductor.
+\inote{BH can you add a little bit here about the semiconductor thing - references and why would it help?}
+
+This has been modelled in COMSOL by adding a square to the edge of the foil $0.1mm$ in dimension. 
+The outer edges of the square are filleted to a curve in the same way the tips were previously.
+These squares were allocated the relative permittivity of $\epsilon_r = 11.7$, which is the permittivity of silicon.
+The actual manufacture processes are not in the scope of this report, and different semiconductors may be used in industry.
+However, adding this to the COMSOL will at least prove the concept.
+
+\begin{figure}[!h]
+\centering
+\subfigure[Semiconductor Foil Tips]{
+\includegraphics[width = 0.45\textwidth]{./Figures/Simulations/Improvements/Semi.eps}
+\label{figure:Semi}
+}
+\subfigure[Angled Foil Tips]{
+\includegraphics[width = 0.45\textwidth]{./Figures/Simulations/Improvements/Old.eps}
+\label{figure:Angled2}
+}
+\caption{Normal Electric Field at the Tips Improvement}
+\label{figure:semicompare}
+\end{figure}
+
+The semiconductor block with curved edges can be seen in figure \ref{figure:Semi}.
+It is shown alongside the original angled design for comparison in figure \ref{figure:Angled2}.
+Once again, there is a subtle improvement in the area exposed to very high field concentrations.
+However, it remains well above the $4.5kV/mm$ threshold value.
+
+The normal electric field values have been extracted and plotted in figure \ref{figure:scattercomp} to enable a more direct, quantitative comparison.
+It is clear that the radial semiconductor tipped model has reduced the field strength by almost half, and is nearly at the same level as the axial field design.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{./Figures/Simulations/Improvements/RadialScatter.eps}
+\caption{Scatter showing the normal electric field at the tips of each foil in the axial, radial, radial curved and radial semiconductor models.}
+\label{figure:scattercomp}
+\end{figure}
+
 
 \subsection{Choice of Design}
 From the results shown in the previous sections, the graph of variation in radial electric field shows the peak radial electric field for the axial graded design, the limit of 4.5kV/mm is just exceeded. While the radial graded design have radial electric field below the limit. However, the axial electric field in both design exceeds the limit by a few times in some places. More importantly, the axial electric field for the radial graded design is in general approximately twice as much as the axial graded design. Hence, the results show the radial design suppresses more in radial electric field, while the axial electric field is suppressed more in the axial graded design as expected. The choice of which design to use would depend on the effect of the axial and the radial electric field. Whether the doubling effect in the axial electric field would cause a bigger problem or would the excessive radial electric field cause a bigger problem. According to the weakness for bushing designs, the axial electric field usually cause more problems as the breakdown within foil would require a higher electric field than surface discharge along the boundary layer. So, the axial graded design would be used when taken all these factors into consideration.
