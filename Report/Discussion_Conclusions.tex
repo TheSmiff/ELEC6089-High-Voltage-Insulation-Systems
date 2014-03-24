@@ -23,7 +23,7 @@ Corona discharge can occur in both air and oil, however, since the inception vol
 \subsection{No Foils}
 %BH
 %fig 6.7
-Nowadays, solid bushing is only used for voltages below 25kV. This is due to a combination of all factors as shown in the previous figure 6.7. When simulated with a conductor ten times its rated voltage its flaws are clear. As mentioned previously, the primary criteria to solve are high electric fields inducing partial discharges and large axial fields causing flashover. 
+Nowadays, solid bushing is only used for voltages below 25kV. This is due to a combination of all factors as shown in the previous figure \ref{Figure:No_Foil_Field}. When simulated with a conductor ten times its rated voltage its flaws are clear. As mentioned previously, the primary criteria to solve are high electric fields inducing partial discharges and large axial fields causing flashover. 
 
 
 \begin{figure}[!h]
@@ -39,30 +39,35 @@ Nowadays, solid bushing is only used for voltages below 25kV. This is due to a c
 	\label{Figure:NoFoilsFail}
    }
 \caption{The Normal Electric Field in the No Foils Model}
-\label{Figure:Radial_Field}
+\label{Figure:Radial_No_Foils_Fails}
 \end{figure}
-
-
-
-\begin{figure}[!h]
-  \centering
-    \includegraphics[width = 0.8\textwidth]{./Figures/MatlabFigs/NormEfieldinnograding.eps} 
-\caption{Anotherfigure}
-\label{Figure:NoFoilsFail}
-\end{figure}
-
-
-
-
-
 
 This is best illustrated with figure \ref{Figure:NoFoilsFail}, not only are the fields present at the interface to the flange well in excess of the PD inception voltage, the location of these high electric fields also mean flashover is a serious risk due to the lack of shaping of the axial electric field distribution. A result of such localised electric stress is that because the field is greater than the PD inception voltage the voids will generate exponentially more discharges, leading to faster ageing and a much higher chance of breakdown. The solution, assuming keeping voltage constant, would be to increase the bushing height and width. 
+
+
 \subsection{No Grading}
 %BH
 %fig 6.11b, 6.11c
 %same graph as 7.1 but for no grading
 %done but need to make .fig into pdf then add to latex (help needed)
-The proposal to study a model of condenser bushing without any thought to grading exposes the fundamentals to grading design. Figure 7.2 shows that, for the most part the electric field is below the PD inception voltage, at least at the central interface. However looking at figures 6.11b and 6.11c show that the foil placement did not effectively shape the field at the bushing interface at the tips.  Beyond analysing the concentrations of electric field it is important to note that the distribution is non-linear; in comparison to the ideal goal of a linear drop of field across the capacitors \citep{kuffel2000high}. The placement of the outermost foil serves as a location of high field density and although located far from the flange itself it would likely be a source of both PDs and corona discharges. 
+The proposal to study a model of condenser bushing without any thought to grading exposes the fundamentals to grading design. Figure \ref{Figure:NoGrad1D} shows that, for the most part the electric field is below the PD inception voltage, at least at the central interface. However looking at figures \ref{Figure:No_Grading_Field_CloseMid} and \ref{Figure:No_Grading_Field_CloseTip} show that the foil placement did not effectively shape the field at the bushing interface at the tips.  Beyond analysing the concentrations of electric field it is important to note that the distribution is non-linear; in comparison to the ideal goal of a linear drop of field across the capacitors \citep{kuffel2000high}. The placement of the outermost foil serves as a location of high field density and although located far from the flange itself it would likely be a source of both PDs and corona discharges. 
+
+\begin{figure}[!h]
+  \centering
+\subfigure[Location of Cut Plane]{
+    \includegraphics[width = 0.16\textwidth]{./Figures/CutLocation_Mid.pdf} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:Cut_No_Grad_Mid}
+   } 
+\subfigure[The No Grading Model Fails PD Criteria]{
+    \includegraphics[width = 0.55\textwidth]{./Figures/MatlabFigs/NormEfieldinnograding.eps} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:NoGrad1D}
+   }
+\caption{The Normal Electric Field in the No Grading Model}
+\label{Figure:No_Grad_Failing}
+\end{figure}
+
 % want a plot of the tips?
 
 \subsection{Comparison of Axial and Radial Grading Solutions}
