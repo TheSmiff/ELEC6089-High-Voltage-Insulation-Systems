@@ -26,7 +26,7 @@ Corona discharge can occur in both air and oil, however, since the inception vol
 Nowadays, solid bushing is only used for voltages below 25kV. This is due to a combination of all factors as shown in the previous figure \ref{Figure:No_Foil_Field}. When simulated with a conductor ten times its rated voltage its flaws are clear. As mentioned previously, the primary criteria to solve are high electric fields inducing partial discharges and large axial fields causing flashover. 
 
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \centering
 \subfigure[Location of Cut Plane]{
     \includegraphics[width = 0.16\textwidth]{./Figures/CutLocation_Mid.pdf} 
@@ -43,11 +43,20 @@ Nowadays, solid bushing is only used for voltages below 25kV. This is due to a c
 \end{figure}
 
 \begin{figure}[!h]
-	\centering
-	\includegraphics[width = 0.5\textwidth]{./Figures/MatlabFigs/No_Foils_Surface_AxialField.eps}
-	\caption{The Axial Electric field along the bushing surface}
+  \centering
+\subfigure[Location of Cut Plane(s)]{
+    \includegraphics[width = 0.18\textwidth]{./Figures/CutLocation_Axial.pdf} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:Cut_NoFoil_Axial}
+   } 
+\subfigure[The Axial Electric field along the bushing surface]{
+    \includegraphics[width = 0.5\textwidth]{./Figures/MatlabFigs/No_Foils_Surface_AxialField.eps} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
 	\label{Figure:Nofoilsaxialfield}
-	\end{figure}
+   }
+\caption{Axial electric field along the surface of the bushing}
+\label{Figure:Nofoilsaxialfieldwhole}
+\end{figure}
 
 This is best illustrated with figure \ref{Figure:NoFoilsFail}, not only are the fields present at the interface to the flange well in excess of the PD inception voltage, the location of these high electric fields also mean flashover is a serious risk due to the lack of shaping of the axial electric field distribution. A result of such localised electric stress is that because the field is greater than the PD inception voltage the voids will generate exponentially more discharges, leading to faster ageing and a much higher chance of breakdown. The solution, assuming keeping voltage constant, would be to increase the bushing height and width. 
 
@@ -78,18 +87,44 @@ The proposal to study a model of condenser bushing without any thought to gradin
 % want a plot of the tips?
 
 \begin{figure}[!h]
-	\centering
-	\includegraphics[width= 0.5\textwidth]{./Figures/MatlabFigs/No_Grading_Surface_AxialField.eps}
-	\caption{The Axial Electric field along the bushing surface}
-	\label{Figure:Nofoilsaxialfield}
-	\end{figure}
+  \centering
+\subfigure[Location of Cut Plane(s)]{
+    \includegraphics[width = 0.18\textwidth]{./Figures/CutLocation_Axial.pdf} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:Cut_NoGrad_Axial}
+   } 
+\subfigure[The Axial Electric field along the bushing surface for no-grading model]{
+    \includegraphics[width = 0.5\textwidth]{./Figures/MatlabFigs/No_Grading_Surface_AxialField.eps} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:Nogradaxialfield}
+   }
+\caption{Axial electric field along the surface of the bushing}
+\label{Figure:Nogradaxialfieldwhole}
+\end{figure}
+
+%\begin{figure}[!h]
+%	\centering
+%	\includegraphics[width= 0.5\textwidth]{./Figures/MatlabFigs/No_Grading_Electric_Potential.eps}
+%	\caption{The Electric potential across the midwall}
+%	\label{Figure:Nofoilsaxialfield}
+%	\end{figure}
 
 \begin{figure}[!h]
-	\centering
-	\includegraphics[width= 0.5\textwidth]{./Figures/MatlabFigs/No_Grading_Electric_Potential.eps}
-	\caption{The Electric potential across the midwall}
-	\label{Figure:Nofoilsaxialfield}
-	\end{figure}
+  \centering
+\subfigure[Location of Cut Plane]{
+    \includegraphics[width = 0.16\textwidth]{./Figures/CutLocation_Mid2.pdf} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:Cut_No_Grad_Mid}
+   } 
+\subfigure[The Electric potential across the midwall]{
+    \includegraphics[width = 0.55\textwidth]{./Figures/MatlabFigs/No_Grading_Electric_Potential.eps} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{figure:nogradpotentialmid}
+   }
+\caption{The electric potential within the no grading model}
+\label{Figure:No_Grad_Failing_potential}
+\end{figure}
+
 
 \subsection{Comparison of Axial and Radial Grading Solutions}
 The design of both types of capacitive grading method were discussed in the previous sections. The difference in performance of the types in general is the radial grading will improve the intensity of the radial electric field and the axial grading will improve the intensity of the axial electric field. By improvement of intensity of electric field, this means the electric field according to the type of grading method is evenly distributed in a particular direction. Choosing the right design for different application is essential as this will reduce the chances of various types of electrical breakdown and hence the bushing design would be more durable.
