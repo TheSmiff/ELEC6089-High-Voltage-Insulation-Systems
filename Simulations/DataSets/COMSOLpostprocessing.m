@@ -190,13 +190,116 @@ No_Grading_OilFoil_E_Z = data(:, 4);
 No_Grading_OilFoil_E_Norm = data(:, 5);
 No_Grading_OilFoil_V= data(:, 6);
 
+COMSOL_File_Import('Tips_Axial_Air.txt')
+data = sortrows(data, 1);
+Tips_Axial_AirFoil_R = data(:, 1);
+Tips_Axial_AirFoil_Z = data(:, 2);
+Tips_Axial_AirFoil_E_R = data(:, 3);
+Tips_Axial_AirFoil_E_Z = data(:, 4);
+Tips_Axial_AirFoil_E_Norm = data(:, 5);
+Tips_Axial_AirFoil_V= data(:, 6);
 
-h = plot(No_Foil_MidWall_R, No_Foil_MidWall_E_Norm, No_Foil_AirWall_R, No_Foil_AirWall_E_Norm, No_Foil_OilWall_R, No_Foil_OilWall_E_Norm, [0 500], [4500000 4500000])
+COMSOL_File_Import('Tips_Axial_Oil.txt')
+data = sortrows(data, 1);
+Tips_Axial_OilFoil_R = data(:, 1);
+Tips_Axial_OilFoil_Z = data(:, 2);
+Tips_Axial_OilFoil_E_R = data(:, 3);
+Tips_Axial_OilFoil_E_Z = data(:, 4);
+Tips_Axial_OilFoil_E_Norm = data(:, 5);
+Tips_Axial_OilFoil_V= data(:, 6);
+
+COMSOL_File_Import('Tips_Curved_Air.txt')
+data = sortrows(data, 1);
+Tips_Curved_AirFoil_R = data(:, 1);
+Tips_Curved_AirFoil_Z = data(:, 2);
+Tips_Curved_AirFoil_E_R = data(:, 3);
+Tips_Curved_AirFoil_E_Z = data(:, 4);
+Tips_Curved_AirFoil_E_Norm = data(:, 5);
+Tips_Curved_AirFoil_V= data(:, 6);
+
+COMSOL_File_Import('Tips_Curved_Oil.txt')
+data = sortrows(data, 1);
+Tips_Curved_OilFoil_R = data(:, 1);
+Tips_Curved_OilFoil_Z = data(:, 2);
+Tips_Curved_OilFoil_E_R = data(:, 3);
+Tips_Curved_OilFoil_E_Z = data(:, 4);
+Tips_Curved_OilFoil_E_Norm = data(:, 5);
+Tips_Curved_OilFoil_V= data(:, 6);
+
+COMSOL_File_Import('Tips_Radial_air.txt')
+data = sortrows(data, 1);
+Tips_Radial_airFoil_R = data(:, 1);
+Tips_Radial_airFoil_Z = data(:, 2);
+Tips_Radial_airFoil_E_R = data(:, 3);
+Tips_Radial_airFoil_E_Z = data(:, 4);
+Tips_Radial_airFoil_E_Norm = data(:, 5);
+Tips_Radial_airFoil_V= data(:, 6);
+
+COMSOL_File_Import('Tips_Radial_Oil.txt')
+data = sortrows(data, 1);
+Tips_Radial_OilFoil_R = data(:, 1);
+Tips_Radial_OilFoil_Z = data(:, 2);
+Tips_Radial_OilFoil_E_R = data(:, 3);
+Tips_Radial_OilFoil_E_Z = data(:, 4);
+Tips_Radial_OilFoil_E_Norm = data(:, 5);
+Tips_Radial_OilFoil_V= data(:, 6);
+
+COMSOL_File_Import('Tips_Semi_Air.txt')
+data = sortrows(data, 1);
+Tips_Semi_AirFoil_R = data(:, 1);
+Tips_Semi_AirFoil_Z = data(:, 2);
+Tips_Semi_AirFoil_E_R = data(:, 3);
+Tips_Semi_AirFoil_E_Z = data(:, 4);
+Tips_Semi_AirFoil_E_Norm = data(:, 5);
+Tips_Semi_AirFoil_V= data(:, 6);
+
+COMSOL_File_Import('Tips_Semi_Oil.txt')
+data = sortrows(data, 1);
+Tips_Semi_OilFoil_R = data(:, 1);
+Tips_Semi_OilFoil_Z = data(:, 2);
+Tips_Semi_OilFoil_E_R = data(:, 3);
+Tips_Semi_OilFoil_E_Z = data(:, 4);
+Tips_Semi_OilFoil_E_Norm = data(:, 5);
+Tips_Semi_OilFoil_V= data(:, 6);
+
+COMSOL_File_Import('Tips_Sphere_Air.txt')
+data = sortrows(data, 1);
+Tips_Sphere_AirFoil_R = data(:, 1);
+Tips_Sphere_AirFoil_Z = data(:, 2);
+Tips_Sphere_AirFoil_E_R = data(:, 3);
+Tips_Sphere_AirFoil_E_Z = data(:, 4);
+Tips_Sphere_AirFoil_E_Norm = data(:, 5);
+Tips_Sphere_AirFoil_V= data(:, 6);
+
+COMSOL_File_Import('Tips_Sphere_Oil.txt')
+data = sortrows(data, 1);
+Tips_Sphere_OilFoil_R = data(:, 1);
+Tips_Sphere_OilFoil_Z = data(:, 2);
+Tips_Sphere_OilFoil_E_R = data(:, 3);
+Tips_Sphere_OilFoil_E_Z = data(:, 4);
+Tips_Sphere_OilFoil_E_Norm = data(:, 5);
+Tips_Sphere_OilFoil_V= data(:, 6);
+
+n = (1:21)';
+% h = plot(No_Foil_MidWall_R, No_Foil_MidWall_E_Norm, No_Foil_AirWall_R, No_Foil_AirWall_E_Norm, No_Foil_OilWall_R, No_Foil_OilWall_E_Norm, [0 21], [4500000 4500000])
+% hold on
+% legend('Mid Wall', 'Air Interface', 'Oil Interface', 'PD Inception Voltage')
+% xlabel('Radial Distance from Conductor Centre (mm)', 'FontSize', 14, 'FontName', 'Times')
+% ylabel('Normal Electric Field Strength (V/m)', 'FontSize', 14, 'FontName', 'Times')
+% title('Normal Electric Field in the No Foils Model', 'FontSize', 14, 'FontName', 'Times')
+% axis([45 250 0 10000000])
+
+h = scatter(n, Tips_Axial_AirFoil_E_Norm, 'x')
 hold on
-legend('Mid Wall', 'Air Interface', 'Oil Interface', 'PD Inception Voltage')
-xlabel('Radial Distance from Conductor Centre (mm)', 'FontSize', 14, 'FontName', 'Times')
+scatter(n, Tips_Radial_airFoil_E_Norm, 'x')
+scatter(n, Tips_Curved_AirFoil_E_Norm, 'x')
+scatter(n, Tips_Semi_AirFoil_E_Norm, 'x')
+scatter(n, Tips_Sphere_AirFoil_E_Norm, 'x')
+legend('Axial Original', 'Radial Original', 'Radial Curved', 'Radial Semiconductor', 'location', 'southeast')
+xlabel('Foil Number (n)', 'FontSize', 14, 'FontName', 'Times')
 ylabel('Normal Electric Field Strength (V/m)', 'FontSize', 14, 'FontName', 'Times')
-title('Normal Electric Field in the No Foils Model', 'FontSize', 14, 'FontName', 'Times')
-axis([45 250 0 10000000])
+title('Normal Electric Field at foil tips Air side', 'FontSize', 14, 'FontName', 'Times')
+
+
 
 
