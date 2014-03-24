@@ -262,6 +262,24 @@ Tips_Semi_OilFoil_E_Z = data(:, 4);
 Tips_Semi_OilFoil_E_Norm = data(:, 5);
 Tips_Semi_OilFoil_V= data(:, 6);
 
+COMSOL_File_Import('Tips_Sphere_Air.txt')
+data = sortrows(data, 1);
+Tips_Sphere_AirFoil_R = data(:, 1);
+Tips_Sphere_AirFoil_Z = data(:, 2);
+Tips_Sphere_AirFoil_E_R = data(:, 3);
+Tips_Sphere_AirFoil_E_Z = data(:, 4);
+Tips_Sphere_AirFoil_E_Norm = data(:, 5);
+Tips_Sphere_AirFoil_V= data(:, 6);
+
+COMSOL_File_Import('Tips_Sphere_Oil.txt')
+data = sortrows(data, 1);
+Tips_Sphere_OilFoil_R = data(:, 1);
+Tips_Sphere_OilFoil_Z = data(:, 2);
+Tips_Sphere_OilFoil_E_R = data(:, 3);
+Tips_Sphere_OilFoil_E_Z = data(:, 4);
+Tips_Sphere_OilFoil_E_Norm = data(:, 5);
+Tips_Sphere_OilFoil_V= data(:, 6);
+
 n = (1:21)';
 % h = plot(No_Foil_MidWall_R, No_Foil_MidWall_E_Norm, No_Foil_AirWall_R, No_Foil_AirWall_E_Norm, No_Foil_OilWall_R, No_Foil_OilWall_E_Norm, [0 21], [4500000 4500000])
 % hold on
@@ -276,6 +294,7 @@ hold on
 scatter(n, Tips_Radial_airFoil_E_Norm, 'x')
 scatter(n, Tips_Curved_AirFoil_E_Norm, 'x')
 scatter(n, Tips_Semi_AirFoil_E_Norm, 'x')
+scatter(n, Tips_Sphere_AirFoil_E_Norm, 'x')
 legend('Axial Original', 'Radial Original', 'Radial Curved', 'Radial Semiconductor', 'location', 'southeast')
 xlabel('Foil Number (n)', 'FontSize', 14, 'FontName', 'Times')
 ylabel('Normal Electric Field Strength (V/m)', 'FontSize', 14, 'FontName', 'Times')
