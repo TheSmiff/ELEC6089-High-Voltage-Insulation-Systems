@@ -79,10 +79,19 @@ There are two components of electric field cause different problems. The radial 
 The maximum intensity of the radial electric field for the radial design is expected to be lower than the maximum of the axial design. This means the radial grading design would perform better to suppress the intensity of radial electric field. The radial electric field across the radial direction of both axial and radial grading designs are shown in figure \ref{figure:rfield}.
 
 \begin{figure}[!h]
-\centering
-\includegraphics[width = 0.75\textwidth]{R-field.eps}
-\caption{Radial electric field across the mid-point of the two designs of bushing.}
-\label{figure:rfield}
+  \centering
+\subfigure[Location of Cut Plane]{
+    \includegraphics[width = 0.16\textwidth]{./Figures/CutLocation_Mid2.pdf} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:Cut_No_Grad_Mid}
+   } 
+\subfigure[Radial electric field across the mid-point of the two designs of bushing.]{
+    \includegraphics[width = 0.55\textwidth]{R-field.eps} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{figure:rfield}
+   }
+\caption{The Normal Electric Field in the No Grading Model}
+\label{Figure:No_Grad_Failing}
 \end{figure}
 
 The result clearly shows the peak value of electric field for the axial design ($\approx 4.5 \times 10^3 kVm^{-1}$) is greater than the peak value of electric field for the radial design ($\approx 3.5 \times 10^3 kVm^{-1}$). Also, from the figure \ref{figure:rfield}, the radial electric field of the radial grading design is more evenly distributed. This is the effect of grading, hence similar effect should be seen in the axial electric for axial grading design. The electric field distribution across any perpendicular cut lines to the foils would result in almost identical results, because the foils behave similar to capacitors in series. Electric field being constant across a capacitor and this is true across any two neighbouring foils. Figure \ref{figure:constantfield} shows the electric field with in foils from mid-point to the tips and very constant electric field is seen.
