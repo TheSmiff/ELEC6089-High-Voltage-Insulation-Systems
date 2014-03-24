@@ -74,25 +74,40 @@ The maximum intensity of the radial electric field for the radial design is expe
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width = \textwidth]{R-field.jpg}
+\includegraphics[width = 0.75\textwidth]{R-field.eps}
 \caption{Radial electric field across the mid-point of the two designs of bushing.}
 \label{figure:rfield}
 \end{figure}
 
-The result clearly shows the peak value of electric field for the axial design ($\approx 4.5 \times 10^3 kVm^{-1}$) is greater than the peak value of electric field for the radial design ($\approx 3.5 \times 10^3 kVm^{-1}$). Also, from the figure \ref{figure:rfield}, the radial electric field of the radial grading design is more evenly distributed. This is the effect of grading, hence similar effect should be seen in the axial electric for axial grading design. The electric field distribution across any perpendicular cut lines to the foils would result in almost identical results, because the foils behave similar to capacitors in series. Electric field being constant across a capacitor and this is true across any two neighbouring foils.
+The result clearly shows the peak value of electric field for the axial design ($\approx 4.5 \times 10^3 kVm^{-1}$) is greater than the peak value of electric field for the radial design ($\approx 3.5 \times 10^3 kVm^{-1}$). Also, from the figure \ref{figure:rfield}, the radial electric field of the radial grading design is more evenly distributed. This is the effect of grading, hence similar effect should be seen in the axial electric for axial grading design. The electric field distribution across any perpendicular cut lines to the foils would result in almost identical results, because the foils behave similar to capacitors in series. Electric field being constant across a capacitor and this is true across any two neighbouring foils. Figure \ref{figure:constantfield} shows the electric field with in foils from mid-point to the tips and very constant electric field is seen.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.9\textwidth]{ConstantAxialField.eps}
+\caption{2D surface plot showing the distribution of electric field from mid-point to the air end of bushing}
+\label{figure:constantfield}
+\end{figure}
 
 \subsubsection{Axial Electric Field}
 The axial component of electric field is responsible for the surface discharges along the surface of the bushing design. Axial component of the field contributes to these surfaces, because the axial electric field at the edges of the foil are the most intense. Figure \ref{figure:afield} shows the magnitude of electric field at each foil edge. 
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width = \textwidth]{A-field.jpg}
+\subfigure[Air side axial electric field]{
+\includegraphics[width = 0.7\textwidth]{A-fieldA.eps}
+\label{figure:afielda}
+}
+\subfigure[Oil side axial electric field]{
+\includegraphics[width = 0.7\textwidth]{A-fieldO.eps}
+\label{figure:afieldo}
+}
 \caption{Electric field at the edge of each foil.}
 \label{figure:afield}
 \end{figure}
-%this graph is a mess, I took very long time to convince myself to put this on here. This is the best I can do at the moment
 
-The result shows the radial design has a lower peak value of electric field at these edges of foil. However, this is not an expected result, because axial grading in theory shapes the surface of the insulation better to avoid intensifying of electric field at these edges. Also, a clearer maximum peak of electric field at should be seen at the outermost foil of the radial graded design due to the sharp turn in the shape of the bushing design. Although the result shows a maximum peak at the last outermost foil, it is not significant and it is below the maximum value of electric field for the axial graded design. Although the radial graded design has lower maximum electric field than the axial graded design, the electric field generally is much greater than the electrical breakdown strength of air. This will result in surface discharges.
+The result shows the radial design has a lower peak value of electric field at these edges of foil. However, this is not an expected result, because axial grading in theory shapes the surface of the insulation better to avoid intensifying of electric field at these edges. Also, a clearer maximum peak of electric field at should be seen at the outermost foil of the radial graded design due to the sharp turn in the shape of the bushing design. Although the result shows a maximum peak at the last outermost foil, it is not significant and it is below the maximum value of electric field for the axial graded design. Although the radial graded design has lower maximum electric field than the axial graded design, the electric field generally is much greater than the partial discharge inception voltage for oil-impregnated paper insulation. This will result in partial discharge.
+
+However, The points which are taken in to consideration are the highest values of electric field locally which drops off rapidly moving away from the point. While the sum of these points is approximately 0.03\% of the volume of the overall bushing design, hence, this can be consider as an affordable problem in the bushing design. Also, in the model, all the foils are considered to terminate with a $90^\circ$ bend. In reality, designs may use various various techniques to suppress the effect of this bend. Some design uses semi-conducting material at the ends of the foil. %citation
 
 \subsubsection{Surface Flashover}
 %talk about the addition of shedding in completeness. Limitations of current model without shedding -> primarily some extra shaping of fields. The effect of grounding the outermost capacitor.
@@ -106,7 +121,8 @@ According to the typical value to calculate the creepage distance, for a 275kV d
 
 These shed provides a greater creepage distance to reduce the chance of surface flashover, however, they have little affect on the electric field of the bushing. Hence, addition of shed does not reduce corona discharge. 
 
-\subsection{Choice of Designing Method}
+\subsection{Choice of Design}
+From the results shown in the previous sections, the graph of variation in radial electric field shows the peak radial electric field for the axial graded design, the limit of 4.5kV/mm is just exceeded. While the radial graded design have radial electric field below the limit. However, the axial electric field in both design exceeds the limit by a few times in some places. More importantly, the axial electric field for the radial graded design is in general approximately twice as much as the axial graded design. Hence, the results show the radial design suppresses more in radial electric field, while the axial electric field is suppressed more in the axial graded design as expected. The choice of which design to use would depend on the effect of the axial and the radial electric field. Whether the doubling effect in the axial electric field would cause a bigger problem or would the excessive radial electric field cause a bigger problem. According to the weakness for bushing designs, the axial electric field usually cause more problems as the breakdown within foil would require a higher electric field than surface discharge along the boundary layer. So, the axial graded design would be used when taken all these factors into consideration.
 
 \section{Conclusions}
 Conclusions.

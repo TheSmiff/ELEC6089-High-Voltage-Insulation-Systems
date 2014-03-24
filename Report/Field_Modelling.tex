@@ -196,19 +196,19 @@ This is due to the difference in size of the aspects of the geometry.
 The foils are just $0.1mm$ thick, which requires a very small set of triangles in order to mesh this area.
 The other domains are up to $6000mm$ long, which is considerably larger and requires a different size of triangles.
 
-In order to solves the issue, a set of meshing rules were produced.
-Firstly, the mesh within the conductor and within the foils can be very coarse.
-Within a conducting material, no electric field is expected, hence there is no reason to finely mesh that area.
-Areas of interest or areas where the field changes rapidly need to have a very fine mesh to ensure the accuracy of the results is sufficient.
-The meshing rules dictated a minimum number of points at the tip of each foil, and along the surface of the bushing.
-This resulted in a refined mesh shown in figures \ref{Figure:No_Grading_Mesh1} and \ref{Figure:No_Grading_Mesh2}.
-
 \begin{figure}[!h]
   \centering
     \includegraphics[width = \textwidth]{./Figures/Simulations/Edited_No_Grading_Final/Mesh_wide.eps} 
 	\caption{User defined meshing for no grading simulation - whole view}
 \label{Figure:No_Grading_Mesh1}
 \end{figure}
+
+In order to solves the issue, a set of meshing rules were produced.
+Firstly, the mesh within the conductor and within the foils can be very coarse.
+Within a conducting material, no electric field is expected, hence there is no reason to finely mesh that area.
+Areas of interest or areas where the field changes rapidly need to have a very fine mesh to ensure the accuracy of the results is sufficient.
+The meshing rules dictated a minimum number of points at the tip of each foil, and along the surface of the bushing.
+This resulted in a refined mesh shown in figures \ref{Figure:No_Grading_Mesh1} and \ref{Figure:No_Grading_Mesh2}.
 
 \begin{figure}[!h]
   \centering
@@ -229,12 +229,12 @@ Once the geometry has been meshed appropriately, the system can be solved to det
    }\\
 
 \subfigure[Normal Electric Field (V/m) in the Plane of the Transformer Wall]{
-    \includegraphics[width = 0.45\textwidth]{./Figures/Simulations/Edited_No_Grading_Final/E_Field_Norm_Close_Mid.eps} 
+    \includegraphics[width = 0.42\textwidth]{./Figures/Simulations/Edited_No_Grading_Final/E_Field_Norm_Close_Mid.eps} 
 	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
 	\label{Figure:No_Grading_Field_CloseMid}
    } \quad
 \subfigure[Normal Electric Field (V/m) at the tips of the Foils]{
-    \includegraphics[width = 0.45\textwidth]{./Figures/Simulations/Edited_No_Grading_Final/E_Field_Norm_Close_Tip.eps} 
+    \includegraphics[width = 0.48\textwidth]{./Figures/Simulations/Edited_No_Grading_Final/E_Field_Norm_Close_Tip.eps} 
 	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
 	\label{Figure:No_Grading_Field_CloseTip}
    }
@@ -303,12 +303,12 @@ Section \ref{s:Discussion} will take this observation further, to establish if i
 \begin{figure}[!h]
   \centering
 \subfigure[Normal Electric Field (V/m) in the Plane of the Transformer Wall]{
-    \includegraphics[width = 0.35\textwidth]{./Figures/Simulations/Edited_Radial_Final/E_Field_Norm_Middle.eps} 
+    \includegraphics[width = 0.45\textwidth]{./Figures/Simulations/Edited_Radial_Final/E_Field_Norm_Middle.eps} 
 	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
 	\label{Figure:Radial_Field_CloseMid}
    } 
 \subfigure[Normal Electric Field (V/m) at the tips of the Foils]{
-    \includegraphics[width = 0.55\textwidth]{./Figures/Simulations/Edited_Radial_Final/Radial_E_Field_Norm_Close_Tip.eps} 
+    \includegraphics[width = 0.45\textwidth]{./Figures/Simulations/Edited_Radial_Final/Radial_E_Field_Norm_Close_Tip.eps} 
 	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
 	\label{Figure:Radial_Field_CloseTip}
    }
