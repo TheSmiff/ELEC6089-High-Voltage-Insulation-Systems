@@ -162,26 +162,10 @@ These figures allows a quick verification of the scripts accuracy before proceed
 
 
 Table \ref{table:radialvals} shows the values obtained for radial grading.
-The final information required to be able to proceed to the axial simulation phase is the relative permittivity of each material.
-This was gathered from \cite{Ahmed11} and is shown in table \ref{table:perm}.
 
 \input{../Matlab_Calculations/Matlab_David/RadialVals21}
 
-\begin{table}[!htb]
-\begin{center}
-\begin{tabular}{cc}
-\toprule
-\textbf{Material} & \textbf{Relative Permittivity ($\epsilon_r$)} \\ \toprule
-Air & $1$ \\
-Oil &$ 2.2$ \\
-Paper Impregnated with Oil &$ 4$ \\
-Aluminium & $10^8$\\
-\bottomrule
-\end{tabular}
-\end{center}
-\caption{Relative Permittivity of Materials}
-\label{table:perm}
-\end{table}
+
 
 \subsection{Matlab Axial Grading}
 The axial grading script is similar to the radial grading script in design. 
@@ -203,7 +187,7 @@ The radius of the last foil ($r_{21}$) could be correctly adjusted by making cha
 \end{equation}
 
 The script plots 2D and 3D plots of axial grading to the user. Figure \ref{Figure:21plot221} illustrates the 3D configuration of the design's axial bushing.  
-The 2D plot of this design, which is shown in figure \ref{Figure:21plot22}, shows a nearly straight line from first to last foil. In fact, the foil length reduction is constant  on both sides ($b_{oil},b_{air}$).  But, as the Matlab script is using the exact calculation (Non-linear) rather than the approximate method (Linear), the foil endings are not placed exactly on a straight  line .
+The 2D plot of this design, which is shown in figure \ref{Figure:21plot22}, shows a nearly straight line from the edges of the first to last foil. In fact, the foil length reduction is constant  on both sides ($b_{oil},b_{air}$).  But, as the Matlab script is using the exact calculation (non-linear) rather than the approximate method (linear), the foil endings are not placed exactly on a straight  line .
 It also illustrates that $b_{air}>b_{oil} $ as it was expected due to the relative permittivity of each material.  
 Finally the calculated values for axial grading, using this design method, are shown in \ref{table:axialvals}. 
 These values along the given parameters in table \ref{table:perm} were used for COMSOL simulations of this axial grading design.
@@ -236,3 +220,23 @@ These values along the given parameters in table \ref{table:perm} were used for 
 \end{figure}
 
 \input{../Matlab_Calculations/Matlab_David/AxialVals21}
+
+The final information required to be able to proceed to the simulation phase is the relative permittivity of each material.
+This was gathered from \cite{Ahmed11} and is shown in table \ref{table:perm}.
+This data is used in all COMSOL models.
+
+\begin{table}[!htb]
+\begin{center}
+\begin{tabular}{cc}
+\toprule
+\textbf{Material} & \textbf{Relative Permittivity ($\epsilon_r$)} \\ \toprule
+Air & $1$ \\
+Oil &$ 2.2$ \\
+Paper Impregnated with Oil &$ 4$ \\
+Aluminium & $10^8$\\
+\bottomrule
+\end{tabular}
+\end{center}
+\caption{Relative Permittivity of Materials}
+\label{table:perm}
+\end{table}
