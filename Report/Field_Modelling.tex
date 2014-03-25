@@ -90,7 +90,7 @@ In order to simulate the electric field distribution within our bushing design, 
 \item Define the charge conservation equation and all initial conditions. This includes setting which boundaries are at ground and conductor potential and setting boundary conditions.
 \item Design a mesh. The geometry is split into smaller elements in order to compute the charge conservation equation. For designs with foils, special meshing parameters are required to speed up the process.
 \item Carry out the study. This stage is the actual computation of the solution.
-\item Post-processing - Display the results in a number of formats including 3D, 2D and 1D plots, or export the data for post-processing in Matlab.
+\item Post-processing. Display the results in a number of formats including 3D, 2D and 1D plots, or export the data for post-processing in Matlab.
 \end{enumerate}
 
 
@@ -127,7 +127,7 @@ Therefore all further models will adhere to this geometry, ensuring that the are
 In figure \ref{Figure:No_Foil_Large_Field}, the normal electric field throughout the whole system is displayed.
 Electric field is usually taken to be a vector quantity, that is a magnitude and direction. 
 For example, the electric field in the radial direction is termed $E_r$ and in the axial direction is $E_z$.
-The normal electric field is not a normal vector, but an absolute value of the electric field strength at that point. 
+The normal electric field is not a normal vector, but an absolute value of the electric field strength at a given point. 
 This can be described mathematically as $normE = \sqrt{\mathbf{E}.\mathbf{E}}$.
 It gives a reasonable interpretation of the electric field strength in either vector direction in the model, and will be used to compare all other models.
 
@@ -166,7 +166,7 @@ A very fine mesh was used in this model as shown in figure \ref{Figure:No_Foil_M
 The motivation for capacitive grading is clear in figure \ref{Figure:No_Foil_Field}. 
 The central area of stress in the plane of the transformer wall is shown in figure \ref{figure:problemfield}.
 The highest stress is shown at the corners of the transformer wall and in the plane between the transformer wall and the conductor.
-This reaches field strengths greater than $3.5kV/mm$ which can cause the inception of partial discharge.
+This reaches field strengths greater than $4.5kV/mm$ which can cause the inception of partial discharge.
 This simulation bears close resemblance to figure \ref{figure:problem} in section \ref{s:method} of this report, which was used to describe the electric field problem.
 In order for this bushing to function within the design constraints, capacitive grading must be used.
 
@@ -204,7 +204,7 @@ The other domains are up to $6000mm$ long, which is considerably larger and requ
 \label{Figure:No_Grading_Mesh1}
 \end{figure}
 
-In order to solves the issue, a set of meshing rules were produced.
+In order to solve the issue, a set of meshing rules were produced.
 Firstly, the mesh within the conductor and within the foils can be very coarse.
 Within a conducting material, no electric field is expected, hence there is no reason to finely mesh that area.
 Areas of interest or areas where the field changes rapidly need to have a very fine mesh to ensure the accuracy of the results is sufficient.
