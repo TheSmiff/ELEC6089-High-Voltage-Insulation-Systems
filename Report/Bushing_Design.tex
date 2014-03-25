@@ -4,7 +4,7 @@
 
 \section{Design Details}
 The reference model for this project is shown in figure \ref{figure:refproblem}. 
-The reference design is a paper impregnated with oil bushing with 21 aluminium foils of $100\mu m$.
+The reference design is a paper impregnated with oil bushing with 21 aluminium foils of $100\mu m$ thickness.
 One side of the bushing is exposed to air, the other to oil, similar to a transformer bushing.
 The diameter of the conductor is 100mm, the bushing diameter is 300mm.
 The length of the first foil is 5000mm long, and fixed 2mm into the bushing at the conductor voltage.
@@ -19,7 +19,7 @@ The conductor is used at 275kV AC voltage, and the design was taken from a bushi
 
 \subsection{Design Issues} \label{Section:Design Issues}
 In section \ref{ss:CapacitiveGrading} the initial information required for both radial and axial grading includes the length and radial displacement of the innermost foil.
-In the reference design the following initial information is given.
+In the reference design the following initial information is given in table \ref{table:initinfo}.
 
 \begin{table}[!htb]
 \caption{Initial Information for Reference Design}
@@ -44,8 +44,8 @@ The first foil is connected to the high voltage conductor, and the last foil is 
 This is to eliminate the electric field on the boundary interface as far as possible on both sides of the bushing, so that the voltage drop occurs exclusively inside the bushing insulation.
 
 This has an impact on the calculations described in section \ref{ss:CapacitiveGrading}.
-Since the innermost foil is at the same voltage as the conductor, there is no capacitance between them, as shown in figure \ref{figure:required assumptions}, hence the first foil shown on the diagram is not index 0 for the iterative calculation.
-The derivation of the iterative equations assumes a capacitance between the current foil and the previous foil (or conductor) ($r_n,r_{n-1}$). 
+Since the innermost foil is at the same voltage as the conductor, there is no capacitance between them, as shown in figure \ref{figure:required assumptions}.
+The derivation of the iterative equations assumes a capacitance between the current foil and the previous foil or conductor ($r_n,r_{n-1}$). 
 The first foil in figure \ref{figure:refproblem} is therefore indexed as 0 and not 1.
 
 \begin{figure}[!h]
