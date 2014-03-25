@@ -44,7 +44,7 @@ The first foil is connected to the high voltage conductor, and the last foil is 
 This is to eliminate the electric field on the boundary interface as far as possible on both sides of the bushing, so that the voltage drop occurs exclusively inside the bushing insulation.
 
 This has an impact on the calculations described in section \ref{ss:CapacitiveGrading}.
-Since the innermost foil is at the same voltage as the conductor, there is no capacitance between them, as shown in figure \ref{figure:required assumptions}.
+Since the innermost foil is at the same voltage as the conductor, there is no capacitance between them, as shown in figure \ref{figure:requiredassumptions}.
 The derivation of the iterative equations assumes a capacitance between the current foil and the previous foil or conductor ($r_n,r_{n-1}$). 
 The first foil in figure \ref{figure:refproblem} is therefore indexed as 0 and not 1.
 
@@ -52,12 +52,12 @@ The first foil in figure \ref{figure:refproblem} is therefore indexed as 0 and n
    \centering
    \includegraphics[width = \textwidth]{AssumptionExplanation.pdf}
    \caption{Diagram to explain the assumptions required}
-   \label{figure:required assumptions}
+   \label{figure:requiredassumptions}
 \end{figure}
 
 This means that there is not sufficient initial information to proceed with ether radial or axial grading, since the first non-connected foil length $L_1$ is not given.
 The iterative equations require the first non-connected foil length $L_1$ for radial ( $L_1$ \& $r_1$ for axial) grading to be known as shown in equation \ref{eq:ref0forl1} and \ref{eq:ref0}. 
-In axial grading all radii variables are known due to the even spacings under radial grading. In the axial grading \todo{consider} case, the length of foils are known due to known parameters $b_{ln}$ and $b_{rn}$.
+In the radial grading case, all radii variables are known due to the even spacings under radial grading. In the axial grading case, the length of foils are known due to known parameters $b_{ln}$ and $b_{rn}$.
 
 \begin{equation}
    \label{eq:ref0forl1}
@@ -90,8 +90,9 @@ Equations \ref{eq:ref0wrongfilled} and \ref{eq:ref0wrongfilledA} show a wrongly 
 \end{figure}
 
 In order to proceed with the calculations there must be an assumption of the length of the first unconnected foil.
-A reasonable assumption is that this follows the hyperbolic shape of the other foils in radial grading and also in axial grading  it is assumed to be the first unconnected foil. These assumptions in both cases help to evenly distribute the electric field radially or axially accordingly.
-To achieve this design mathematically, the following assumptions are made:
+A reasonable assumption is that this follows the hyperbolic shape of the other foils in radial grading. In axial grading the foil lengths are expected to decay with the axial field strengh.
+Both of these expectations are realised when the first foil is assumed to be isolated for calculation purposes only. These assumptions in both cases help to evenly distribute the electric field radially or axially accordingly.
+To achieve this design mathematically, the following assumptions are made for the calculations only:
 \begin{enumerate}
 \item Foil $0$ is not connected to the HV conductor for both cases.
 \item The conductor surface is spaced a distance of $S_n$ from foil $0$ in \textbf{radial grading}.
