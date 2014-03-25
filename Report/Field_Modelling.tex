@@ -180,7 +180,7 @@ In order for this bushing to function within the design constraints, capacitive 
 \subsection{No Grading} \label{ss:no_grading}
 In order to rectify the high electric stress identified in the no foils model, isolated foils are introduced to capacitively grade the electric field.
 To prove the requirement for grading the lengths or radial displacement of the foils, a simulation where the foils are maintained at the same length was performed.
-This model was expected to fail the design criteria, proving that introducing isolated foils into the bushing achieves nothing and it is the radial or axial grading of the field that is critical.
+This model was expected to fail the design criteria, proving that introducing isolated foils into the bushing achieves very little and it is the radial or axial grading of the field that is critical.
 The bushing has 21 foils spaced at an even radial spacing, but with no change in length of each foil.
 Each foil is $1756mm$ in length, and is centred in the within the bushing. 
 
@@ -283,15 +283,15 @@ In order to reduce computation time but maintain a reasonable level of accuracy 
 \end{figure}
 
 The model was then solved to find the normal electric field throughout the model.
-It can be seen in figure \ref{Figure:Radial_Field_CloseMid} that the field between the foils nearest the conductor is reduced below $3.5kV/mm$.
+It can be seen in figure \ref{Figure:Radial_Field_CloseMid} that the field between the foils nearest the conductor is reduced below $4.5kV/mm$.
 This is now evenly spread in the radial direction, as expected due to the radial grading of the electric field.
 The electric field in the radial direction is much improved.
 
 However, the axial electric field is not considered in the radial grading design method.
 The field at the foil tips is largely due to the axial field strength.
 It is necessary to inspect the strength of the electric fields at the tips of the foils.
-It can be seen in figure \ref{Figure:Radial_Field_CloseTip} that the electric field at the tips of the foil is as large as $3.5kV/mm$.
-Section \ref{s:Discussion} will take this observation further, to establish if it meet the design criteria.
+It can be seen in figure \ref{Figure:Radial_Field_CloseTip} that the electric field at the tips of the foil exceeds $4.5kV/mm$ in some places.
+Section \ref{s:Discussion} will take this observation further, to establish if it meets the design criteria.
 
 \begin{figure}[!h]
   \centering
