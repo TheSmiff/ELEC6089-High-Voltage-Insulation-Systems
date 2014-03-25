@@ -29,7 +29,7 @@ Nowadays, solid bushing is only used for voltages below 25kV. This is due to a c
 \begin{figure}[!ht]
   \centering
 \subfigure[Location of Cut Plane]{
-    \includegraphics[width = 0.16\textwidth]{./Figures/CutLocation_Mid.pdf} 
+    \includegraphics[width = 0.16\textwidth]{./Figures/CutLocation_Mid_NoFoil.pdf} 
 	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
 	\label{Figure:Cut_NoFoil_Mid}
    } 
@@ -42,10 +42,13 @@ Nowadays, solid bushing is only used for voltages below 25kV. This is due to a c
 \label{Figure:Radial_No_Foils_Fails}
 \end{figure}
 
+
+This is best illustrated with figure \ref{Figure:NoFoilsFail}, not only are the fields present at the interface to the flange well in excess of the PD inception voltage, the location of these high electric fields also mean flashover is a serious risk due to the lack of shaping of the axial electric field distribution. A result of such localised electric stress is that because the field is greater than the PD inception voltage the voids will generate exponentially more discharges, leading to faster ageing and a much higher chance of breakdown. The solution, assuming keeping voltage constant, would be to increase the bushing height and width. 
+
 \begin{figure}[!h]
   \centering
 \subfigure[Location of Cut Plane(s)]{
-    \includegraphics[width = 0.18\textwidth]{./Figures/CutLocation_Axial.pdf} 
+    \includegraphics[width = 0.18\textwidth]{./Figures/CutLocation_Axial_NoFoil.pdf} 
 	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
 	\label{Figure:Cut_NoFoil_Axial}
    } 
@@ -58,8 +61,7 @@ Nowadays, solid bushing is only used for voltages below 25kV. This is due to a c
 \label{Figure:Nofoilsaxialfieldwhole}
 \end{figure}
 
-This is best illustrated with figure \ref{Figure:NoFoilsFail}, not only are the fields present at the interface to the flange well in excess of the PD inception voltage, the location of these high electric fields also mean flashover is a serious risk due to the lack of shaping of the axial electric field distribution. A result of such localised electric stress is that because the field is greater than the PD inception voltage the voids will generate exponentially more discharges, leading to faster ageing and a much higher chance of breakdown. The solution, assuming keeping voltage constant, would be to increase the bushing height and width. 
-
+It has already been established that the axial electric field is the primary component for surface discharge. \ref{Figure:Nofoilsaxialfield} shows how the axial field varies along the surface of the bushing. Of interest is that there is very little field throughout the surface apart from at the flange junction; the most sensitive area. The short distances and large fields show that corona discharge is possible and will most likely lead to total failure of the system. 
 
 \subsection{No Grading}
 %BH
@@ -71,7 +73,7 @@ The proposal to study a model of condenser bushing without any thought to gradin
 \begin{figure}[!h]
   \centering
 \subfigure[Location of Cut Plane]{
-    \includegraphics[width = 0.16\textwidth]{./Figures/CutLocation_Mid.pdf} 
+    \includegraphics[width = 0.16\textwidth]{./Figures/CutLocation_Mid_NoGrading.pdf} 
 	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
 	\label{Figure:Cut_No_Grad_Mid}
    } 
@@ -85,6 +87,7 @@ The proposal to study a model of condenser bushing without any thought to gradin
 \end{figure}
 
 % want a plot of the tips?
+The most noticeable change that still displays fault characteristics for the non-graded model is the axial electric field plot along the surface. \ref{Figure:No_Grading_Field_CloseTip} is the relevant Electric field plot demonstrating the effect of non-graded foils. Although installing non-graded capacitors did move the large electric fields away from the junction, it clearly failed in reducing the magnitudes of such fields. This is due to a lack of gradient within the foils, allowing a concentration to gather on the edge of the insulation. The resulting effect would be a great deal of PDs and corona discharge and possible surface discharge. 
 
 \begin{figure}[!h]
   \centering
@@ -125,6 +128,7 @@ The proposal to study a model of condenser bushing without any thought to gradin
 \label{Figure:No_Grad_Failing_potential}
 \end{figure}
 
+\pagebreak
 
 \subsection{Comparison of Axial and Radial Grading Solutions}
 The design of both types of capacitive grading method were discussed in the previous sections. The difference in performance of the types in general is the radial grading will improve the intensity of the radial electric field and the axial grading will improve the intensity of the axial electric field. By improvement of intensity of electric field, this means the electric field according to the type of grading method is evenly distributed in a particular direction. Choosing the right design for different application is essential as this will reduce the chances of various types of electrical breakdown and hence the bushing design would be more durable.
