@@ -17,8 +17,9 @@
 \removecolourlinks    % Uncomment this command to remove colour from any links
 %\input{Definitions}            % Include your abbreviations
 %% ----------------------------------------------------------------
-\usepackage{caption}
-\captionsetup[figure]{figurewithin=section}
+%\usepackage[font=\small]{caption}
+\usepackage[font=small]{caption}
+\captionsetup[figure]{figurewithin=section}%, font={\small}}
 %\numberwithin{figure}{section}
 
 \captionsetup[table]{tablewithin=section}
@@ -84,18 +85,24 @@
 
 \appendix
 \include{Appendix_Contributions}
-\include{Appendix_Minutes}
+%\include{Appendix_Minutes}
 \definecolor{listinggray}{gray}{0.9}
 
 \section{Code Listings}
 Radial Grading Matlab Code
 \lstinputlisting[language=Matlab,  keywordstyle=\color{blue}, breaklines=true,
         commentstyle=\color{olive},
-        stringstyle=\color{purple}]{../Matlab_Calculations/Matlab_David/Radial_Grading.m}
+        stringstyle=\color{purple}, numberstyle=\tiny,
+basicstyle=\tiny,
+numbers=left,
+stepnumber=1]{../Matlab_Calculations/Matlab_David/Radial_Grading.m}
 Axial Grading Matlab Code
 \lstinputlisting[language=Matlab,  keywordstyle=\color{blue}, breaklines=true,
         commentstyle=\color{olive},
-        stringstyle=\color{purple}]{../Matlab_Calculations/Matlab_David/Axial_Grading.m}
+        stringstyle=\color{purple}, numberstyle=\tiny,
+basicstyle=\tiny,
+numbers=left,
+stepnumber=1]{../Matlab_Calculations/Matlab_David/Axial_Grading.m}
 
 \end{document}
 %% ----------------------------------------------------------------
