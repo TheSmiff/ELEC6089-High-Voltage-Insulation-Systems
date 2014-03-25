@@ -16,7 +16,9 @@ For bushings less than 300mm in diameter the creepage distance in very heavy pol
 The creepage distance is multiplied by the highest r.m.s phase-to-phase voltage within the equipment.
 
 
-Fortunately and reasonably given its significance, partial discharge inception voltage is well defined for all types of insulation material. For resin-impregnated paper the value is 36kV/cm and for oil-impregnated paper the value is 45kV/cm, justifying the more common use of OIP \cite{HVEngandTesting}. Due to its nature, a simple investigation of trends is not sufficient to estimate areas of possible PD origins and areas of interest must be found and tested against the inception voltage. They are typically located at the edges of foils or near the conductor itself.
+Fortunately and reasonably given its significance, partial discharge inception voltage is well defined for all types of insulation material. For resin-impregnated paper the value is 36kV/cm and for oil-impregnated paper the value is 45kV/cm, justifying the more common use of OIP \cite{HVEngandTesting}. Due to its nature, a simple investigation of trends is not sufficient to estimate areas of possible PD origins and areas of interest must be found and tested against the inception voltage. They are typically located at the edges of foils or near the conductor itself. 
+If a design passes testing for PD, then it is assumed to pass the intrinsic breakdown requirement since the PD threshold is significantly lower than the intrinsic breakdown threshold.
+
 
 Corona discharge can occur in both air and oil, however, since the inception voltage is much lower for air and the effects of weather and pollution affect the air side of the bushing much greater it is of higher importance. For the discussion, it will be studied as a subsection of surface discharge.  
 
@@ -152,7 +154,7 @@ The maximum intensity of the radial electric field for the radial design is expe
 	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
 	\label{figure:rfield}
    }
-\caption{The Normal Electric Field in the No Grading Model}
+\caption{The Normal Electric Field compared in the Axial and Radial models}
 \label{Figure:No_Grad_Failing}
 \end{figure}
 
@@ -160,7 +162,7 @@ The maximum intensity of the radial electric field for the radial design is expe
 \begin{figure}[!h]
 \centering
 \includegraphics[width=\textwidth]{ConstantAxialField.eps}
-\caption{2D surface plot showing the distribution of electric field from mid-point to the air end of bushing}
+\caption{2D surface plot showing the constant distribution of electric field in the axial direction from mid-point to the air end of bushing in the radial design}
 \label{figure:constantfield}
 \end{figure}
 The result clearly shows the peak value of electric field for the axial design ($\approx 4.5 \times 10^3 kVm^{-1}$) is greater than the peak value of electric field for the radial design ($\approx 3.5 \times 10^3 kVm^{-1}$). Also, from the figure \ref{figure:rfield}, the radial electric field of the radial grading design is more evenly distributed. This is the effect of grading, hence similar effect should be seen in the axial electric for axial grading design. The electric field distribution across any perpendicular cut lines to the foils would result in almost identical results, because the foils behave similar to capacitors in series. Electric field being constant across a capacitor and this is true across any two neighbouring foils. Figure \ref{figure:constantfield} shows the electric field with in foils from mid-point to the tips and very constant electric field is seen.
