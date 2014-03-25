@@ -1,4 +1,6 @@
-\section{Overview of Grading Methods} \label{s:method}
+% !TeX spellcheck = en_GB
+% !TeX root = ReportMain.tex
+\section{Grading Methods} \label{s:method}
 Electric field stress control is important in the design of many power system elements, especially cable terminations and bushings \cite{james2008condition}.
 Failure of a bushing can damage the power transformer it is protecting, which can be an expensive mistake \cite{warne2005newnes}.
 Bushings are required to withstand Electrical, Mechanical and Thermal stresses as defined in the IEEE standard C57.19.00 \cite{1440990}.
@@ -19,23 +21,36 @@ Conducting a numerical analysis or simulation would show that the conductor surf
 The bushing insulation is designed to withstand the high electric field between the conductor and the transformer casing, however at the points marked with crosses the interface between the solid insulation and the air/transformer oil would cause surface discharge leading to relatively low flashover voltages \cite{kuffel2000high}.
 It is therefore necessary to develop methods of reducing electric field stress to a more uniform distribution for both functional purposes and the economic use of space and materials \cite{james2008condition}.
 
-\subsection{Low Voltage and DC Solutions}
-There are several methods that can be used dependant upon the application.
-Low voltage solutions include internal and external screening electrodes, while resistive stress control can be used for DC applications. Sometimes these solutions are used in combine to achieve the acceptable result.
+\subsection{Overview of Low Voltage and DC Solutions}
+There are several methods that can be used dependent upon the application.
+Low voltage solutions include internal and external screening electrodes, while resistive stress control can be used for DC applications. Sometimes these solutions are used in combination to achieve an acceptable result.
 
 %%starts here(PPLF)
 
 \subsubsection{External Screening Electrode}
 
-External screening electrodes are parts outside the conductor and are not electrically connected to the conductor, they are made of metal conductors and some designs use aluminium as the material. Corona ring designs are intended to reduce the electric field strength around the bushing terminal, hence reducing the chance of corona or partial discharge and grading ring designs are intended to reduce the potential gradient of insulator, hence reducing the chance of electrical breakdown. These screening electrodes come with various shapes according to the different designs. The main types of design take the shape of sphere, toroid or ring, these are shapes which prevent regions of intense electric field strength by varying the electric potential distribution and help contain electric field as much as possible. The reduction in corona discharge not only reduces the power loss, it also suppresses the ageing speed of the insulator. Example of these can be seen on figure \ref{Figure:Bush1} and figure \ref{Figure:Bush2}, where they are placed at the top of the bushings. The diameters of these design are closely related to the electric field strength around the electrode, so the diameters of these designs must be carefully considered in order to avoid electrical breakdown.
+External screening electrodes are parts outside the conductor that are not electrically connected to the conductor. 
+They are made of metal conductors such as aluminium. 
+Corona ring designs are intended to reduce the electric field strength around the bushing terminal, hence reducing the chance of corona or partial discharge.
+Grading ring designs are intended to reduce the potential gradient of insulator, hence reducing the chance of electrical breakdown. 
+These screening electrodes come with various shapes according to the different designs. 
+The main types of design take the shape of sphere, toroid or ring. 
+These are shapes which prevent regions of intense electric field strength by varying the electric potential distribution and help contain electric field as much as possible. 
+The reduction in corona discharge not only reduces the power loss, it also suppresses the ageing speed of the insulator. 
+An example of these can be seen on figure \ref{Figure:Bush1} and figure \ref{Figure:Bush2}, where they are placed at the top of the bushings. 
+The diameters of these designs are closely related to the electric field strength around the electrode, so the diameters of these designs must be carefully considered in order to avoid electrical breakdown.
 
 \subsubsection{Internal Screening Electrode}
 
-Internal screening electrodes are also used to control the electric potential distribution so the electric field strength is within acceptable level to avoid chance of breakdown. They are placed inside the insulator and usually in a pressurised gas. Some existing designs have the shape of internal electrode in a 3D cone like shape and maybe referred as a deflector and there are also designs which are disk shape. An example of the field distribution with the cone shape deflector inserted is demonstrated in figure \ref{figure:deflector}.
+Internal screening electrodes are also used to control the electric potential distribution so the electric field strength is within acceptable level to reduce the chance of breakdown. 
+They are placed inside the insulator and usually in a pressurised gas. 
+Some existing designs have the shape of the internal electrode as a 3D cone and is referred to as a deflector.
+There are also designs which are disk shape. 
+An example of the field distribution with the cone shape deflector inserted is demonstrated in figure \ref{figure:deflector}.
 
 \begin{figure}[!h]
    \centering
-   \includegraphics[width = 0.7\textwidth]{Deflector.pdf}
+   \includegraphics[width = 0.5\textwidth]{Deflector.pdf}
    \caption{Field distribution with deflector}
    \label{figure:deflector}
 \end{figure}
@@ -46,6 +61,7 @@ The value of this type of arrangement was quickly recognised, and is now industr
 The general concept of the design is illustrated in figure \ref{figure:fieldgeneric}, showing the isolated foils inserted inside the solid bushing insulation.
 Shown in red in figure \ref{figure:fieldgeneric} is the potential field with no grading, and in blue with the isolated conductive foils inserted.
 It shows that the whole dielectric is much more evenly stressed with the capacitive grading method.
+
 \begin{figure}[!h]
    \centering
    \includegraphics[width = 0.7\textwidth]{BushingFieldDiagram.pdf}
@@ -53,11 +69,11 @@ It shows that the whole dielectric is much more evenly stressed with the capacit
    \label{figure:fieldgeneric}
 \end{figure}
 
-The insulation is stressed in both a radial and axial direction, which sum to give the tangential field.
+The insulation is stressed in both radial and axial directions, which sum to give the tangential field.
 The radial component $E_r$ can cause breakdown of the insulating material, while the axial component $E_z$ can cause surface discharge along the boundary \cite{Ahmed11}.
 Attention must be paid to the design and shape of the boundary, so that the critical value for inception voltage for surface discharge is not exceeded \cite{david2}.
 These can be seen in green in figure \ref{figure:fieldgeneric}.
-These sum up to give the tangential field $E_t$.
+These sum to give the tangential field $E_t$ at any point in the design.
 
 Before proceeding, it is first necessary to introduce some terms.
 \begin{figure}[!h]
@@ -86,7 +102,7 @@ The equation for the capacitance of one of these capacitors depends on the radia
 
 The most widely used method to choose the dimensions and locations of the foils is double sided capacitive grading, of which there are two variants; radial grading and axial grading \cite{Ahmed11}.
 The aim of capacitive grading is to evenly distribute the electric field between the foils.
-To achieve this, an even voltage difference between foils is required as in equation \ref{eq:voltagediff}, where $V$ is the total voltage difference between the conductor and the casing, $N$ is the number of foils required and $\Delta V$ is the voltage between each foil \cite{David1}.
+To achieve this, an even voltage difference between foils is required as in equation \ref{eq:voltagediff}, where $V$ is the total voltage difference between the conductor and the casing, $N$ is the number of foils required and $\Delta V$ is the voltage difference between each consecutive pair of foils \cite{David1}.
 \begin{equation}
    \label{eq:voltagediff}
    \Delta V = \displaystyle\frac{V}{N}
@@ -96,7 +112,7 @@ For the voltage between each foil to be constant, as in equation \ref{eq:voltage
 
 \subsubsection{Radial Grading} \label{Section:RadialGrading}
 The radial spacing and dimension of each foil is determined in the following derivation, which has been verified and modified from \cite{kuffel2000high}.
-In radial grading, the radial component of the electric field $E_r$ is kept constant between all the foils.
+In radial grading, the radial component of the electric field $E_r$ is kept constant between all consecutive foils.
 The radial electric field is related to the voltage difference and the spacing between each foil, as in equation \ref{eq:radialfield}. $\Delta V$ is already defined as a constant from equation \ref{eq:voltagediff}, and so to have equal field the foil spacing $S_n$ should also be constant. 
 \begin{equation}
    \label{eq:radialfield}
@@ -153,9 +169,9 @@ The relationship between $L_n$ and $b_n$ is defined in figure \ref{figure:terms}
 \end{equation}
 
 Since equation \ref{eq:axialfield} requires the change in foil length $b_n$ to be constant, equation \ref{eq:Cn} for coaxial capacitance requires the radius of each foil to change from foil to foil.
-This can be simplified to a similar form as equation \ref{eq:expcaps2}, except that the initial information required, in this case, are different. The necessary parameters are: the length of the first foil($L_1$), the radius of conductor and first foil($r_0,r_1$). However, for initial calculation of $L_n (n=1,2,...N)$ the size of the constant difference in length between each of the foils should be known.All other lengths and radii can then be calculated.
+This can be simplified to a similar form as equation \ref{eq:expcaps2}, except that the initial information required, in this case, is different. The necessary parameters are: the length of the first foil($L_1$), the radius of conductor and first foil($r_0,r_1$). However, for initial calculation of $L_n (n=1,2,...N)$ the size of the constant difference in length between each of the foils should be known. All other lengths and radii can then be calculated.
 
-In case of axial grading where different material is used on each side of the bushing ($b_{ln} \neq b_{rn}$) similar calculation is carried out for each side. The total length of each foil is found  by adding $L_{ln}$ and $L_{rn}$. Furthermore, position of each foil could be calculated using the recursive formulae at equation \ref{eq:Axial} 
+In case of axial grading where different material is used on each side of the bushing ($b_{ln} \neq b_{rn}$), a similar calculation is carried out for each side. The total length of each foil is found  by adding $L_{ln}$ and $L_{rn}$. Furthermore, position of each foil could be calculated using the recursive formula in equation \ref{eq:Axial} 
 
 \begin{equation}
    \label{eq:Axial}

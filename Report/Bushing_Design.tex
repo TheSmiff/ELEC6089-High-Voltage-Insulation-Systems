@@ -4,7 +4,7 @@
 
 \section{Design Details}
 The reference model for this project is shown in figure \ref{figure:refproblem}. 
-The reference design is a paper impregnated with oil bushing with 21 aluminium foils of $100\mu m$.
+The reference design is a paper impregnated with oil bushing with 21 aluminium foils of $100\mu m$ thickness.
 One side of the bushing is exposed to air, the other to oil, similar to a transformer bushing.
 The diameter of the conductor is 100mm, the bushing diameter is 300mm.
 The length of the first foil is 5000mm long, and fixed 2mm into the bushing at the conductor voltage.
@@ -19,7 +19,7 @@ The conductor is used at 275kV AC voltage, and the design was taken from a bushi
 
 \subsection{Design Issues} \label{Section:Design Issues}
 In section \ref{ss:CapacitiveGrading} the initial information required for both radial and axial grading includes the length and radial displacement of the innermost foil.
-In the reference design the following initial information is given.
+In the reference design the following initial information is given in table \ref{table:initinfo}.
 
 \begin{table}[!htb]
 \caption{Initial Information for Reference Design}
@@ -44,8 +44,8 @@ The first foil is connected to the high voltage conductor, and the last foil is 
 This is to eliminate the electric field on the boundary interface as far as possible on both sides of the bushing, so that the voltage drop occurs exclusively inside the bushing insulation.
 
 This has an impact on the calculations described in section \ref{ss:CapacitiveGrading}.
-Since the innermost foil is at the same voltage as the conductor, there is no capacitance between them, as shown in figure \ref{figure:required assumptions}, hence the first foil shown on the diagram is not index 0 for the iterative calculation.
-The derivation of the iterative equations assumes a capacitance between the current foil and the previous foil (or conductor) ($r_n,r_{n-1}$). 
+Since the innermost foil is at the same voltage as the conductor, there is no capacitance between them, as shown in figure \ref{figure:required assumptions}.
+The derivation of the iterative equations assumes a capacitance between the current foil and the previous foil or conductor ($r_n,r_{n-1}$). 
 The first foil in figure \ref{figure:refproblem} is therefore indexed as 0 and not 1.
 
 \begin{figure}[!h]
@@ -57,7 +57,7 @@ The first foil in figure \ref{figure:refproblem} is therefore indexed as 0 and n
 
 This means that there is not sufficient initial information to proceed with ether radial or axial grading, since the first non-connected foil length $L_1$ is not given.
 The iterative equations require the first non-connected foil length $L_1$ for radial ( $L_1$ \& $r_1$ for axial) grading to be known as shown in equation \ref{eq:ref0forl1} and \ref{eq:ref0}. 
-In axial grading all radii variables are known due to the even spacings under radial grading. In the axial grading case, the length of foils are known due to known parameters $b_{ln}$ and $b_{rn}$.
+In axial grading all radii variables are known due to the even spacings under radial grading. In the axial grading \todo{consider} case, the length of foils are known due to known parameters $b_{ln}$ and $b_{rn}$.
 
 \begin{equation}
    \label{eq:ref0forl1}
@@ -82,12 +82,12 @@ Equations \ref{eq:ref0wrongfilled} and \ref{eq:ref0wrongfilledA} show a wrongly 
    r_2 = 52 \displaystyle \exp\big( \frac{49418}{5000} \ln(\frac{52}{50})\big)= 54.05mm\Longrightarrow r_{21}=103.52mm \qquad (Axial \; grading)
 \end{equation}
 
-%\begin{figure}[!h]
-%   \centering
-%   \includegraphics[width = 0.7\textwidth]{../Matlab_Calculations/Matlab_David/FlawedRadGradGraph.eps}
-%   \caption{Flawed Radial Grading Design}
-%   \label{figure:flawedgraph}
-%\end{figure}
+\begin{figure}[!h]
+   \centering
+   \includegraphics[width = 0.7\textwidth]{../Matlab_Calculations/Matlab_David/FlawedRadGradGraph.eps}
+   \caption{Flawed Radial Grading Design}
+   \label{figure:flawedgraph}
+\end{figure}
 
 In order to proceed with the calculations there must be an assumption of the length of the first unconnected foil.
 A reasonable assumption is that this follows the hyperbolic shape of the other foils in radial grading and also in axial grading  it is assumed to be the first unconnected foil. These assumptions in both cases help to evenly distribute the electric field radially or axially accordingly.
