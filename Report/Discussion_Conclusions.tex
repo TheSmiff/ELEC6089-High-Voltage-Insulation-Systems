@@ -186,19 +186,19 @@ The axial component of electric field is responsible for the surface discharges 
 \label{figure:afield}
 \end{figure}
 
-The result shows the axial design has a lower peak value of electric field at these edges of foil. This is the expected result, because axial grading changes the axial field. Also, a clearer maximum peak of electric field at should be seen at the outermost foil of the radial graded design due to the sharp turn in the shape of the bushing design. Although the result shows a maximum peak at the last outermost foil, it is not significant. Generally, the electric field at the foil tips in both designs exceeds the partial discharge inception voltage for oil-impregnated paper insulation. This will result in partial discharge.
+The result shows the axial design has a lower peak value of electric field at these edges of foil. This is the expected result, because axial grading changes the axial field. Also, a clearer maximum peak of electric field should be seen at the outermost foil of the radial graded design due to the sharp turn in the shape of the bushing design. Although the result shows a maximum peak at the last outermost foil, it is not significant. Generally, the electric field at the foil tips in both designs exceeds the partial discharge inception voltage for oil-impregnated paper insulation. This will result in partial discharge.
 
 However, the points which are taken in to consideration are the highest values of electric field locally which drops off rapidly moving away from the point. The sum of the area exceeding the PD threshold is approximately 0.03\% of the volume of the overall bushing design, hence, this can be consider as an affordable problem in the bushing design. Also, in the model, all the foils are considered to terminate with a $90^\circ$ bend. In reality, designs may use various various techniques to suppress the effect of this bend. Some design uses semi-conducting material at the ends of the foil \cite{kuffel2000high}.
 
 \subsubsection{Surface Flashover}
 %talk about the addition of shedding in completeness. Limitations of current model without shedding -> primarily some extra shaping of fields. The effect of grounding the outermost capacitor.
 %===============================================
-Surface flashover is the partial discharge along the surface of the insulation, this is cause by a intense electric field. The parameter which takes into account of surface flashover is the creepage distance as mention previously. The typical value for calculating the creepage distance is 35mm/kV %need a reference for this prob%
+Surface flashover is the partial discharge along the surface of the insulation, this is cause by a intense electric field. The parameter which takes into account of surface flashover is the creepage distance as mention previously. The typical value for calculating the creepage distance is 35mm/kV \cite{IEC60137}. %need a reference for this prob%
 and for more polluted environment, a higher value of creepage distance might be considered.
 
 In bushing designs, the creepage distance is increased by the addition of a shed around the bushing. These shed designs increase the creepage distance of insulation designs by increasing the surface length.  Designs of shed can have varying ratios between creepage distance to axial length \cite{shed}, designs for more polluted environment have bigger ratios.
 
-According to the typical value to calculate the creepage distance, for a 275kV design, the creepage distance required is 9625mm. Where the designs of bushing in this report has axial length of approximately 3m, the ratio of minimum nominal creepage distance to axial length required is 3.2:1.
+According to the typical value to calculate the creepage distance, for a 275kV design, the creepage distance required is 9625mm. Where the designs of bushing in this report has axial length of approximately 3m, the ratio of minimum nominal creepage distance to axial length required is 3.2:1. This is satisfied by many shedding designs, including the ABB GOE design with a ratio of 4.0:1 and the GOE2 design with a ratio of 3.94:1 \cite{shed}.
 
 These shed provides a greater creepage distance to reduce the chance of surface flashover, however, they have little affect on the electric field of the bushing. Hence, addition of shed does not reduce corona discharge. 
 
@@ -279,7 +279,17 @@ The curved foil design is an improvement, but the semiconductor design has a sig
 
 
 \subsection{Choice of Design}
-From the results shown in the previous sections, the graph of variation in radial electric field shows the peak radial electric field for the axial graded design, the limit of 4.5kV/mm is just exceeded. While the radial graded design have radial electric field below the limit. However, the axial electric field in both design exceeds the limit by a few times in some places. More importantly, the axial electric field for the radial graded design is in general approximately twice as much as the axial graded design. Hence, the results show the radial design suppresses more in radial electric field, while the axial electric field is suppressed more in the axial graded design as expected. The choice of which design to use would depend on the effect of the axial and the radial electric field. Whether the doubling effect in the axial electric field would cause a bigger problem or would the excessive radial electric field cause a bigger problem. According to the weakness for bushing designs, the axial electric field usually cause more problems as the breakdown within foil would require a higher electric field than surface discharge along the boundary layer. So, the axial graded design would be used when taken all these factors into consideration.
+From the results shown in the previous sections, the graph of variation in radial electric field shows the peak radial electric field for the axial graded design, the limit of 4.5kV/mm is just exceeded. 
+The radial electric in the radial grading design is consistently below the 4.5kV/mm limit.
+
+However, the axial electric field in both design exceeds the threshold consistently. 
+More importantly, the axial electric field for the radial graded design is in general approximately twice as much as the axial graded design, although this was improved using semiconductor tips.
+ Hence, the results show the radial design suppresses more in radial electric field, while the axial electric field is suppressed more in the axial graded design as expected. 
+
+The choice of design depends on the effect of the axial and the radial electric field. 
+According to the weakness for bushing designs, the axial electric field usually cause more problems as the breakdown within foil would require a higher electric field than surface discharge along the boundary layer. 
+Using the semiconductor coated foil tips as proven in the radial design could further improve the axial field in the axial design.
+The choice of bushing would therefore be an axial grading design, using semiconductor coated tips.
 
 \section{Conclusions}
 All different designing methods in bushing design are about suppressing the intensity of electric field throughout the system as these intensification of electric field causes the various types of breakdown.
