@@ -20,13 +20,13 @@ Although these differential equations are often mathematically compact, it is di
 In FEMs, the complex geometry is broken into a series of much smaller and simpler geometries \cite{kuffel2000high}.
 These geometries can be squares, rectangles or triangles in 2D or the 3D equivalent shapes. 
 These simpler shapes form interconnected subregions for which an approximate function, usually a high order polynomial, can be used to represent the actual function.
-If the complex is split into an adequate number of simple shapes, these approximate functions closely matches the exact solution \cite{meshkatoddini2006study}.
+If the complex geometry is split into an adequate number of simple shapes, these approximate functions closely matches the exact solution \cite{meshkatoddini2006study}.
 
 By default COMSOL uses a triangular discretisation to split up a complex geometry in a process called meshing.
 This forms an unstructured grid of triangles, allowing the mapping of complex or curved geometries.
 Other numerical methods such as Finite Difference Methods require a structured grid, hence FEMs are more flexible with regards to geometry \cite{kuffel2000high}.
 Meshing requires an initial understanding of the expected outcomes of the problem, so that the mesh can be refined in areas of interest.
-Each triangular element is approximated by a linear interpolation of the potential at the vertices of the triangle.
+Each triangular element is approximated by a linear interpolation of the potential at the vertices of the triangle. 
 A set of linear algebraic equations are formed by minimising the error between the actual solution and a set of approximate linear trial functions \cite{meshkatoddini2006study}.
 
 \subsection{Equation Derivation and Boundary Conditions}
@@ -65,14 +65,14 @@ This assumes that not only is the geometry the same in the $\varphi$ direction, 
 In this case, Poissons equation can be rewritten in cylindrical coordinates for a 2D axisymmetric model, it is multiplied by r to ensure there are no singularities at $r=0$ \cite{meshkatoddini2006study}.
 \begin{equation}
 \begin{bmatrix} 
-\frac{\partial}{\partial r} \\
-\frac{\partial}{\partial z}
+\displaystyle \frac{\partial}{\partial r} \\
+\displaystyle\frac{\partial}{\partial z}
 \end{bmatrix}^T
 .(r \begin{bmatrix}
-\frac{\partial V}{\partial r} \\
-\frac{\partial V}{\partial z}
+\displaystyle\frac{\partial V}{\partial r} \\
+\displaystyle\frac{\partial V}{\partial z}
 \end{bmatrix})
-= -\frac{r\rho v}{\epsilon_0 \epsilon_r}
+= -\displaystyle\frac{r\rho v}{\epsilon_0 \epsilon_r}
 \end{equation}
 
 The boundary conditions are defined as the following:
@@ -96,7 +96,8 @@ In order to simulate the electric field distribution within our bushing design, 
 
 \subsection{Baseline Model}
 In order to minimise the computation time required for each model, it was necessary to determine the areas of interest in the model.
-A bushing geometry was built with no foils inserted, a high quality mesh was produced and the system was solved to find the electric field distribution throughout the bushing and the surrounding area.
+A bushing geometry was built with no foils inserted. 
+A high quality mesh was produced and the system was solved to find the electric field distribution throughout the bushing and the surrounding area.
 \begin{figure}[!h]
   \centering
     \includegraphics[width = 0.8\textwidth]{./Figures/Simulations/Edited_No_Foils_Large/Geometry.eps} 
@@ -120,7 +121,7 @@ A bushing geometry was built with no foils inserted, a high quality mesh was pro
 
 The air and oil extends radially 2m from the end of the bushing and 1m in the axial direction.
 This is to understand the anticipated area of interest in the model.
-By considering figure \ref{Figure:No_Foil_Large_Field} it is clear that there is very little happening further than 500mm radially from the bushing surface and there is very little of interest further than 200mm in the radial direction.
+By considering figure \ref{Figure:No_Foil_Large_Field} it is clear that there is very little happening further than 500mm radially from the bushing surface and there is very little of interest further than 200mm in the axial direction.
 Therefore all further models will adhere to this geometry, ensuring that the area of interest is captured, while decreasing simulation times to a minimum.
 
 In figure \ref{Figure:No_Foil_Large_Field}, the normal electric field throughout the whole system is displayed.
