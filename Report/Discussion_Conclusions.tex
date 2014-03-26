@@ -1,0 +1,299 @@
+%  Discussion.tex
+% !TeX spellcheck = en_GB
+% !TeX root = ReportMain.tex
+
+\section{Discussion} \label{s:Discussion}
+As has been outlined in this report so far, there are problems inherent within bushing design and multiple solutions to these problems. A full discussion and comparison will be made to determine the most accurate and reliable model for HV bushing design. Additionally, reasoning and justification for the incremental changes will outline the development of bushing and possible further improvements that could be made in design.
+%BH
+\subsection{Success Criteria}
+In section 2 four criteria were mentioned to determine the efficacy of the design: general/intrinsic breakdown defined by the radial field, surface discharge defined by the axial field, partial discharge within the material defined by areas of high tangential field and corona discharge within air. 
+
+Regarding general breakdown it is the largest breakdown strength of the model and so the least likely to fail. High Voltage Engineering Fundamentals has it defined as well in excess of  1MV/cm \cite{kuffel2000high}. The area of interest for this intrinsic breakdown is the line from the conductor straight to the flange, and a measurement of radial electric field.
+
+Surface discharge is not as readily defined for typical graded designs, however a comparison can be made from shedding specifications. Shedding increases the effective creepage length of the bushing by a factor of 4 and for a typical design 40mm/kV is given as the required length for the operational voltage \cite{HVEngandTesting}. 
+The IEC 60815 standard defines the creepage distance for ceramic insulators according to levels of pollution in the environment \cite{IEC60137}.
+For bushings less than 300mm in diameter the creepage distance in very heavy pollution levels is 31mm/kV, which is lower than the extreme value quoted in \cite{HVEngandTesting}. 
+The creepage distance is multiplied by the highest r.m.s phase-to-phase voltage within the equipment.
+
+
+Fortunately and reasonably given its significance, partial discharge inception voltage is well defined for all types of insulation material. For resin-impregnated paper the value is 36kV/cm and for oil-impregnated paper the value is 45kV/cm, justifying the more common use of OIP \cite{HVEngandTesting}. Due to its nature, a simple investigation of trends is not sufficient to estimate areas of possible PD origins and areas of interest must be found and tested against the inception voltage. They are typically located at the edges of foils or near the conductor itself. 
+If a design passes testing for PD, then it is assumed to pass the intrinsic breakdown requirement since the PD threshold is significantly lower than the intrinsic breakdown threshold.
+
+
+Corona discharge can occur in both air and oil, however, since the inception voltage is much lower for air and the effects of weather and pollution affect the air side of the bushing much greater it is of higher importance. For the discussion, it will be studied as a subsection of surface discharge.  
+
+\subsection{No Foils}
+%BH
+%fig 6.7
+Nowadays, solid bushing is only used for voltages below 25kV. This is due to a combination of all factors as shown in the previous figure \ref{Figure:No_Foil_Field}. When simulated with a conductor ten times its rated voltage its flaws are clear. As mentioned previously, the primary criteria to solve are high electric fields inducing partial discharges and large axial fields causing flashover. 
+
+
+\begin{figure}[!ht]
+  \centering
+\subfigure[Location of Cut Plane]{
+    \includegraphics[width = 0.16\textwidth]{./Figures/CutLocation_Mid_NoFoil.pdf} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:Cut_NoFoil_Mid}
+   } 
+\subfigure[The No Foils Model Fails PD Criteria]{
+    \includegraphics[width = 0.55\textwidth]{./Figures/MatlabFigs/No_Foil_Mid.eps} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:NoFoilsFail}
+   }
+\caption{The Normal Electric Field in the No Foils Model}
+\label{Figure:Radial_No_Foils_Fails}
+\end{figure}
+
+
+This is best illustrated with figure \ref{Figure:NoFoilsFail}, not only are the fields present at the interface to the flange well in excess of the PD inception voltage, the location of these high electric fields also mean flashover is a serious risk due to the lack of shaping of the axial electric field distribution. A result of such localised electric stress is that because the field is greater than the PD inception voltage the voids will generate exponentially more discharges, leading to faster ageing and a much higher chance of breakdown. The solution, assuming keeping voltage constant, would be to increase the bushing height and width. 
+
+\begin{figure}[!h]
+  \centering
+\subfigure[Location of Cut Plane(s)]{
+    \includegraphics[width = 0.18\textwidth]{./Figures/CutLocation_Axial_NoFoil.pdf} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:Cut_NoFoil_Axial}
+   } 
+\subfigure[The Axial Electric field along the bushing surface]{
+    \includegraphics[width = 0.5\textwidth]{./Figures/MatlabFigs/No_Foil_Surface_AxialField.eps} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:Nofoilsaxialfield}
+   }
+\caption{Axial electric field along the surface of the bushing}
+\label{Figure:Nofoilsaxialfieldwhole}
+\end{figure}
+
+It has already been established that the axial electric field is the primary component for surface discharge. \ref{Figure:Nofoilsaxialfield} shows how the axial field varies along the surface of the bushing. Of interest is that there is very little field throughout the surface apart from at the flange junction; the most sensitive area. The short distances and large fields show that corona discharge is possible and will most likely lead to total failure of the system. 
+
+\subsection{No Grading}
+%BH
+%fig 6.11b, 6.11c
+%same graph as 7.1 but for no grading
+%done but need to make .fig into pdf then add to latex (help needed)
+The proposal to study a model of condenser bushing without any thought to grading exposes the fundamentals to grading design. Figure \ref{Figure:NoGrad1D} shows that, for the most part the electric field is below the PD inception voltage, at least at the central interface. However looking at figures \ref{Figure:No_Grading_Field_CloseMid} and \ref{Figure:No_Grading_Field_CloseTip} show that the foil placement did not effectively shape the field at the bushing interface at the tips.  Beyond analysing the concentrations of electric field it is important to note that the distribution is non-linear; in comparison to the ideal goal of a linear drop of field across the capacitors \citep{kuffel2000high}. The placement of the outermost foil serves as a location of high field density and although located far from the flange itself it would likely be a source of both PDs and corona discharges. 
+
+\begin{figure}[!h]
+  \centering
+\subfigure[Location of Cut Plane]{
+    \includegraphics[width = 0.16\textwidth]{./Figures/CutLocation_Mid_NoGrading.pdf} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:Cut_No_Grad_Mid}
+   } 
+\subfigure[The No Grading Model Fails PD Criteria]{
+    \includegraphics[width = 0.55\textwidth]{./Figures/MatlabFigs/NormEfieldinnograding.eps} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:NoGrad1D}
+   }
+\caption{The Normal Electric Field in the No Grading Model}
+\label{Figure:No_Grad_Failing}
+\end{figure}
+
+% want a plot of the tips?
+The most noticeable change that still displays fault characteristics for the non-graded model is the axial electric field plot along the surface. \ref{Figure:No_Grading_Field_CloseTip} is the relevant Electric field plot demonstrating the effect of non-graded foils. Although installing non-graded capacitors did move the large electric fields away from the junction, it clearly failed in reducing the magnitudes of such fields. This is due to a lack of gradient within the foils, allowing a concentration to gather on the edge of the insulation. The resulting effect would be a great deal of PDs and corona discharge and possible surface discharge. The fact that corona discharges not only degrade the medium but lead to a loss of power prove this to be an unsatisfactory and incorrect solution.
+
+\begin{figure}[!h]
+  \centering
+\subfigure[Location of Cut Plane(s)]{
+    \includegraphics[width = 0.18\textwidth]{./Figures/CutLocation_Axial.pdf} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:Cut_NoGrad_Axial}
+   } 
+\subfigure[The Axial Electric field along the bushing surface for no-grading model]{
+    \includegraphics[width = 0.5\textwidth]{./Figures/MatlabFigs/No_Grading_Surface_AxialField.eps} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:Nogradaxialfield}
+   }
+\caption{Axial electric field along the surface of the bushing}
+\label{Figure:Nogradaxialfieldwhole}
+\end{figure}
+
+%\begin{figure}[!h]
+%	\centering
+%	\includegraphics[width= 0.5\textwidth]{./Figures/MatlabFigs/No_Grading_Electric_Potential.eps}
+%	\caption{The Electric potential across the midwall}
+%	\label{Figure:Nofoilsaxialfield}
+%	\end{figure}
+
+One of the goals of capacitive grading, beyond generating uniform fields is to have an electric potential that decreases uniformly from the conductor to flange. The voltage gradient is of course related to electric field and is a possible indicator of bushing performance. However as is shown, the radial electric field through the centre is not of primary concern in regards to testing for failure.
+
+\begin{figure}[!h]
+  \centering
+\subfigure[Location of Cut Plane]{
+    \includegraphics[width = 0.16\textwidth]{./Figures/CutLocation_Mid2.pdf} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:Cut_No_Grad_Mid}
+   } 
+\subfigure[The Electric potential across the midwall]{
+    \includegraphics[width = 0.55\textwidth]{./Figures/MatlabFigs/No_Grading_Electric_Potential.eps} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{figure:nogradpotentialmid}
+   }
+\caption{The electric potential within the no grading model}
+\label{Figure:No_Grad_Failing_potential}
+\end{figure}
+
+\pagebreak
+
+\subsection{Comparison of Axial and Radial Grading Solutions}
+The design of both types of capacitive grading method were discussed in the previous sections. The difference in performance of the types in general is the radial grading will improve the intensity of the radial electric field and the axial grading will improve the intensity of the axial electric field. By improvement of intensity of electric field, this means the electric field according to the type of grading method is evenly distributed in a particular direction. Choosing the right design for different application is essential as this will reduce the chances of various types of electrical breakdown and hence the bushing design would be more durable.
+
+There are two components of electric field cause different problems. The radial electric field is mainly responsible to the breakdown of insulating material, for example, electrical breakdown between foils. On the other hand, the axial electric field is mainly responsible to the surface discharges along the boundary of the insulation, for example, corona discharge to the surrounding.
+
+\subsubsection{Radial Electric Field}
+The maximum intensity of the radial electric field for the radial design is expected to be lower than the maximum of the axial design. This means the radial grading design would perform better to suppress the intensity of radial electric field. The radial electric field across the radial direction of both axial and radial grading designs are shown in figure \ref{figure:rfield}.
+
+\begin{figure}[!h]
+  \centering
+\subfigure[Location of Cut Plane]{
+    \includegraphics[width = 0.16\textwidth]{./Figures/CutLocation_Mid2.pdf} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{Figure:Cut_No_Grad_Mid}
+   } 
+\subfigure[Radial electric field across the mid-point of the two designs of bushing.]{
+    \includegraphics[width = 0.55\textwidth]{R-field.eps} 
+	%\caption{Normal Electric Field (V/m) for the No-Grading Model}
+	\label{figure:rfield}
+   }
+\caption{The Normal Electric Field compared in the Axial and Radial models}
+\label{Figure:No_Grad_Failing}
+\end{figure}
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\textwidth]{ConstantAxialField.eps}
+\caption{2D surface plot showing the constant distribution of electric field in the axial direction from mid-point to the air end of bushing in the radial design}
+\label{figure:constantfield}
+\end{figure}
+The result clearly shows the peak value of electric field for the axial design ($\approx 4.5 \times 10^3 kVm^{-1}$) is greater than the peak value of electric field for the radial design ($\approx 3.5 \times 10^3 kVm^{-1}$). Also, from the figure \ref{figure:rfield}, the radial electric field of the radial grading design is more evenly distributed. This is the effect of grading, hence similar effect should be seen in the axial electric for axial grading design. The electric field distribution across any perpendicular cut lines to the foils would result in almost identical results, because the foils behave similar to capacitors in series. Electric field being constant across a capacitor and this is true across any two neighbouring foils. Figure \ref{figure:constantfield} shows the electric field between consecutive foils from the mid-point to the foil tips. It can be seen that the field is constant in the axial direction between two consecutive foils, except at the tips, which is also true in the axial case.
+
+
+
+\subsubsection{Axial Electric Field}
+The axial component of electric field is responsible for the surface discharges along the surface of the bushing design. Axial component of the field contributes to these surfaces, because the axial electric field at the edges of the foil are the most intense. Figure \ref{figure:afield} shows the magnitude of electric field at each foil edge. 
+
+\begin{figure}[!h]
+\centering
+\subfigure[Air side axial electric field]{
+\includegraphics[width = 0.7\textwidth]{A-fieldA.eps}
+\label{figure:afielda}
+}
+\subfigure[Oil side axial electric field]{
+\includegraphics[width = 0.7\textwidth]{A-fieldO.eps}
+\label{figure:afieldo}
+}
+\caption{Electric field at the edge of each foil.}
+\label{figure:afield}
+\end{figure}
+
+The result shows the axial design has a lower peak value of electric field at these edges of foil. This is the expected result, because axial grading changes the axial field. Also, a clearer maximum peak of electric field should be seen at the outermost foil of the radial graded design due to the sharp turn in the shape of the bushing design. Although the result shows a maximum peak at the last outermost foil, it is not significant. Generally, the electric field at the foil tips in both designs exceeds the partial discharge inception voltage for oil-impregnated paper insulation. This will result in partial discharge.
+
+However, the points which are taken in to consideration are the highest values of electric field locally which drops off rapidly moving away from the point. The sum of the area exceeding the PD threshold is approximately 0.03\% of the volume of the overall bushing design, hence, this can be consider as an affordable problem in the bushing design. Also, in the model, all the foils are considered to terminate with a $90^\circ$ bend. In reality, designs may use various various techniques to suppress the effect of this bend. Some design uses semi-conducting material at the ends of the foil \cite{kuffel2000high}.
+
+\subsubsection{Surface Flashover}
+%talk about the addition of shedding in completeness. Limitations of current model without shedding -> primarily some extra shaping of fields. The effect of grounding the outermost capacitor.
+%===============================================
+Surface flashover is the partial discharge along the surface of the insulation, this is cause by a intense electric field. The parameter which takes into account of surface flashover is the creepage distance as mention previously. The typical value for calculating the creepage distance is 35mm/kV \cite{IEC60137}. %need a reference for this prob%
+and for more polluted environment, a higher value of creepage distance might be considered.
+
+In bushing designs, the creepage distance is increased by the addition of a shed around the bushing. These shed designs increase the creepage distance of insulation designs by increasing the surface length.  Designs of shed can have varying ratios between creepage distance to axial length \cite{shed}, designs for more polluted environment have bigger ratios.
+
+According to the typical value to calculate the creepage distance, for a 275kV design, the creepage distance required is 9625mm. Where the designs of bushing in this report has axial length of approximately 3m, the ratio of minimum nominal creepage distance to axial length required is 3.2:1. This is satisfied by many shedding designs, including the ABB GOE design with a ratio of 4.0:1 and the GOE2 design with a ratio of 3.94:1 \cite{shed}.
+
+These shed provides a greater creepage distance to reduce the chance of surface flashover, however, they have little affect on the electric field of the bushing. Hence, addition of shed does not reduce corona discharge. 
+
+\subsection{Design Improvements}
+The high electric field at the tips of the foils has been identified as a cause for concern.
+The field strength at this point exceeds the PD inception voltage by double in the axial design, and around four times in the radial design.
+It is therefore necessary to improve the base design.
+
+The first aspect to consider is the accuracy and relevance of the COMSOL model.
+The very thin foils are modelled as perfect rectangles with sharp $90^{o}$ corners.
+This approximation was made to make the geometry of the model simple for input to COMSOL.
+An improvement is to smooth the corners of the foil to reduce electrical tensions and optimise electric field intensity \cite{curvefoil}. By removing the sharp edges of the foils, responsible for the localised electrical fields, the electric field distribution will be more uniform and better fit the base theory.
+A refined model was required, to investigate the effect of smoothing the foil tips.
+
+The radial model was taken forward, since it already passes the radial field criteria.
+If a way to reduce the field at the foil tips could be found, the radial design would pass all criteria.
+The end of each of the foils was filleted, so that the ends formed a semi-circle.
+While this is still not the optimum design for an electrode, it is certainly an improvement over the sharp angles.
+
+\begin{figure}[!h]
+\centering
+\subfigure[Curved Foil Tips]{
+\includegraphics[width = 0.45\textwidth]{./Figures/Simulations/Improvements/Curved.eps}
+\label{figure:Curved}
+}
+\subfigure[Angled Foil Tips]{
+\includegraphics[width = 0.45\textwidth]{./Figures/Simulations/Improvements/Old.eps}
+\label{figure:Angled}
+}
+\caption{Normal Electric Field at the Tips Improvement}
+\label{figure:curvedcompare}
+\end{figure}
+
+The curved foil tip is clearly visible in figure \ref{figure:Curved}.
+There is an improvement, the curved design has a slightly smaller area of field strengths higher than the threshold.
+However, it has not solved the issue completely.
+Further design modifications are required.
+
+Literature on bushing design refer to the high field at the tips problem \cite{kuffel2000high}.
+Beside the grading methods, some other additions to the bushing design have been put forward to reduce the intensification of the electric field at the edges of the foils. Foils made from semiconducting materials can be used to adapt the potentials at the foil edges to a less concentrated field distribution \cite{kuffel2000high}, though installation is not mentioned. 
+
+This has been modelled in COMSOL by adding a square to the edge of the foil $0.1mm$ in dimension. 
+The outer edges of the square are filleted to a curve in the same way the tips were previously.
+These squares were allocated the relative permittivity of $\epsilon_r = 11.7$, which is the permittivity of silicon.
+The actual manufacture processes are not in the scope of this report, and different semiconductors may be used in industry.
+However, adding this to the COMSOL will at least prove the concept.
+
+\begin{figure}[!h]
+\centering
+\subfigure[Semiconductor Foil Tips]{
+\includegraphics[width = 0.45\textwidth]{./Figures/Simulations/Improvements/Semi.eps}
+\label{figure:Semi}
+}
+\subfigure[Angled Foil Tips]{
+\includegraphics[width = 0.45\textwidth]{./Figures/Simulations/Improvements/Old.eps}
+\label{figure:Angled2}
+}
+\caption{Normal Electric Field at the Tips Improvement}
+\label{figure:semicompare}
+\end{figure}
+
+The semiconductor block with curved edges can be seen in figure \ref{figure:Semi}.
+It is shown alongside the original angled design for comparison in figure \ref{figure:Angled2}.
+Once again, there is a subtle improvement in the area exposed to very high field concentrations.
+However, it remains well above the $4.5kV/mm$ threshold value.
+
+The normal electric field values have been extracted and plotted in figure \ref{figure:scattercomp} to enable a more direct, quantitative comparison.
+It is clear that the radial semiconductor tipped model has reduced the field strength by almost half, and is nearly at the same level as the axial field design.
+The curved foil design is an improvement, but the semiconductor design has a significant impact on the field distribution.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{./Figures/Simulations/Improvements/RadialScatter.eps}
+\caption{Scatter showing the normal electric field at the tips of each foil in the axial, radial, radial curved and radial semiconductor models.}
+\label{figure:scattercomp}
+\end{figure}
+
+
+\section{Conclusions}
+%All different designing methods in bushing design are about suppressing the intensity of electric field throughout the system as these intensification of electric field causes the various types of breakdown.
+
+%\todo{this sounds a bit weird} In relatively lower voltages high voltage systems, the use of internal and external screening electrodes might be sufficient to suppress the effect of electric field intensification. Whilst for high voltage DC systems, resistive grading method might be used to control the electric field.
+
+Electrical bushings have applications across a range of high voltage engineering and is fundamentally used to suppress the intensity of electric field throughout the system. High concentrations  and large magnitudes of electrical fields cause a variety of breakdown within the bushing. Focusing on high voltage AC bushing design, capacitive grading methods are used extensively to control the electric field distribution along the desired boundaries. This control of electric field is based on the condition of constant electric field across desired points in the bushing and this condition is the basis of both the radial and axial grading methods; derived from this condition and modelled within this report. The resultant electric field distribution in the graded direction in the simulations was found to be not strictly linear, but close to a linear line. By controlling the electric field, an evenly distributed electric field can be achieved. Also, depending on the type of grading method used, suppression of the peak field within specific regions is achieved. 
+
+From the results shown in the previous sections, the graph of variation in radial electric field shows the peak radial electric field for the axial graded design, the limit of 4.5kV/mm is just exceeded. 
+The radial electric in the radial grading design is consistently below the 4.5kV/mm limit.
+
+However, the axial electric field in both designs exceeds the threshold consistently. 
+More importantly, the axial electric field for the radial graded design is approximately twice as much as the axial graded design, although this was greatly improved using semiconductor tips.
+ Hence, the results show the radial design suppresses more in radial electric field, while the axial electric field is suppressed more in the axial graded design as expected. 
+
+The choice of design depends on the effect of the axial and the radial electric field. 
+According to the weakness for bushing designs, the axial electric field usually cause more problems as the breakdown within a foil would require a higher electric field than surface discharge along the boundary layer. 
+Using the semiconductor coated foil tips as proven in the radial design could further improve the axial field in the axial design.
+The choice of bushing would therefore be an axial grading design, using semiconductor coated tips.
+
+
